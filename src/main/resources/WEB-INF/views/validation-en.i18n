@@ -1,0 +1,7 @@
+
+
+acme.validation.header.message  	= Must have from 1 to 75 characters
+acme.validation.text.message   		= Must have from 1 to 255 characters
+acme.validation.phone.message       = Must match +country-code (area-code) phone-number, where only the phone-number is mandatory 
+
+acme.customer.identifier.message = The identifier must have 2 or 3 capital letters and 6 digits
