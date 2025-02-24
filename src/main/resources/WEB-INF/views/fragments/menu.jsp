@@ -20,7 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link.group-planning" action="https://github.com/users/JuanAntonioMorenoMoguel/projects/3/views/1"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link.group-planning" action="https://github.com/users/JuanAntonioMorenoMoguel/projects/3"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.juamormog" action="https://loldle.net/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.enrgaraba" action="https://www.amazon.es/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.felpennun" action="https://github.com/felpennun"/>
