@@ -3,18 +3,17 @@ package acme.datatypes;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidScore;
+import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,42 +27,50 @@ public class Leg extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	
-	@NotBlank
-	@NotNull
-    @Pattern(regexp = "[A-Z]{2}\d{4}", message = "Flight number must follow the IATA format (XX0000)")
-    private String			flightNumber;
 
-	@NotNull
+	@Column(unique = true)
+	@ValidString(pattern = "^[A-Z]{2}[0-9]{4}$")
+	@Mandatory
+	private String				flightNumber;
+
+	@Mandatory
+	@ValidMoment(past = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date			scheduledDeparture;
+	private Date				scheduledDeparture;
 
-	@NotNull
+	@Mandatory
+	@ValidMoment(past = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date			scheduledArrival;
+	private Date				scheduledArrival;
 
-	@NotNull
-	@Positive
-	private Double			durationHours;
+	@Mandatory
+	@ValidScore
+	private Double				durationHours;
 
-	@NotNull
-	@Enumerated(EnumType.STRING)
-	private LegStatus		status;
+	@Mandatory
+	@Valid
+	private LegStatus			status;
 
 	/*
-	@NotNull
-	@ManyToOne
-	private Airport			departureAirport;
-
-	@NotNull
-	@ManyToOne
-	private Airport			arrivalAirport;
-
-	@NotNull
-	@ManyToOne
-	private Aircraft		aircraft;
-	*/
-	
-	@ManyToOne
-	private Flight			flight;
+	 * @Mandatory
+	 * 
+	 * @Valid
+	 * 
+	 * @ManyToOne
+	 * private Airport departureAirport;
+	 * 
+	 * @Mandatory
+	 * 
+	 * @Valid
+	 * 
+	 * @ManyToOne
+	 * private Airport arrivalAirport;
+	 * 
+	 * @Mandatory
+	 * 
+	 * @Valid
+	 * 
+	 * @ManyToOne
+	 * private Aircraft aircraft;
+	 */
 }

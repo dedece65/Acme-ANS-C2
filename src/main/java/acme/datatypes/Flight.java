@@ -4,16 +4,16 @@ package acme.datatypes;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Future;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidScore;
+import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,39 +28,44 @@ public class Flight extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank
-	@Size(max = 50)
+	@Mandatory
+	@ValidString(max = 50)
 	private String				tag;
 
-	@NotNull
+	@Mandatory
 	private Boolean				requiresSelfTransfer;
 
-	@NotNull
-	@Positive
+	@Mandatory
+	@ValidScore
 	private Double				cost;
 
-	@Size(max = 255)
+	@ValidString(max = 255)
 	private String				description;
 
-	@NotNull
+	@Mandatory
+	@ValidMoment(past = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	@Future
 	private Date				scheduledDeparture;
 
-	@NotNull
+	@Mandatory
+	@ValidMoment(past = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	@Future
 	private Date				scheduledArrival;
 
-	@NotBlank
-	@NotNull
+	@ValidString()
+	@Mandatory
 	private String				originCity;
 
-	@NotBlank
-	@NotNull
+	@ValidString()
+	@Mandatory
 	private String				destinationCity;
 
-	@NotNull
-	@Min(0)
+	@Mandatory
+	@ValidScore
 	private Integer				layovers;
+
+	@Mandatory
+	@Valid
+	@OneToMany
+	private Leg					leg;
 }
