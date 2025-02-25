@@ -1,25 +1,22 @@
 
-package acme.entities.customer;
+package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import acme.client.components.basis.AbstractEntity;
+import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
-import acme.constraints.ValidIdentifier;
-import acme.constraints.ValidLongText;
-import acme.constraints.ValidShortText;
-import acme.datatypes.Phone;
+import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Customer extends AbstractEntity {
+public class Customer extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
 
@@ -28,26 +25,27 @@ public class Customer extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidIdentifier
+	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
 	@Column(unique = true)
 	private String				identifier;
 
 	@Mandatory
+	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
-	private Phone				phoneNumber;
+	private String				phoneNumber;
 
 	@Mandatory
-	@ValidLongText
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				address;
 
 	@Mandatory
-	@ValidShortText
+	@ValidString(min = 1, max = 50)
 	@Automapped
 	private String				city;
 
 	@Mandatory
-	@ValidShortText
+	@ValidString(min = 1, max = 50)
 	@Automapped
 	private String				country;
 
@@ -55,5 +53,9 @@ public class Customer extends AbstractEntity {
 	@ValidNumber(min = 0, max = 500000)
 	@Automapped
 	private int					earnedPoints;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 }
