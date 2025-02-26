@@ -63,6 +63,11 @@ public class Leg extends AbstractEntity {
 	@ManyToOne
 	private Airport				arrivalAirport;
 
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Leg					leg;
+
 	/*
 	 * @Mandatory
 	 * 
