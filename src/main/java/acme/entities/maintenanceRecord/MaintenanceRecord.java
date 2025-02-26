@@ -1,5 +1,5 @@
 
-package acme.entities.maintenanceRecords;
+package acme.entities.maintenanceRecord;
 
 import java.util.Date;
 
@@ -9,7 +9,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Future;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import acme.client.components.basis.AbstractEntity;
@@ -24,30 +23,27 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class MaintenanceRecords extends AbstractEntity {
+public class MaintenanceRecord extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	@NotNull
+
 	@Mandatory
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				maintenanceMoment;
 
-	@NotNull
 	@Mandatory
 	@Enumerated(EnumType.STRING)
 	private MaintenanceStatus	status;
 
-	@NotNull
 	@Mandatory
 	@Future
 	@Temporal(TemporalType.DATE)
 	private Date				nextInspectionDue;
 
-	@NotNull
 	@Mandatory
 	@Positive
 	@ValidScore
@@ -63,12 +59,22 @@ public class MaintenanceRecords extends AbstractEntity {
 	// Relationships -------------------------------------------------------------
 
 	/*
+	 * 
 	 * @Mandatory
 	 * 
 	 * @Valid
 	 * 
-	 * @ManyToOne
+	 * @ManyToOne(optional = false)
 	 * private Aircraft aircraft;
+	 * 
+	 * 
+	 * 
+	 * @Mandatory
+	 * 
+	 * @Valid
+	 * 
+	 * @ManyToOne(optional = false)
+	 * private Technician technician;
 	 */
 
 }
