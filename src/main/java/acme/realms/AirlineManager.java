@@ -46,5 +46,4 @@ public class AirlineManager extends AbstractRole {
 	@Optional
 	@ValidUrl
 	private String				linkToPicture;
-
 }

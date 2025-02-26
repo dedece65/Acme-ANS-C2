@@ -56,17 +56,6 @@ public class Airport extends AbstractEntity {
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	private String				phoneNumber;
 	/*
-	 * It is assumed that airports have only two runways,
-	 * one for landing and one for take-offs;
-	 * no further information about them is needed in the system.
-	 * 
-	 * @Mandatory
-	 * 
-	 * @Valid
-	 * 
-	 * @OneToMany
-	 * private Aircraft aircraft;
-	 * 
 	 * @Mandatory
 	 * 
 	 * @Valid
