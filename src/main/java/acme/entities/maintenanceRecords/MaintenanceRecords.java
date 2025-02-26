@@ -58,4 +58,17 @@ public class MaintenanceRecords extends AbstractEntity {
 	@Automapped
 	private String				notes;
 
+	// Derived attributes --------------------------------------------------------
+
+	// Relationships -------------------------------------------------------------
+
+	/*
+	 * @Mandatory
+	 * 
+	 * @Valid
+	 * 
+	 * @ManyToOne
+	 * private Aircraft aircraft;
+	 */
+
 }
