@@ -9,6 +9,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import acme.client.components.basis.AbstractRole;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
@@ -21,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class AirlineManager extends AbstractRole {
+public class Manager extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
 
@@ -36,6 +37,7 @@ public class AirlineManager extends AbstractRole {
 
 	@Mandatory
 	@ValidScore
+	@Automapped
 	private Integer				xpYears;
 
 	@Mandatory
@@ -45,5 +47,6 @@ public class AirlineManager extends AbstractRole {
 
 	@Optional
 	@ValidUrl
+	@Automapped
 	private String				linkToPicture;
 }

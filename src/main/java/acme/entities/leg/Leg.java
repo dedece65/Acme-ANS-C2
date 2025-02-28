@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidScore;
@@ -31,9 +32,9 @@ public class Leg extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true)
-	@ValidString(pattern = "^[A-Z]{3}\\d{4}$")
 	@Mandatory
+	@ValidString(pattern = "^[A-Z]{3}\\d{4}$")
+	@Column(unique = true)
 	private String				flightNumber;
 
 	@Mandatory
@@ -48,10 +49,12 @@ public class Leg extends AbstractEntity {
 
 	@Mandatory
 	@ValidScore
+	@Automapped
 	private Double				durationHours;
 
 	@Mandatory
 	@Valid
+	@Automapped
 	private LegStatus			status;
 
 	@Mandatory
