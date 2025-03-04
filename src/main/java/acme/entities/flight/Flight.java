@@ -10,11 +10,14 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.datatypes.Money;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
-import acme.realms.AirlineManager;
+import acme.realms.Manager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,16 +34,22 @@ public class Flight extends AbstractEntity {
 
 	@Mandatory
 	@ValidString(max = 50)
+	@Automapped
 	private String				tag;
 
 	@Mandatory
+	@Valid
+	@Automapped
 	private Boolean				requiresSelfTransfer;
 
 	@Mandatory
-	@ValidScore
-	private Double				cost;
+	@ValidMoney(min = 0)
+	@Automapped
+	private Money				cost;
 
+	@Mandatory
 	@ValidString(max = 255)
+	@Automapped
 	private String				description;
 
 	@Mandatory
@@ -53,20 +62,23 @@ public class Flight extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				scheduledArrival;
 
-	@ValidString()
 	@Mandatory
+	@ValidString()
+	@Automapped
 	private String				originCity;
 
-	@ValidString()
 	@Mandatory
+	@ValidString()
+	@Automapped
 	private String				destinationCity;
 
 	@Mandatory
-	@ValidScore
+	@ValidScore()
+	@Automapped
 	private Integer				layovers;
 
 	@Mandatory
 	@Valid
-	@ManyToOne
-	private AirlineManager		airlineManager;
+	@ManyToOne(optional = true)
+	private Manager				manager;
 }
