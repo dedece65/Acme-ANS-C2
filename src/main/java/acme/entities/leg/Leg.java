@@ -1,6 +1,8 @@
 
 package acme.entities.leg;
 
+import java.beans.Transient;
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,7 +16,6 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.airport.Airport;
@@ -48,11 +49,6 @@ public class Leg extends AbstractEntity {
 	private Date				scheduledArrival;
 
 	@Mandatory
-	@ValidScore
-	@Automapped
-	private Double				durationHours;
-
-	@Mandatory
 	@Valid
 	@Automapped
 	private LegStatus			status;
@@ -71,4 +67,11 @@ public class Leg extends AbstractEntity {
 	@Valid
 	@ManyToOne
 	private Aircraft			aircraft;
+
+
+	@Transient
+	private double durationHours() {
+		Duration duration = Duration.ofMillis(this.scheduledArrival.getTime() - this.scheduledDeparture.getTime());
+		return duration.toHours();
+	};
 }
