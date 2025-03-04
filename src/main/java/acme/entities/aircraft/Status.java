@@ -2,5 +2,6 @@
 package acme.entities.aircraft;
 
 public enum Status {
-	ACTIVE, MAINTENANCE
+
+	ACTIVE_SERVICE, UNDER_MAINTENANCE
 }

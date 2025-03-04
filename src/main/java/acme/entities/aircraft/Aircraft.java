@@ -31,7 +31,7 @@ public class Aircraft extends AbstractEntity {
 	private String				model;
 
 	@Mandatory
-	@ValidString(max = 50, pattern = "^[0-9]-{0-50}$")
+	@ValidString(max = 50, pattern = "^[0-9]{0,50}$")
 	@Column(unique = true)
 	private String				registrationNumber;
 
