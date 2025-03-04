@@ -10,9 +10,11 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
 import acme.realms.Manager;
@@ -41,9 +43,9 @@ public class Flight extends AbstractEntity {
 	private Boolean				requiresSelfTransfer;
 
 	@Mandatory
-	@ValidScore()
+	@ValidMoney(min = 0)
 	@Automapped
-	private Double				cost;
+	private Money				cost;
 
 	@Mandatory
 	@ValidString(max = 255)
@@ -77,6 +79,6 @@ public class Flight extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne
-	private Manager				airlineManager;
+	@ManyToOne(optional = true)
+	private Manager				manager;
 }

@@ -58,7 +58,7 @@ public class Airport extends AbstractEntity {
 	private String				email;
 
 	@Optional
-	@ValidString()
+	@ValidString(max = 255)
 	@Automapped
 	private String				address;
 
@@ -66,12 +66,4 @@ public class Airport extends AbstractEntity {
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
 	private String				phoneNumber;
-	/*
-	 * @Mandatory
-	 * 
-	 * @Valid
-	 * 
-	 * @OneToMany
-	 * private Airline Airline;
-	 */
 }

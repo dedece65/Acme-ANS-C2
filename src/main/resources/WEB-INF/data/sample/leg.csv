@@ -1,0 +1,4 @@
+key,flightNumber,scheduledDeparture,scheduledArrival,durationHours,status,key:departureAirport,key:arrivalAirport,key:flight
+leg-01,ABC1234,2025/05/01 14:30,2025/05/01 16:00,1.5,ON_TIME,airport-01,airport-02,flight-01
+leg-02,XYZ5678,2025/06/10 08:00,2025/06/10 10:15,2.25,DELAYED,airport-01,airport-02,flight-01
+leg-03,LMN9012,2025/07/20 18:00,2025/07/20 19:45,1.75,CANCELLED,airport-01,airport-02,flight-01
