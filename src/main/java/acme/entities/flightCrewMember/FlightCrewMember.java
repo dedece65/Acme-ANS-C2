@@ -65,6 +65,6 @@ public class FlightCrewMember extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Airline				airline;
 }
