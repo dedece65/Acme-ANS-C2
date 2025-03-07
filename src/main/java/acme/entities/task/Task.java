@@ -13,7 +13,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.entities.maintenanceRecord.MaintenanceRecord;
-import acme.entities.technician.Technician;
+import acme.realms.Technician;
 import lombok.Getter;
 import lombok.Setter;
 
