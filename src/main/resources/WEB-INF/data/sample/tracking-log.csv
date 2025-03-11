@@ -1,0 +1,41 @@
+key,updateMoment,step,resolutionPercentage,indicator,resolutionReason,key:claims
+tracking-log-01,2021/06/11 14:30,Flight issue resolution,90.0%,true,Flight delayed due to weather conditions,claim-01
+tracking-log-02,2021/06/09 09:15,Luggage recovery,100.0%,,,claim-02
+tracking-log-03,2021/06/07 16:45,Security check resolution,80.0%,true,Security delays caused by faulty equipment,claim-03
+tracking-log-04,2021/06/05 08:20,Other issue review,70.0%,,,claim-04
+tracking-log-05,2021/06/04 13:00,Flight cancellation resolution,95.0%,true,Flight was rerouted due to bad weather,claim-05
+tracking-log-06,2021/06/02 11:30,Luggage damage resolution,50.0%,true,Luggage arrived damaged,claim-06
+tracking-log-07,2021/06/01 10:00,Security delay response,65.0%,,,claim-07
+tracking-log-08,2021/05/28 09:15,Other issue resolution,85.0%,false,Boarding process was inefficient,claim-08
+tracking-log-09,2021/05/25 14:45,Flight overbooking resolution,60.0%,,,claim-09
+tracking-log-10,2021/05/20 15:30,Luggage lost claim,90.0%,false,Lost luggage during transit,claim-10
+tracking-log-11,2021/05/18 12:00,Security incident resolution,50.0%,,,claim-11
+tracking-log-12,2021/05/15 08:45,Other issue,75.0%,true,Seats were broken in the airplane,claim-12
+tracking-log-13,2021/05/14 14:00,Flight delay resolution,80.0%,,,claim-13
+tracking-log-14,2021/05/12 16:00,Luggage damage response,60.0%,true,Baggage straps damaged during transit,claim-14
+tracking-log-15,2021/05/10 17:30,Security process delay,90.0%,,,claim-15
+tracking-log-16,2021/05/08 18:00,Other issue claim,50.0%,true,Broken entertainment system,claim-16
+tracking-log-17,2021/05/07 09:30,Flight rebooking,100.0%,,,claim-17
+tracking-log-18,2021/05/06 12:30,Luggage delivery update,95.0%,true,Luggage arrived after 2 days delay,claim-18
+tracking-log-19,2021/05/05 10:00,Security issue resolution,80.0%,,,claim-19
+tracking-log-20,2021/05/03 13:30,Other issue resolution,65.0%,false,Seats were broken in the airplane,claim-20
+tracking-log-21,2021/05/02 11:00,Flight rebooking resolution,90.0%,,,claim-21
+tracking-log-22,2021/05/01 15:30,Luggage delivery update,100.0%,true,Luggage finally delivered,claim-22
+tracking-log-23,2021/04/30 14:15,Security check fix,80.0%,,,claim-23
+tracking-log-24,2021/04/30 12:45,Other issue review,75.0%,true,Broken entertainment system fixed,claim-24
+tracking-log-25,2021/04/29 16:30,Flight overbooking review,85.0%,,,claim-25
+tracking-log-26,2021/04/28 13:15,Luggage damage issue,60.0%,true,Baggage arrived wet personal items damaged,claim-26
+tracking-log-27,2021/04/27 09:45,Security delay fix,70.0%,,,claim-27
+tracking-log-28,2021/04/26 08:30,Other issue claim,80.0%,true,Delayed boarding,claim-28
+tracking-log-29,2021/04/25 14:00,Flight cancellation fix,90.0%,,,claim-29
+tracking-log-30,2021/04/24 10:30,Luggage misdirection claim,65.0%,true,Luggage was sent to the wrong destination,claim-30
+tracking-log-31,2021/04/23 13:15,Security issue solution,90.0%,,,claim-31
+tracking-log-32,2021/04/22 12:00,Flight delay response,75.0%,true,Delayed flight passengers compensated,claim-01
+tracking-log-33,2021/04/21 10:30,Luggage damage solution,80.0%,,,claim-02
+tracking-log-34,2021/04/20 09:45,Security clearance delay,65.0%,true,Security delay resolved,claim-03
+tracking-log-35,2021/04/19 08:00,Other issue resolution,90.0%,,,claim-04
+tracking-log-36,2021/04/18 13:30,Flight booking error resolution,50.0%,true,Booking error fixed,claim-05
+tracking-log-37,2021/04/17 14:00,Luggage delivery fix,75.0%,,,claim-06
+tracking-log-38,2021/04/16 15:00,Security scan issue,85.0%,true,Scanner malfunction fixed,claim-07
+tracking-log-39,2021/04/15 10:30,Other service error,70.0%,,,claim-08
+tracking-log-40,2021/04/14 11:15,Flight cancellation fix,100.0%,true,Flight canceled but rebooked with new flight,claim-09

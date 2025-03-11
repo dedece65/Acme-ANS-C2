@@ -14,14 +14,14 @@ import javax.validation.ReportAsSingleViolation;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Constraint(validatedBy = EmployeeCodeValidator.class)
-@ReportAsSingleViolation
-public @interface ValidEmployeeCode {
 
-	String message() default "{acme.validation.employee-code.message}";
+@Constraint(validatedBy = PercentageValidator.class)
+@ReportAsSingleViolation
+public @interface ValidPercentage {
+
+	// Standard validation properties -----------------------------------------
+
+	String message() default "{acme.validation.percentage.message}";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
-
-	// Atributo para definir el número de dígitos que debe tener el código
-	int value() default 6;  // Valor por defecto es 6
 }

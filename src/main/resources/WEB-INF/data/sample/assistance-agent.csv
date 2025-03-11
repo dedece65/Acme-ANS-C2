@@ -1,0 +1,3 @@
+key,key:userAccount,employeeCode,spokenLanguages,airline,employmentStartDate,bio,salary,photoUrl
+agent-01,user-account-agent-01,FP001343,English; Spanish,Delta Airlines,2021/06/11 14:00,Felipe is a dedicated customer service agent with a passion for aviation. He loves helping passengers have smooth experiences.,EUR 45000,https://example.com/photos/agent-01.jpg
+agent-02,user-account-agent-02,LM002233,English; French,American Airlines,2020/03/10 14:00,Laura has over 5 years of experience in the airline industry. She is known for her problem-solving skills and friendly attitude.,EUR 47000,https://example.com/photos/agent-02.jpg
