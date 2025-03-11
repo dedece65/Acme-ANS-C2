@@ -4,7 +4,6 @@ package acme.realms;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,8 +30,8 @@ public class AssistanceAgent extends AbstractRole {
 
 	// Attributes -----------------------------------------------------------------
 	@Mandatory
-	@ValidEmployeeCode
-	@Column(unique = true)
+	@ValidEmployeeCode(value = 4)
+	@Automapped
 	private String				employeeCode; //preguntar q pasa con el nombre del empleado del validador
 
 	@Mandatory

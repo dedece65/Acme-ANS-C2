@@ -1,5 +1,5 @@
 
-package acme.entities.trackingLogs;
+package acme.entities.trackingLog;
 
 import java.util.Date;
 
@@ -14,10 +14,9 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidPercentage;
 import acme.entities.claim.Claim;
-import acme.entities.claim.Indicator;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -43,14 +42,14 @@ public class TrackingLog extends AbstractEntity {
 	private String				step;
 
 	@Mandatory
-	@ValidNumber(min = 0.0, max = 100.0)
+	@ValidPercentage
 	@Automapped
-	private double				resolutionPercentage; //preguntar
+	private String				resolutionPercentage;
 
 	@Optional
 	@Valid
 	@Automapped
-	private Indicator			indicator;
+	private Boolean				indicator;
 
 	@Optional
 	@ValidString(max = 255)
@@ -64,5 +63,5 @@ public class TrackingLog extends AbstractEntity {
 	@ManyToOne(optional = false)
 	@Valid
 	@Automapped
-	private Claim				claims; //preguntar si aqui deberia ir assistanceAgent 
+	private Claim				claims;
 }
