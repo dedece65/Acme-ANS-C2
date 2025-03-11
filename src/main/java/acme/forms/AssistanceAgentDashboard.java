@@ -17,7 +17,6 @@ public class AssistanceAgentDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	// Ratios de reclamaciones
 	double						ratioResolvedClaims;
 	double						ratioRejectedClaims;
 

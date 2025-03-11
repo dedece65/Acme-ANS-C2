@@ -16,6 +16,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.entities.leg.Leg;
 import acme.realms.AssistanceAgent;
 import lombok.Getter;
 import lombok.Setter;
@@ -54,7 +55,7 @@ public class Claim extends AbstractEntity {
 	@Optional
 	@Valid
 	@Automapped
-	private Indicator			indicator; //preguntar si esta bien hacerlo como enum opcional             
+	private Boolean				indicator;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -65,6 +66,9 @@ public class Claim extends AbstractEntity {
 	@Automapped
 	private AssistanceAgent		assistanceAgents;
 
-	//preguntar si aqui van los passengers y customers
+	@ManyToOne(optional = false)
+	@Valid
+	@Automapped
+	private Leg					legs;
 
 }
