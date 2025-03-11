@@ -3,6 +3,8 @@ package acme.entities.service;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
@@ -20,6 +22,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "Service", uniqueConstraints = @UniqueConstraint(columnNames = "promotionCode"))
+
 public class Service extends AbstractEntity {
 
 	// Serialisation version ------------------------------------------------------------
