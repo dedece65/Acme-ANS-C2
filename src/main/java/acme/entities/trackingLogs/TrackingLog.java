@@ -1,5 +1,5 @@
 
-package acme.entities.claim;
+package acme.entities.trackingLogs;
 
 import java.util.Date;
 
@@ -13,17 +13,18 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.realms.AssistanceAgent;
+import acme.entities.claim.Claim;
+import acme.entities.claim.Indicator;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Claim extends AbstractEntity {
+public class TrackingLog extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
@@ -32,29 +33,29 @@ public class Claim extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(max = 255)
-	@Automapped
-	private String				description;
-
-	@Mandatory
-	@ValidMoment(past = true)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				registrationMoment;
+	private Date				updateMoment;
 
 	@Mandatory
-	@ValidEmail
+	@ValidString(max = 50)
 	@Automapped
-	private String				passengerEmail;
+	private String				step;
 
 	@Mandatory
-	@Valid
+	@ValidNumber(min = 0.0, max = 100.0)
 	@Automapped
-	private ClaimType			claimType;
+	private double				resolutionPercentage; //preguntar
 
 	@Optional
 	@Valid
 	@Automapped
-	private Indicator			indicator; //preguntar si esta bien hacerlo como enum opcional             
+	private Indicator			indicator;
+
+	@Optional
+	@ValidString(max = 255)
+	@Automapped
+	private String				resolutionReason;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -63,8 +64,5 @@ public class Claim extends AbstractEntity {
 	@ManyToOne(optional = false)
 	@Valid
 	@Automapped
-	private AssistanceAgent		assistanceAgents;
-
-	//preguntar si aqui van los passengers y customers
-
+	private Claim				claims; //preguntar si aqui deberia ir assistanceAgent 
 }
