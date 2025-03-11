@@ -33,7 +33,7 @@ public class AssistanceAgent extends AbstractRole {
 	@Mandatory
 	@ValidEmployeeCode
 	@Column(unique = true)
-	private String				employeeCode;
+	private String				employeeCode; //preguntar q pasa con el nombre del empleado del validador
 
 	@Mandatory
 	@ValidString(max = 255)
@@ -58,7 +58,7 @@ public class AssistanceAgent extends AbstractRole {
 	@Mandatory
 	@ValidNumber(min = 0.00)
 	@Automapped
-	private BigDecimal			salary;
+	private BigDecimal			salary; //preguntar double o validmoney
 
 	@Mandatory
 	@ValidUrl
