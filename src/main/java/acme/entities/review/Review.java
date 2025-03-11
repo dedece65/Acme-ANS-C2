@@ -13,6 +13,7 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.entities.airline.Airline;
@@ -39,8 +40,8 @@ public class Review extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
+	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	@Automapped
 	private Date				postedMoment;
 
 	@Mandatory
