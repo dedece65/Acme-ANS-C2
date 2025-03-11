@@ -1,0 +1,91 @@
+key,type,description,priority,estimatedDuration,key:technician,key:maintenanceRecord
+task-001,SYSTEM_CHECK,This is a description with exactly 50 characters long.,0,10.0,technician-02,maintenance-001
+task-002,SYSTEM_CHECK,Short description,1,0.01,technician-01,maintenance-002
+task-003,SYSTEM_CHECK,This description is at its maximum length reaching 255 characters. It ensures that no truncation happens and that the database correctly handles long text fields while keeping data integrity intact. This test is essential for debugging.,10,24.0,technician-02,maintenance-003
+task-004,INSPECTION,Short description,0,1.5,technician-01,maintenance-004
+task-005,SYSTEM_CHECK,A,5,0.01,technician-02,maintenance-005
+task-006,MAINTENANCE,Lorem ipsum dolor sit amet consectetur adipiscing elit.,9,5.0,technician-01,maintenance-006
+task-007,REPAIR,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,1,10.0,technician-02,maintenance-007
+task-008,INSPECTION,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,10,1.5,technician-01,maintenance-008
+task-009,MAINTENANCE,This is a description with exactly 50 characters long.,5,24.0,technician-02,maintenance-009
+task-010,SYSTEM_CHECK,A,0,0.01,technician-01,maintenance-010
+task-011,INSPECTION,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,9,10.0,technician-02,maintenance-011
+task-012,REPAIR,Short description,1,1.5,technician-01,maintenance-012
+task-013,MAINTENANCE,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,5,5.0,technician-02,maintenance-013
+task-014,INSPECTION,This description is at its maximum length reaching 255 characters. It ensures that no truncation happens and that the database correctly handles long text fields while keeping data integrity intact. This test is essential for debugging.,10,24.0,technician-01,maintenance-014
+task-015,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit.,0,10.0,technician-02,maintenance-015
+task-016,SYSTEM_CHECK,A,9,0.01,technician-01,maintenance-016
+task-017,INSPECTION,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,1,1.5,technician-02,maintenance-017
+task-018,MAINTENANCE,This is a description with exactly 50 characters long.,5,5.0,technician-01,maintenance-018
+task-019,REPAIR,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,10,24.0,technician-02,maintenance-019
+task-020,SYSTEM_CHECK,Short description,0,10.0,technician-01,maintenance-020
+task-021,MAINTENANCE,Lorem ipsum dolor sit amet consectetur adipiscing elit.,9,0.01,technician-02,maintenance-021
+task-022,INSPECTION,This description is at its maximum lengthreaching 255 characters. It ensures that no truncation happens and that the database correctly handles long text fields while keeping data integrity intact. This test is essential for debugging.,1,1.5,technician-01,maintenance-022
+task-023,REPAIR,Short description,5,5.0,technician-02,maintenance-023
+task-024,SYSTEM_CHECK,A,10,24.0,technician-01,maintenance-024
+task-025,INSPECTION,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,0,10.0,technician-02,maintenance-025
+task-026,MAINTENANCE,This is a description with exactly 50 characters long.,9,0.01,technician-01,maintenance-026
+task-027,REPAIR,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,1,1.5,technician-02,maintenance-027
+task-028,SYSTEM_CHECK,Lorem ipsum dolor sit ametconsectetur adipiscing elit.,5,5.0,technician-01,maintenance-028
+task-029,INSPECTION,This description is at its maximum length reaching 255 characters. It ensures that no truncation happens and that the database correctly handles long text fields while keeping data integrity intact. This test is essential for debugging.,10,24.0,technician-02,maintenance-029
+task-030,MAINTENANCE,Short description,0,10.0,technician-01,maintenance-030
+task-031,REPAIR,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,5,5.0,technician-02,maintenance-031
+task-032,SYSTEM_CHECK,A,10,24.0,technician-01,maintenance-032
+task-033,INSPECTION,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,0,10.0,technician-02,maintenance-033
+task-034,MAINTENANCE,This is a description with exactly 50 characters long.,9,0.01,technician-01,maintenance-034
+task-035,REPAIR,Short description,1,1.5,technician-02,maintenance-035
+task-036,SYSTEM_CHECK,Lorem ipsum dolor sit amet consectetur adipiscing elit.,5,5.0,technician-01,maintenance-036
+task-037,INSPECTION,This description is at its maximum length reaching 255 characters. It ensures that no truncation happens and that the database correctly handles long text fields while keeping data integrity intact. This test is essential for debugging.,10,24.0,technician-02,maintenance-037
+task-038,MAINTENANCE,Short description,0,10.0,technician-01,maintenance-038
+task-039,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit.,9,0.01,technician-02,maintenance-039
+task-040,SYSTEM_CHECK,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,1,1.5,technician-01,maintenance-040
+task-041,INSPECTION,This is a description with exactly 50 characters long.,5,5.0,technician-02,maintenance-041
+task-042,MAINTENANCE,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,10,24.0,technician-01,maintenance-042
+task-043,REPAIR,A,0,10.0,technician-02,maintenance-043
+task-044,SYSTEM_CHECK,This description is at its maximum length reaching 255 characters. It ensures that no truncation happens and that the database correctly handles long text fields while keeping data integrity intact. This test is essential for debugging.,9,0.01,technician-01,maintenance-044
+task-045,INSPECTION,Short description,1,1.5,technician-02,maintenance-045
+task-046,MAINTENANCE,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,5,5.0,technician-01,maintenance-046
+task-047,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit.,10,24.0,technician-02,maintenance-047
+task-048,SYSTEM_CHECK,A,0,10.0,technician-01,maintenance-048
+task-049,INSPECTION,Short description,9,0.01,technician-02,maintenance-049
+task-050,MAINTENANCE,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,1,1.5,technician-01,maintenance-050
+task-051,REPAIR,This is a description with exactly 50 characters long.,5,5.0,technician-02,maintenance-051
+task-052,SYSTEM_CHECK,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,10,24.0,technician-01,maintenance-052
+task-053,INSPECTION,Lorem ipsum dolor sit amet consectetur adipiscing elit.,0,10.0,technician-02,maintenance-053
+task-054,MAINTENANCE,A,9,0.01,technician-01,maintenance-054
+task-055,REPAIR,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,1,1.5,technician-02,maintenance-055
+task-056,SYSTEM_CHECK,This is a description with exactly 50 characters long.,5,5.0,technician-01,maintenance-056
+task-057,INSPECTION,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,10,24.0,technician-02,maintenance-057
+task-058,MAINTENANCE,Short description,0,10.0,technician-01,maintenance-058
+task-059,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit.,9,0.01,technician-02,maintenance-059
+task-060,SYSTEM_CHECK,This description is at its maximum length reaching 255 characters. It ensures that no truncation happens and that the database correctly handles long text fields while keeping data integrity intact. This test is essential for debugging.,1,1.5,technician-01,maintenance-060
+task-061,INSPECTION,This description is at its maximum length reaching 255 characters. It ensures that no truncation happens and that the database correctly handles long text fields while keeping data integrity intact. This test is essential for debugging.,10,24.0,technician-01,maintenance-046
+task-062,MAINTENANCE,This is a description with exactly 50 characters long.,0,1.5,technician-02,maintenance-014
+task-063,SYSTEM_CHECK,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,10,10.0,technician-02,maintenance-024
+task-064,SYSTEM_CHECK,Lorem ipsum dolor sit amet consectetur adipiscing elit.,1,10.0,technician-02,maintenance-056
+task-065,SYSTEM_CHECK,Short description,9,1.5,technician-01,maintenance-023
+task-066,REPAIR,A,0,5.0,technician-02,maintenance-032
+task-067,INSPECTION,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,1,1.5,technician-01,maintenance-041
+task-068,MAINTENANCE,Short description,5,0.01,technician-02,maintenance-055
+task-069,REPAIR,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,9,24.0,technician-01,maintenance-006
+task-070,SYSTEM_CHECK,Lorem ipsum dolor sit amet consectetur adipiscing elit.,0,10.0,technician-02,maintenance-058
+task-071,INSPECTION,A,10,5.0,technician-01,maintenance-047
+task-072,MAINTENANCE,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,1,1.5,technician-02,maintenance-019
+task-073,REPAIR,This description is at its maximum length reaching 255 characters. It ensures that no truncation happens and that the database correctly handles long text fields while keeping data integrity intact. This test is essential for debugging.,5,10.0,technician-01,maintenance-026
+task-074,SYSTEM_CHECK,Short description,9,24.0,technician-02,maintenance-044
+task-075,INSPECTION,A,0,0.01,technician-01,maintenance-021
+task-076,MAINTENANCE,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,1,1.5,technician-02,maintenance-053
+task-077,REPAIR,This is a description with exactly 50 characters long.,5,10.0,technician-01,maintenance-017
+task-078,SYSTEM_CHECK,Lorem ipsum dolor sit amet consectetur adipiscing elit.,10,24.0,technician-02,maintenance-059
+task-079,INSPECTION,A,0,5.0,technician-01,maintenance-012
+task-080,MAINTENANCE,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,1,1.5,technician-02,maintenance-034
+task-081,REPAIR,Short description,9,10.0,technician-01,maintenance-038
+task-082,SYSTEM_CHECK,This description is at its maximum length reaching 255 characters. It ensures that no truncation happens and that the database correctly handles long text fields while keeping data integrity intact. This test is essential for debugging.,5,24.0,technician-02,maintenance-011
+task-083,INSPECTION,Short description,0,0.01,technician-01,maintenance-028
+task-084,MAINTENANCE,A,10,5.0,technician-02,maintenance-015
+task-085,REPAIR,This description has 100 characters. It is used for testing database constraints and ensuring text storage.,1,1.5,technician-01,maintenance-031
+task-086,SYSTEM_CHECK,This is a description with exactly 50 characters long.,9,10.0,technician-02,maintenance-022
+task-087,INSPECTION,Lorem ipsum dolor sit amet consectetur adipiscing elit.,5,24.0,technician-01,maintenance-048
+task-088,MAINTENANCE,A,0,0.01,technician-02,maintenance-039
+task-089,REPAIR,This description has exactly 150 characters. It is important to validate that the system can properly store long textual inputs without truncation.,1,1.5,technician-01,maintenance-007
+task-090,SYSTEM_CHECK,Short description,10,5.0,technician-02,maintenance-045
