@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Positive;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
@@ -29,10 +30,12 @@ public class Task extends AbstractEntity {
 
 	@Mandatory
 	@Enumerated(EnumType.STRING)
+	@Automapped
 	private TaskType			type;
 
 	@Mandatory
 	@ValidString(max = 255)
+	@Automapped
 	private String				description;
 
 	@Mandatory
