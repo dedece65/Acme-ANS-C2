@@ -3,6 +3,7 @@ package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
@@ -29,6 +30,7 @@ public class Technician extends AbstractRole {
 
 	@Mandatory
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
+	@Automapped
 	private String				phoneNumber;
 
 	@Mandatory
@@ -37,7 +39,9 @@ public class Technician extends AbstractRole {
 	private String				specialisation;
 
 	@Mandatory
-	private boolean				passedHealthTest;
+	@Valid
+	@Automapped
+	private Boolean				passedHealthTest;
 
 	@Mandatory
 	@ValidNumber
