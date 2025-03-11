@@ -1,2 +1,10 @@
 key,name,picture,promotionCode,discountedMoney,averageDwellTime
-service-001,VIP Lounge Access,http://example.com/lounge.jpg,,199.99,3.5
+service-001,VIP Lounge Access,http://example.com/lounge.jpg,DSUR-25,EUR 100.00,3.5
+service-002,VIP Lounge Access,http://example.com/lounge.jpg,NANI-25,EUR 100.00,3.5
+service-003,VIP Lounge Access,http://example.com/lounge.jpg,JUAN-25,EUR 100.00,3.5
+service-004,VIP Lounge Access,http://example.com/lounge.jpg,PXAS-25,EUR 100.00,6.5
+service-005,VIP Lounge Access,http://example.com/lounge.jpg,SOUJ-25,EUR 100.00,6.5
+service-006,VIP Lounge Access,http://example.com/lounge.jpg,,,3.5
+service-007,Coctel,http://example.com/lounge.jpg,PEPE-25,EUR 100,3.5
+service-008,Buffet,http://example.com/lounge.jpg,DKSS-25,USD 100.00,3.5
+service-009,Buffet,http://example.com/lounge.jpg,DKSZ-25,EUR 100.0,3.6
