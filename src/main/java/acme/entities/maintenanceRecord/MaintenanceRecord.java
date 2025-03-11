@@ -6,8 +6,10 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Positive;
 
@@ -17,6 +19,8 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
+import acme.entities.aircraft.Aircraft;
+import acme.realms.Technician;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -58,23 +62,14 @@ public class MaintenanceRecord extends AbstractEntity {
 
 	// Relationships -------------------------------------------------------------
 
-	/*
-	 * 
-	 * @Mandatory
-	 * 
-	 * @Valid
-	 * 
-	 * @ManyToOne(optional = false)
-	 * private Aircraft aircraft;
-	 * 
-	 * 
-	 * 
-	 * @Mandatory
-	 * 
-	 * @Valid
-	 * 
-	 * @ManyToOne(optional = false)
-	 * private Technician technician;
-	 */
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Aircraft			aircraft;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Technician			technician;
 
 }
