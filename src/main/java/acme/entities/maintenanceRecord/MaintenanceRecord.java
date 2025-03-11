@@ -37,10 +37,12 @@ public class MaintenanceRecord extends AbstractEntity {
 
 	@Mandatory
 	@Temporal(TemporalType.TIMESTAMP)
+	@Automapped
 	private Date				maintenanceMoment;
 
 	@Mandatory
 	@Enumerated(EnumType.STRING)
+	@Automapped
 	private MaintenanceStatus	status;
 
 	@Mandatory
