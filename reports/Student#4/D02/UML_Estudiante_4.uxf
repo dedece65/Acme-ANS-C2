@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>9</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>594</x>
-      <y>351</y>
-      <w>378</w>
-      <h>144</h>
+      <x>310</x>
+      <y>515</y>
+      <w>210</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Claim
@@ -16,7 +16,7 @@ Claim
 + registrationMoment: Date {Mandatory, Past, Temporal(TIMESTAMP)}
 + passengerEmail: String {Mandatory, Email}
 + claimType: ClaimType {Mandatory}
-+ indicator: Indicator
++ indicator: Boolean
 
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -24,10 +24,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>621</x>
-      <y>189</y>
-      <w>153</w>
-      <h>99</h>
+      <x>370</x>
+      <y>425</y>
+      <w>85</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enum&gt;&gt;
 ClaimType
@@ -43,10 +43,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>243</x>
-      <y>567</y>
-      <w>315</w>
-      <h>198</h>
+      <x>325</x>
+      <y>725</y>
+      <w>175</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 AssistantAgentDashboard
@@ -69,30 +69,30 @@ bg=green
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>702</x>
-      <y>279</y>
-      <w>72</w>
-      <h>90</h>
+      <x>410</x>
+      <y>475</y>
+      <w>15</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>
 </panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1071</x>
-      <y>351</y>
-      <w>432</w>
-      <h>126</h>
+      <x>575</x>
+      <y>515</y>
+      <w>240</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 TrackingLog
 --
 + updateMoment: Date {Mandatory, Past,  Temporal(TIMESTAMP)}
 + step: Date {Mandatory, Length(max=50)}
-+ resolutionPercentage: Double {Mandatory, Length(min=0.0, max=100.0)}
-+ indicator: Indicator
++ resolutionPercentage: String {Percentage}
++ indicator: Boolean
 + resolutionReason: String {Length(max=255)}
 
 bg=green</panel_attributes>
@@ -101,10 +101,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>963</x>
-      <y>414</y>
-      <w>126</w>
-      <h>45</h>
+      <x>515</x>
+      <y>550</y>
+      <w>70</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m1=1
@@ -115,10 +115,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>774</x>
-      <y>486</y>
-      <w>99</w>
-      <h>99</h>
+      <x>410</x>
+      <y>590</y>
+      <w>55</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m2=0..n
@@ -129,20 +129,20 @@ m1=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>567</x>
-      <y>567</y>
-      <w>423</w>
-      <h>153</h>
+      <x>295</x>
+      <y>635</y>
+      <w>235</w>
+      <h>85</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 AssistantAgent
 --
-+ employeeCode: String {Mandatory, EmployeeCode, Unique}
++ employeeCode: String {Mandatory, EmployeeCode(value=6), Unique}
 + spokenLanguages: String {Mandatory, Length(max=255)}
 + airline: String {Mandatory, Length(max=100)}
 + employmentStartDate: Date {Mandatory, Past, Temporal(TIMESTAMP)}
 + bio: String {Length(max=255)}
-+ salary: BigDecimal {Mandatory, Length(min=0.00)}
++ salary: Money {Mandatory, Length(min=0.00)}
 + photoUrl: String {Mandatory, URL}
 
 bg=green
@@ -152,10 +152,10 @@ bg=green
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1323</x>
-      <y>270</y>
-      <w>297</w>
-      <h>54</h>
+      <x>625</x>
+      <y>450</y>
+      <w>165</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>bg=pink
 When the indicator becomes accepted or rejected
@@ -165,77 +165,36 @@ there should also be a resolutionReason</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1080</x>
-      <y>234</y>
-      <w>405</w>
-      <h>27</h>
+      <x>580</x>
+      <y>430</y>
+      <w>225</w>
+      <h>15</h>
     </coordinates>
-    <panel_attributes>bg=green
+    <panel_attributes>bg=pink
 update moment (in the past, always stores the last update moment)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1242</x>
-      <y>252</y>
-      <w>27</w>
-      <h>117</h>
+      <x>605</x>
+      <y>440</y>
+      <w>15</w>
+      <h>85</h>
     </coordinates>
     <panel_attributes>lt=..
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>792</x>
-      <y>189</y>
-      <w>117</w>
-      <h>99</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Enum&gt;&gt;
-Indicator
---
-+ ACCEPTED
-+ REJECTED
-
-bg=blue</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>810</x>
-      <y>279</y>
-      <w>54</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>
-</panel_attributes>
-    <additional_attributes>40.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>900</x>
-      <y>252</y>
-      <w>225</w>
-      <h>117</h>
-    </coordinates>
-    <panel_attributes>
-</panel_attributes>
-    <additional_attributes>10.0;10.0;230.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1044</x>
-      <y>648</y>
-      <w>459</w>
-      <h>45</h>
+      <x>560</x>
+      <y>680</y>
+      <w>255</w>
+      <h>25</h>
     </coordinates>
-    <panel_attributes>bg=green
+    <panel_attributes>bg=pink
 EmployeeCode is a custom validator, it verifies the pattern is "^[A-Z]{2-3}\d{6}$",
 where the first two or three letters correspond to their initials</panel_attributes>
     <additional_attributes/>
@@ -243,10 +202,10 @@ where the first two or three letters correspond to their initials</panel_attribu
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>981</x>
-      <y>639</y>
-      <w>81</w>
-      <h>45</h>
+      <x>525</x>
+      <y>675</y>
+      <w>45</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>lt=..
 </panel_attributes>
@@ -255,13 +214,67 @@ where the first two or three letters correspond to their initials</panel_attribu
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1350</x>
-      <y>315</y>
-      <w>27</w>
-      <h>54</h>
+      <x>640</x>
+      <y>465</y>
+      <w>15</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=..
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>660</x>
+      <y>475</y>
+      <w>255</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>bg=pink
+Percentage is a custom validator, it verifies the pattern is "^\\d+(\\.\\d+)?%$"
+where max=100 and min=0 for the percentage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>495</y>
+      <w>15</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=..
 </panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>540</y>
+      <w>65</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Leg
+--
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>545</y>
+      <w>70</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+About
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
   </element>
 </diagram>

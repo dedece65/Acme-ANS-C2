@@ -1,7 +1,6 @@
 
 package acme.realms;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -9,11 +8,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import acme.client.components.basis.AbstractRole;
+import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidNumber;
+import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
 import acme.constraints.ValidEmployeeCode;
@@ -30,9 +30,9 @@ public class AssistanceAgent extends AbstractRole {
 
 	// Attributes -----------------------------------------------------------------
 	@Mandatory
-	@ValidEmployeeCode(value = 4)
+	@ValidEmployeeCode(value = 6)
 	@Automapped
-	private String				employeeCode; //preguntar q pasa con el nombre del empleado del validador
+	private String				employeeCode;
 
 	@Mandatory
 	@ValidString(max = 255)
@@ -55,9 +55,9 @@ public class AssistanceAgent extends AbstractRole {
 	private String				bio;
 
 	@Mandatory
-	@ValidNumber(min = 0.00)
+	@ValidMoney(min = 0.00)
 	@Automapped
-	private BigDecimal			salary; //preguntar double o validmoney
+	private Money				salary; //preguntar double o validmoney
 
 	@Mandatory
 	@ValidUrl
