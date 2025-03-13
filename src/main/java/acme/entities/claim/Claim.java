@@ -1,5 +1,5 @@
 
-package acme.entities.flight;
+package acme.entities.claim;
 
 import java.util.Date;
 
@@ -10,21 +10,21 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidMoney;
-import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
-import acme.realms.Manager;
+import acme.entities.leg.Leg;
+import acme.realms.AssistanceAgent;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Flight extends AbstractEntity {
+public class Claim extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
@@ -33,52 +33,42 @@ public class Flight extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(max = 50)
-	@Automapped
-	private String				tag;
-
-	@Mandatory
-	@Valid
-	@Automapped
-	private Boolean				requiresSelfTransfer;
-
-	@Mandatory
-	@ValidMoney(min = 0)
-	@Automapped
-	private Money				cost;
-
-	@Mandatory
 	@ValidString(max = 255)
 	@Automapped
 	private String				description;
 
 	@Mandatory
-	@ValidMoment(past = false)
+	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				scheduledDeparture;
+	private Date				registrationMoment;
 
 	@Mandatory
-	@ValidMoment(past = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				scheduledArrival;
-
-	@Mandatory
-	@ValidString()
+	@ValidEmail
 	@Automapped
-	private String				originCity;
-
-	@Mandatory
-	@ValidString()
-	@Automapped
-	private String				destinationCity;
-
-	@Mandatory
-	@ValidScore()
-	@Automapped
-	private Integer				layovers;
+	private String				passengerEmail;
 
 	@Mandatory
 	@Valid
-	@ManyToOne(optional = true)
-	private Manager				manager;
+	@Automapped
+	private ClaimType			claimType;
+
+	@Optional
+	@Valid
+	@Automapped
+	private Boolean				indicator;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
+	@ManyToOne(optional = false)
+	@Valid
+	@Automapped
+	private AssistanceAgent		assistanceAgents;
+
+	@ManyToOne(optional = false)
+	@Valid
+	@Automapped
+	private Leg					legs;
+
 }

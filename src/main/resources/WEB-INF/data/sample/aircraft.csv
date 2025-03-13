@@ -1,0 +1,2 @@
+key,model,registrationNumber,capacity,cargoweight,status,details
+aircraft-01,"model1","123456",0,2500,ACTIVE_SERVICE,"details"

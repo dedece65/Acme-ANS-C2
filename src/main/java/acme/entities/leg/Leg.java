@@ -1,6 +1,8 @@
 
 package acme.entities.leg;
 
+import java.beans.Transient;
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,12 +13,12 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
+import acme.entities.aircraft.Aircraft;
 import acme.entities.airport.Airport;
-import acme.entities.flight.Flight;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,9 +33,9 @@ public class Leg extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true)
-	@ValidString(pattern = "^[A-Z]{3}\\d{4}$")
 	@Mandatory
+	@ValidString(pattern = "^[A-Z]{3}\\d{4}$")
+	@Column(unique = true)
 	private String				flightNumber;
 
 	@Mandatory
@@ -47,11 +49,8 @@ public class Leg extends AbstractEntity {
 	private Date				scheduledArrival;
 
 	@Mandatory
-	@ValidScore
-	private Double				durationHours;
-
-	@Mandatory
 	@Valid
+	@Automapped
 	private LegStatus			status;
 
 	@Mandatory
@@ -67,13 +66,12 @@ public class Leg extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@ManyToOne
-	private Flight				flight;
-	/*
-	 * @Mandatory
-	 * 
-	 * @Valid
-	 * 
-	 * @ManyToOne
-	 * private Aircraft aircraft;
-	 */
+	private Aircraft			aircraft;
+
+
+	@Transient
+	private double durationHours() {
+		Duration duration = Duration.ofMillis(this.scheduledArrival.getTime() - this.scheduledDeparture.getTime());
+		return duration.toHours();
+	};
 }
