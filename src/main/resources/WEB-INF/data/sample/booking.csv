@@ -1,5 +1,5 @@
-key,locatorCode,purchaseMoment,travelClass,price,LastNibble,published,key:customer
-booking-01,X9Y8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
+key,locatorCode,purchaseMoment,travelClass,price,LastNibble,published,key:customer,key:flight
+booking-01,X9Y8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01,flight-01
 booking-02,123456,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
 booking-03,12345678,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
 booking-04,ABCDEF,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
