@@ -1,19 +1,21 @@
 
 package acme.entities.activityLog;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Past;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.entities.flightCrewMember.FlightCrewMember;
-import acme.entities.leg.Leg;
+import acme.entities.flightAssignment.FlightAssignment;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,9 +31,9 @@ public class ActivityLog extends AbstractEntity {
 	// Attributes --------------------------------------------------------
 
 	@Mandatory
-	@Past
-	@Automapped
-	private Moment				registrationMoment;
+	@ValidMoment(past = true)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				registrationMoment;
 
 	@Mandatory
 	@ValidString
@@ -54,11 +56,6 @@ public class ActivityLog extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private FlightCrewMember	crewMember;
-
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private Leg					leg; // TIENE QUE ESTAR STATUS = LANDED ---> PREGUNTAR
+	private FlightAssignment	flightAssignment;
 
 }
