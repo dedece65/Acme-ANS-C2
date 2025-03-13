@@ -1,4 +1,6 @@
 key,name,iataCode,website,airlineType,foundationMoment,email,phoneNumber
+
+
 airline-01,a,ABX,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
 airline-02,aa,ACX,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
 airline-03,Lorem ipsum dolor sit ameta consectetur adipiscin,ADX,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
