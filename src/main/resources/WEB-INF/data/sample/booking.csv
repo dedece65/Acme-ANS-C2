@@ -1,24 +1,24 @@
 key,locatorCode,purchaseMoment,travelClass,price,LastNibble,published,key:customer,key:flight
 booking-01,X9Y8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01,flight-01
-booking-02,123456,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
-booking-03,12345678,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
-booking-04,ABCDEF,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
-booking-05,ABCDEFGH,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
-booking-06,1A2B3C,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
-booking-07,1A2B3C4D,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
-booking-08,X9Y8Z7,2000/01/01 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
-booking-09,X9Y8ZE,2000/01/01 00:01,ECONOMY,EUR 123.32,0001,false,customer-01
-booking-10,X9Y87E,2022/07/30 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
-booking-11,X9YZ7E,2022/07/29 23:59,ECONOMY,EUR 123.32,0001,false,customer-01
-booking-12,X98Z7E,2012/01/07 00:00,BUSINESS,EUR 123.32,0001,false,customer-01
-booking-13,XY8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01
-booking-14,WS8Z7E,2012/01/07 00:00,ECONOMY,EUR 0.00,0001,false,customer-01
-booking-15,EF8Z7E,2012/01/07 00:00,ECONOMY,EUR 0.01,0001,false,customer-01
-booking-16,TH8Z7E,2012/01/07 00:00,ECONOMY,EUR 999999.99,0001,false,customer-01
-booking-17,UJ8Z7E,2012/01/07 00:00,ECONOMY,EUR 1000000.00,0001,false,customer-01
-booking-18,IK8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,1234,false,customer-01
-booking-19,LO8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,5678,false,customer-01
-booking-20,XX8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,9012,false,customer-01
+booking-02,123456,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-02,flight-02
+booking-03,12345678,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-04,flight-03
+booking-04,ABCDEF,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-04,flight-04
+booking-05,ABCDEFGH,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-05,flight-05
+booking-06,1A2B3C,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-06,flight-06
+booking-07,1A2B3C4D,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-07,flight-07
+booking-08,X9Y8Z7,2000/01/01 00:00,ECONOMY,EUR 123.32,0001,false,customer-08,flight-08
+booking-09,X9Y8ZE,2000/01/01 00:01,ECONOMY,EUR 123.32,0001,false,customer-09,flight-09
+booking-10,X9Y87E,2022/07/30 00:00,ECONOMY,EUR 123.32,0001,false,customer-01,flight-08
+booking-11,X9YZ7E,2022/07/29 23:59,ECONOMY,EUR 123.32,0001,false,customer-02,flight-06
+booking-12,X98Z7E,2012/01/07 00:00,BUSINESS,EUR 123.32,0001,false,customer-02,flight-05
+booking-13,XY8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-04,flight-05
+booking-14,WS8Z7E,2012/01/07 00:00,ECONOMY,EUR 0.00,0001,false,customer-05,flight-03
+booking-15,EF8Z7E,2012/01/07 00:00,ECONOMY,EUR 0.01,0001,false,customer-06,flight-03
+booking-16,TH8Z7E,2012/01/07 00:00,ECONOMY,EUR 999999.99,0001,false,customer-07,flight-02
+booking-17,UJ8Z7E,2012/01/07 00:00,ECONOMY,EUR 1000000.00,0001,false,customer-08,flight-02
+booking-18,IK8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,1234,false,customer-09,flight-10
+booking-19,LO8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,5678,false,customer-01,flight-11
+booking-20,XX8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,9012,false,customer-02,flight-11
 
 
 

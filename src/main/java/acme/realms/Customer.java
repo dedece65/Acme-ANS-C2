@@ -10,12 +10,14 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidCustomer;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@ValidCustomer
 public class Customer extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
@@ -50,9 +52,9 @@ public class Customer extends AbstractRole {
 	private String				country;
 
 	@Optional
-	@ValidNumber(min = 0, max = 500000)
+	@ValidNumber(max = 500000)
 	@Automapped
-	private int					earnedPoints;
+	private Integer				earnedPoints;
 
 	// Derived attributes -----------------------------------------------------
 
