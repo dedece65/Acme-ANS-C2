@@ -8,6 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+
+administrator.airport.list.title = Airport list
 administrator.airport.form.title = Airport form
 administrator.airport.list.label.name = Name
 administrator.airport.list.label.phoneNumber = Phone Number
@@ -18,6 +20,7 @@ administrator.form.label.operationalScope = Operational Score
 administrator.form.label.city = City
 administrator.form.label.country = Country
 administrator.form.label.website = Website
+administrator.form.label.email = Email
 administrator.form.label.address = Address
 administrator.form.label.phoneNumber = Phone Number
 

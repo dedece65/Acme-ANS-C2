@@ -18,6 +18,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+administrator.airport.list.title = Lista de aeropuertos
 administrator.airport.form.title = Formulario de aeropuerto
 administrator.airport.list.label.name = Nombre
 administrator.airport.list.label.phoneNumber = Número de teléfono
@@ -29,6 +30,7 @@ administrator.form.label.city = Ciudad
 administrator.form.label.country = País
 administrator.form.label.website = Sitio web
 administrator.form.label.address = Dirección
+administrator.form.label.email = Correo
 administrator.form.label.phoneNumber = Número de teléfono
 
 administrator.airport.form.error.noOperationalScope = No se ha seleccionado un alcance operativo

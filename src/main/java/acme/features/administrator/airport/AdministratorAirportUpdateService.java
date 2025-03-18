@@ -1,8 +1,6 @@
 
 package acme.features.administrator.airport;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -27,12 +25,12 @@ public class AdministratorAirportUpdateService extends AbstractGuiService<Admini
 	@Override
 	public void authorise() {
 		boolean exist;
-		Optional<Airport> airport;
+		Airport airport;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
 		airport = this.repository.findAirportById(id);
-		exist = airport.isPresent();
+		exist = airport != null;
 		super.getResponse().setAuthorised(exist);
 	}
 
@@ -43,7 +41,7 @@ public class AdministratorAirportUpdateService extends AbstractGuiService<Admini
 
 		id = super.getRequest().getData("id", int.class);
 
-		airport = this.repository.findAirportById(id).get();
+		airport = this.repository.findAirportById(id);
 
 		super.getBuffer().addData(airport);
 	}
@@ -65,29 +63,29 @@ public class AdministratorAirportUpdateService extends AbstractGuiService<Admini
 		if (!this.getBuffer().getErrors().hasErrors("iataCode") && airport.getIataCode() != null) {
 			Airport airportdup;
 
-			airportdup = this.repository.findAirportByIataCode(airport.getIataCode()).get();
+			airportdup = this.repository.findAirportByIataCode(airport.getIataCode());
 			super.state(airportdup == null, "iataCode", "administrator.airport.form.error.duplicated");
 		}
 
 		if (!this.getBuffer().getErrors().hasErrors("operationalScope"))
 			super.state(airport.getOperationalScope() != null, "operationalScope", "administrator.airport.form.error.noOperationalScope", airport);
 
-		if (!this.getBuffer().getErrors().hasErrors("city") && airport.getName() != null)
+		if (!this.getBuffer().getErrors().hasErrors("city") && airport.getCity() != null)
 			super.state(airport.getCity().length() <= 50, "city", "administrator.airport.form.error.city", airport);
 
-		if (!this.getBuffer().getErrors().hasErrors("country") && airport.getName() != null)
+		if (!this.getBuffer().getErrors().hasErrors("country") && airport.getCountry() != null)
 			super.state(airport.getCountry().length() <= 50, "country", "administrator.airport.form.error.country", airport);
 
-		if (!this.getBuffer().getErrors().hasErrors("website") && airport.getName() != null)
+		if (!this.getBuffer().getErrors().hasErrors("website") && airport.getWebsite() != null)
 			super.state(airport.getWebsite().length() <= 255, "website", "administrator.airport.form.error.website", airport);
 
-		if (!this.getBuffer().getErrors().hasErrors("address") && airport.getName() != null)
+		if (!this.getBuffer().getErrors().hasErrors("address") && airport.getAddress() != null)
 			super.state(airport.getAddress().length() <= 255, "address", "administrator.airport.form.error.address", airport);
 
-		if (!this.getBuffer().getErrors().hasErrors("email") && airport.getName() != null)
+		if (!this.getBuffer().getErrors().hasErrors("email") && airport.getEmail() != null)
 			super.state(airport.getEmail().length() <= 255, "email", "administrator.airport.form.error.email", airport);
 
-		if (!this.getBuffer().getErrors().hasErrors("phoneNumber") && airport.getName() != null)
+		if (!this.getBuffer().getErrors().hasErrors("phoneNumber") && airport.getPhoneNumber() != null)
 			super.state(airport.getPhoneNumber().length() <= 15, "phoneNumber", "administrator.airport.form.error.phoneNumber", airport);
 
 	}
@@ -107,8 +105,7 @@ public class AdministratorAirportUpdateService extends AbstractGuiService<Admini
 		Dataset dataset;
 
 		choices = SelectChoices.from(OperationalScope.class, airport.getOperationalScope());
-		dataset = super.unbindObject(airport, "name", "iataCode", "city", "country", "website", "email", "address", "phoneNumber");
-		dataset.put("operationalScope", choices.getSelected().getKey());
+		dataset = super.unbindObject(airport, "name", "iataCode", "city", "country", "operationalScope", "website", "email", "address", "phoneNumber");
 		dataset.put("operationalScopes", choices);
 
 		super.getResponse().addData(dataset);
