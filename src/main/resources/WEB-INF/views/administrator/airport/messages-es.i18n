@@ -1,0 +1,45 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.airport.list.title = Lista de aeropuertos
+administrator.airport.form.title = Formulario de aeropuerto
+administrator.airport.list.label.name = Nombre
+administrator.airport.list.label.phoneNumber = Número de teléfono
+administrator.airport.list.label.iataCode = Código IATA
+administrator.form.label.name = Nombre
+administrator.form.label.iataCode = Código IATA
+administrator.form.label.operationalScope = Alcance operativo
+administrator.form.label.city = Ciudad
+administrator.form.label.country = País
+administrator.form.label.website = Sitio web
+administrator.form.label.address = Dirección
+administrator.form.label.email = Correo
+administrator.form.label.phoneNumber = Número de teléfono
+
+administrator.airport.form.error.noOperationalScope = No se ha seleccionado un alcance operativo
+administrator.airport.form.error.city = La ciudad debe tener 50 caracteres o menos
+administrator.airport.form.error.country = El país debe tener 50 caracteres o menos
+administrator.airport.form.error.website = Sitio web demasiado largo
+administrator.airport.form.error.address = Dirección demasiado larga
+administrator.airport.form.error.email = Correo electrónico demasiado largo
+administrator.airport.form.error.phoneNumber = Número de teléfono demasiado largo
+
+administrator.airport.form.button.create = REGISTRAR
+administrator.airport.form.button.update = ACTUALIZAR
