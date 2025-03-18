@@ -52,32 +52,43 @@ public class Flight extends AbstractEntity {
 
 	@Mandatory
 	@Valid
+	@Automapped
+	private Boolean				draftMode;
+
+	@Mandatory
+	@Valid
 	@ManyToOne(optional = true)
 	private Manager				manager;
 
 
 	@Transient
-	private Date getScheduledDeparture() {
+	public Date getScheduledDeparture() {
+		Date result;
+		result = Date.from(Instant.now());
+
+		//ManagerLegRepository legRepository;
+		//legRepository = SpringHelper.getBean(ManagerLegRepository.class);
+
+		return result;
+	}
+
+	@Transient
+	public Date getScheduledArrival() {
 		return Date.from(Instant.now());
 	}
 
 	@Transient
-	private Date getScheduledArrival() {
-		return Date.from(Instant.now());
-	}
-
-	@Transient
-	private String getOriginCity() {
+	public String getOriginCity() {
 		return "";
 	}
 
 	@Transient
-	private String getDestinationCity() {
+	public String getDestinationCity() {
 		return "";
 	}
 
 	@Transient
-	private Integer getLayovers() {
+	public Integer getLayovers() {
 		return 1;
 	}
 }

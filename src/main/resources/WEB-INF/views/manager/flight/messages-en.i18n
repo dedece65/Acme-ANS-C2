@@ -1,0 +1,38 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.flight.list.title = Flights
+manager.flight.form.title = Flight
+
+manager.flight.list.label.tag = Tag
+manager.flight.list.label.description = Description
+manager.flight.list.label.cost = Cost
+
+
+manager.form.label.tag = Tag
+manager.form.label.requiresSelfTransfer = Requires Self Transfer
+manager.form.label.cost = Cost
+manager.form.label.description = Description
+manager.form.label.scheduledDeparture = Scheduled Departure
+manager.form.label.scheduledArrival = Scheduled Arrival
+manager.form.label.originCity = Origin City
+manager.form.label.destinationCity = Destination City
+manager.form.label.layovers = Layovers
+
+manager.flight.form.button.update = Update Flight
+manager.flight.form.button.publish = Publish Flight
+manager.flight.form.button.delete = Delete Flight
+manager.flight.form.button.legs = View Legs
+manager.flight.form.button.create = Create Flight
+
+manager.flight.form.error.name = The tag must be at most 50 characters long.
+manager.flight.form.error.requiresSelfTransfer = Requires Self Transfer must be specified.
+manager.flight.form.error.cost = The cost must be a positive value.
+manager.flight.form.error.description = The description must be at most 255 characters long.
