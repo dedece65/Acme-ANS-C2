@@ -1,0 +1,47 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.leg.list.title = Tramos
+manager.leg.form.title = Tramo
+
+manager.form.label.flightNumber = Número de Vuelo
+manager.form.label.scheduledDeparture = Salida Programada
+manager.form.label.scheduledArrival = Llegada Programada
+manager.form.label.status = Estado
+manager.form.label.departureAirport = Aeropuerto de Salida
+manager.form.label.arrivalAirport = Aeropuerto de Llegada
+manager.form.label.aircraft = Aeronave
+manager.form.label.manager = Administrador
+manager.form.label.flight = Vuelo
+manager.form.label.draftMode = Modo Borrador
+
+manager.leg.form.button.update = Actualizar Tramo
+manager.leg.form.button.publish = Publicar Tramo
+manager.leg.form.button.delete = Eliminar Tramo
+manager.leg.form.button.create = Crear Tramo
+
+manager.leg.form.error.flightNumber = El número de vuelo debe seguir el formato AAA9999.
+manager.leg.form.error.scheduledDeparture = La salida programada debe ser en el futuro.
+manager.leg.form.error.scheduledArrival = La llegada programada debe ser en el futuro.
+manager.leg.form.error.status = El estado del tramo es obligatorio.
+manager.leg.form.error.departureAirport = Se debe especificar un aeropuerto de salida.
+manager.leg.form.error.arrivalAirport = Se debe especificar un aeropuerto de llegada.
+manager.leg.form.error.aircraft = Se debe especificar una aeronave.
+manager.leg.form.error.manager = Se debe especificar un administrador.
+manager.leg.form.error.flight = Se debe especificar un vuelo.
+manager.leg.form.error.draftMode = El modo borrador es obligatorio.
+
+manager.leg.list.label.flightNumber = Número de Vuelo
+manager.leg.list.label.scheduledDeparture = Salida Programada
+manager.leg.list.label.scheduledArrival = Llegada Programada
+manager.leg.list.label.status = Estado
+manager.leg.list.label.departureAirport = Aeropuerto de Salida
+manager.leg.list.label.arrivalAirport = Aeropuerto de Llegada
+manager.leg.list.label.aircraft = Aeronave

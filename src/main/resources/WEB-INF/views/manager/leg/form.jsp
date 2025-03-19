@@ -14,20 +14,18 @@
 	<acme:input-textbox code="manager.form.label.destinationCity" path="destinationCity"/>
 	<acme:input-textbox code="manager.form.label.layovers" path="layovers"/>
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command,'show|update|publish|delete') && draftMode == true && layovers>0}">
-			<acme:submit code="manager.flight.form.button.update" action="/manager/flight/update"/>	
-			<acme:submit code="manager.flight.form.button.publish" action="/manager/flight/publish"/>	
-			<acme:submit code="manager.flight.form.button.delete" action="/manager/flight/delete"/>	
-			<acme:button code="manager.flight.form.button.legs" action="/manager/legs/list?masterId=${masterId}"/>
-		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command,'show|update|publish|delete') && draftMode == true}">
-			<acme:submit code="manager.flight.form.button.update" action="/manager/flight/update"/>	
-			<acme:submit code="manager.flight.form.button.publish" action="/manager/flight/publish"/>	
-			<acme:submit code="manager.flight.form.button.delete" action="/manager/flight/delete"/>
-			<acme:button code="manager.flight.form.button.legs" action="/manager/legs/list?masterId=${masterId}"/>
+			<acme:submit code="manager.leg.form.button.update" action="/manager/leg/update"/>	
+			<acme:submit code="manager.leg.form.button.publish" action="/manager/leg/publish"/>	
+			<acme:submit code="manager.leg.form.button.delete" action="/manager/leg/delete"/>	
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command,'show|update|publish|delete')}">
+			<acme:submit code="manager.leg.form.button.update" action="/manager/leg/update"/>	
+			<acme:submit code="manager.leg.form.button.publish" action="/manager/leg/publish"/>	
+			<acme:submit code="manager.leg.form.button.delete" action="/manager/leg/delete"/>
 		</jstl:when>
 		<jstl:when  test="${acme:anyOf(_command,'create')}">
-			<acme:submit code="manager.flight.form.button.create" action="/manager/flight/create"/>
+			<acme:submit code="manager.leg.form.button.create" action="/manager/leg/create"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

@@ -3,6 +3,7 @@ package acme.entities.airport;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -66,4 +67,7 @@ public class Airport extends AbstractEntity {
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
 	private String				phoneNumber;
+
+	@Transient
+	private Boolean				confirmation;
 }

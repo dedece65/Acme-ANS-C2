@@ -31,6 +31,7 @@ public class AdministratorAirportUpdateService extends AbstractGuiService<Admini
 		id = super.getRequest().getData("id", int.class);
 		airport = this.repository.findAirportById(id);
 		exist = airport != null;
+
 		super.getResponse().setAuthorised(exist);
 	}
 
@@ -50,7 +51,7 @@ public class AdministratorAirportUpdateService extends AbstractGuiService<Admini
 	public void bind(final Airport airport) {
 		assert airport != null;
 
-		super.bindObject(airport, "name", "iataCode", "operationalScope", "city", "country", "website", "email", "address", "phoneNumber");
+		super.bindObject(airport, "name", "iataCode", "operationalScope", "city", "country", "website", "email", "address", "phoneNumber", "confirmation");
 	}
 
 	@Override
@@ -87,6 +88,7 @@ public class AdministratorAirportUpdateService extends AbstractGuiService<Admini
 
 		if (!this.getBuffer().getErrors().hasErrors("phoneNumber") && airport.getPhoneNumber() != null)
 			super.state(airport.getPhoneNumber().length() <= 15, "phoneNumber", "administrator.airport.form.error.phoneNumber", airport);
+		super.state(airport.getConfirmation(), "confirmation", "administrator.airport.form.error.confirmation", airport);
 
 	}
 
@@ -105,7 +107,7 @@ public class AdministratorAirportUpdateService extends AbstractGuiService<Admini
 		Dataset dataset;
 
 		choices = SelectChoices.from(OperationalScope.class, airport.getOperationalScope());
-		dataset = super.unbindObject(airport, "name", "iataCode", "city", "country", "operationalScope", "website", "email", "address", "phoneNumber");
+		dataset = super.unbindObject(airport, "name", "iataCode", "city", "country", "operationalScope", "website", "email", "address", "phoneNumber", "confirmation");
 		dataset.put("operationalScopes", choices);
 
 		super.getResponse().addData(dataset);

@@ -23,6 +23,7 @@ administrator.form.label.website = Website
 administrator.form.label.email = Email
 administrator.form.label.address = Address
 administrator.form.label.phoneNumber = Phone Number
+administrator.aiport.form.label.confirm = confirm
 
 administrator.airport.form.error.noOperationalScope = There is no operational scope selected
 administrator.airport.form.error.city = City must be 50 characters or lower
@@ -31,7 +32,7 @@ administrator.airport.form.error.website = Website too long
 administrator.airport.form.error.address = Address too long
 administrator.airport.form.error.email = Email too long
 administrator.airport.form.error.phoneNumber = Phone Number too long
-
+administrator.airport.form.error.confirmation = Must confirm the action
 
 administrator.airport.form.button.create = CREATE
 administrator.airport.form.button.update = UPDATE

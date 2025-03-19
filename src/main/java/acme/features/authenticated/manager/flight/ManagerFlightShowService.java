@@ -7,6 +7,7 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flight.Flight;
+import acme.features.authenticated.manager.leg.ManagerLegRepository;
 import acme.realms.Manager;
 
 @GuiService
@@ -15,7 +16,10 @@ public class ManagerFlightShowService extends AbstractGuiService<Manager, Flight
 	// Internal State -------------------------------------------------------
 
 	@Autowired
-	private ManagerFlightRepository repository;
+	private ManagerFlightRepository	repository;
+
+	@Autowired
+	private ManagerLegRepository	legRepository;
 
 	// AbstractGuiService interface -----------------------------------------
 
@@ -31,7 +35,7 @@ public class ManagerFlightShowService extends AbstractGuiService<Manager, Flight
 		flight = this.repository.findFlightById(id);
 
 		exist = flight != null;
-		ownsFlight = flight.getManager().getId() == super.getRequest().getPrincipal().getAccountId();
+		ownsFlight = flight.getManager().getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
 		if (!(exist && ownsFlight))
 			exist = false;
 		super.getResponse().setAuthorised(exist);
@@ -60,6 +64,7 @@ public class ManagerFlightShowService extends AbstractGuiService<Manager, Flight
 		dataset.put("destinationCity", flight.getDestinationCity());
 		dataset.put("layovers", flight.getLayovers());
 
+		super.getResponse().addGlobal("masterId", flight.getId());
 		super.getResponse().addData(dataset);
 	}
 }

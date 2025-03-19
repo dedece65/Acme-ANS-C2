@@ -29,7 +29,7 @@ manager.form.label.layovers = Layovers
 manager.flight.form.button.update = Update Flight
 manager.flight.form.button.publish = Publish Flight
 manager.flight.form.button.delete = Delete Flight
-manager.flight.form.button.legs = View Legs
+manager.flight.form.button.legs = See layovers
 manager.flight.form.button.create = Create Flight
 
 manager.flight.form.error.name = The tag must be at most 50 characters long.
