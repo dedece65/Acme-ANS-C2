@@ -18,7 +18,7 @@ public class ManagerFlightCreateService extends AbstractGuiService<Manager, Flig
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		super.getResponse().setAuthorised(super.getRequest().getPrincipal().getActiveRealm().getClass().equals(Manager.class));
 	}
 
 	@Override
@@ -27,6 +27,8 @@ public class ManagerFlightCreateService extends AbstractGuiService<Manager, Flig
 
 		flight = new Flight();
 
+		flight.setManager((Manager) super.getRequest().getPrincipal().getActiveRealm());
+		flight.setDraftMode(true);
 		super.getBuffer().addData(flight);
 	}
 
@@ -62,12 +64,7 @@ public class ManagerFlightCreateService extends AbstractGuiService<Manager, Flig
 		assert flight != null;
 
 		Dataset dataset;
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description");
-		dataset.put("scheduledDeparture", flight.getScheduledDeparture());
-		dataset.put("scheduledArrival", flight.getScheduledArrival());
-		dataset.put("originCity", flight.getOriginCity());
-		dataset.put("destinationCity", flight.getDestinationCity());
-		dataset.put("layovers", flight.getLayovers());
+		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode");
 
 		super.getResponse().addData(dataset);
 	}

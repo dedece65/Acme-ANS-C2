@@ -41,6 +41,6 @@ public class ManagerFlightController extends AbstractGuiController<Manager, Flig
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
-		//super.addBasicCommand("publish", this.publishService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 }

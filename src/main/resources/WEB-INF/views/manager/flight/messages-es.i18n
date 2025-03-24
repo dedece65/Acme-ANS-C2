@@ -20,6 +20,7 @@ manager.form.label.scheduledArrival = Llegada Programada
 manager.form.label.originCity = Ciudad de Origen
 manager.form.label.destinationCity = Ciudad de Destino
 manager.form.label.layovers = Escalas
+manager.flight.list.label.draftMode = Borrador
 
 manager.flight.form.button.update = Actualizar Vuelo
 manager.flight.form.button.publish = Publicar Vuelo
@@ -31,3 +32,6 @@ manager.flight.form.error.name = La etiqueta debe tener como máximo 50 caracter
 manager.flight.form.error.requiresSelfTransfer = Se debe especificar si requiere transferencia propia.
 manager.flight.form.error.cost = El costo debe ser un valor positivo.
 manager.flight.form.error.description = La descripción debe tener como máximo 255 caracteres.
+manager.flight.form.error.layovers = Para publicar el vuelo debe de tener al menos un embarque
+manager.flight.form.error.draftMode = No puedes modificar o eliminar un vuelo ya publicado
+manager.flight.noLegsPublished = Todos los embarques deben de estar publicados

@@ -9,6 +9,8 @@ import acme.client.services.GuiService;
 import acme.entities.flight.Flight;
 import acme.realms.Manager;
 
+// TODO: arreglar bug que no soporta POST
+
 @GuiService
 public class ManagerFlightUpdateService extends AbstractService<Manager, Flight> {
 
@@ -20,10 +22,13 @@ public class ManagerFlightUpdateService extends AbstractService<Manager, Flight>
 	public void authorise() {
 		Flight object;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findFlightById(id);
-		int userAccountId = super.getRequest().getPrincipal().getAccountId();
-		super.getResponse().setAuthorised(object.getManager().getUserAccount().getId() == userAccountId && object.getDraftMode());
+		Manager manager = object == null ? null : object.getManager();
+		boolean status = object != null && object.getDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -69,12 +74,17 @@ public class ManagerFlightUpdateService extends AbstractService<Manager, Flight>
 		assert flight != null;
 
 		Dataset dataset;
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description");
+		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode");
 		dataset.put("scheduledDeparture", flight.getScheduledDeparture());
 		dataset.put("scheduledArrival", flight.getScheduledArrival());
 		dataset.put("originCity", flight.getOriginCity());
 		dataset.put("destinationCity", flight.getDestinationCity());
 		dataset.put("layovers", flight.getLayovers());
+
+		if (flight.getScheduledDeparture() == null)
+			dataset.put("scheduledDeparture", "NA");
+		if (flight.getScheduledArrival() == null)
+			dataset.put("scheduledArrival", "NA");
 
 		super.getResponse().addData(dataset);
 	}

@@ -1,11 +1,15 @@
 
 package acme.features.authenticated.manager.flight;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flight.Flight;
+import acme.entities.leg.Leg;
 import acme.realms.Manager;
 
 @GuiService
@@ -17,21 +21,11 @@ public class ManagerFlightDeleteService extends AbstractGuiService<Manager, Flig
 
 	@Override
 	public void authorise() {
-		boolean exist;
-		boolean ownsFlight;
-		Flight flight;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		flight = this.repository.findFlightById(id);
-
-		exist = flight != null;
-		ownsFlight = flight.getManager().getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
-		if (!(exist && ownsFlight))
-			exist = false;
-		if (!flight.getDraftMode() || flight.getDraftMode() == null)
-			exist = false;
-		super.getResponse().setAuthorised(exist);
+		int flightId = super.getRequest().getData("id", int.class);
+		Flight flight = this.repository.findFlightById(flightId);
+		Manager manager = flight == null ? null : flight.getManager();
+		boolean allowed = flight != null && flight.getDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
+		super.getResponse().setAuthorised(allowed);
 	}
 
 	@Override
@@ -54,11 +48,25 @@ public class ManagerFlightDeleteService extends AbstractGuiService<Manager, Flig
 	@Override
 	public void validate(final Flight object) {
 		assert object != null;
+
+		super.state(object.getDraftMode(), "layovers", "manager.flight.form.error.draftMode", object);
 	}
 
 	@Override
 	public void perform(final Flight object) {
 		assert object != null;
+
+		Collection<Leg> legs = this.repository.findLegsByFlightId(object.getId());
+		this.repository.deleteAll(legs);
+
 		this.repository.delete(object);
+	}
+
+	@Override
+	public void unbind(final Flight flight) {
+		assert flight != null;
+
+		Dataset dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode");
+		super.getResponse().addData(dataset);
 	}
 }

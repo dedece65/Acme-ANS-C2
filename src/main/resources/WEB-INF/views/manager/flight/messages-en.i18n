@@ -25,6 +25,7 @@ manager.form.label.scheduledArrival = Scheduled Arrival
 manager.form.label.originCity = Origin City
 manager.form.label.destinationCity = Destination City
 manager.form.label.layovers = Layovers
+manager.flight.list.label.draftMode = Draft Mode
 
 manager.flight.form.button.update = Update Flight
 manager.flight.form.button.publish = Publish Flight
@@ -36,3 +37,6 @@ manager.flight.form.error.name = The tag must be at most 50 characters long.
 manager.flight.form.error.requiresSelfTransfer = Requires Self Transfer must be specified.
 manager.flight.form.error.cost = The cost must be a positive value.
 manager.flight.form.error.description = The description must be at most 255 characters long.
+manager.flight.form.error.layovers = To be published it must have at least one leg
+manager.flight.form.error.draftMode = You cannot delete or update a published flight
+manager.flight.noLegsPublished = All legs must be published

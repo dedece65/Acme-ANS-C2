@@ -1,12 +1,15 @@
 
 package acme.features.authenticated.manager.flight;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flight.Flight;
+import acme.entities.leg.Leg;
 import acme.realms.Manager;
 
 @GuiService
@@ -20,16 +23,21 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 	public void authorise() {
 		Flight object;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findFlightById(id);
-		int userAccountId = super.getRequest().getPrincipal().getAccountId();
-		super.getResponse().setAuthorised(object.getManager().getUserAccount().getId() == userAccountId && object.getDraftMode());
+
+		Manager manager = object == null ? null : object.getManager();
+		boolean allowed = object != null && object.getDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
+
+		super.getResponse().setAuthorised(allowed);
 	}
 
 	@Override
 	public void load() {
 		Flight flight;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
 		flight = this.repository.findFlightById(id);
 
@@ -39,8 +47,6 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 	@Override
 	public void bind(final Flight flight) {
 		assert flight != null;
-
-		super.bindObject(flight, "tag", "requiresSelfTransfer", "cost", "description");
 	}
 
 	@Override
@@ -55,6 +61,13 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 			super.state(flight.getCost().getAmount() >= 0, "cost", "manager.flight.form.error.cost", flight);
 		if (!this.getBuffer().getErrors().hasErrors("description") && flight.getDescription() != null)
 			super.state(flight.getDescription().length() <= 255, "tag", "manager.flight.form.error.description", flight);
+
+		super.state(flight.getLayovers() > 0, "layovers", "manager.flight.form.error.layovers", flight);
+
+		// Todos los legs deben estar publicados
+		Collection<Leg> legs = this.repository.findLegsByFlightId(flight.getId());
+		boolean allPublished = legs.stream().allMatch(leg -> !leg.getDraftMode());
+		super.state(allPublished, "*", "manager.flight.noLegsPublished");
 	}
 
 	@Override
@@ -70,12 +83,17 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 		assert flight != null;
 
 		Dataset dataset;
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description");
+		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode");
 		dataset.put("scheduledDeparture", flight.getScheduledDeparture());
 		dataset.put("scheduledArrival", flight.getScheduledArrival());
 		dataset.put("originCity", flight.getOriginCity());
 		dataset.put("destinationCity", flight.getDestinationCity());
 		dataset.put("layovers", flight.getLayovers());
+
+		if (flight.getScheduledDeparture() == null)
+			dataset.put("scheduledDeparture", "NA");
+		if (flight.getScheduledArrival() == null)
+			dataset.put("scheduledArrival", "NA");
 
 		super.getResponse().addData(dataset);
 	}

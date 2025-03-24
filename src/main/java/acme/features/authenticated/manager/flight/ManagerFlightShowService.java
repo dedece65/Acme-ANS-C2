@@ -7,7 +7,6 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flight.Flight;
-import acme.features.authenticated.manager.leg.ManagerLegRepository;
 import acme.realms.Manager;
 
 @GuiService
@@ -16,29 +15,22 @@ public class ManagerFlightShowService extends AbstractGuiService<Manager, Flight
 	// Internal State -------------------------------------------------------
 
 	@Autowired
-	private ManagerFlightRepository	repository;
-
-	@Autowired
-	private ManagerLegRepository	legRepository;
+	private ManagerFlightRepository repository;
 
 	// AbstractGuiService interface -----------------------------------------
 
 
 	@Override
 	public void authorise() {
-		boolean exist;
-		boolean ownsFlight;
-		Flight flight;
+		Flight object;
 		int id;
-
 		id = super.getRequest().getData("id", int.class);
-		flight = this.repository.findFlightById(id);
+		object = this.repository.findFlightById(id);
 
-		exist = flight != null;
-		ownsFlight = flight.getManager().getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
-		if (!(exist && ownsFlight))
-			exist = false;
-		super.getResponse().setAuthorised(exist);
+		Manager manager = object == null ? null : object.getManager();
+		boolean allowed = object != null && super.getRequest().getPrincipal().hasRealm(manager);
+
+		super.getResponse().setAuthorised(allowed);
 	}
 
 	@Override
@@ -57,14 +49,18 @@ public class ManagerFlightShowService extends AbstractGuiService<Manager, Flight
 		assert flight != null;
 
 		Dataset dataset;
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description");
+		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode");
 		dataset.put("scheduledDeparture", flight.getScheduledDeparture());
 		dataset.put("scheduledArrival", flight.getScheduledArrival());
 		dataset.put("originCity", flight.getOriginCity());
 		dataset.put("destinationCity", flight.getDestinationCity());
 		dataset.put("layovers", flight.getLayovers());
 
-		super.getResponse().addGlobal("masterId", flight.getId());
+		if (flight.getScheduledDeparture() == null)
+			dataset.put("scheduledDeparture", "NA");
+		if (flight.getScheduledArrival() == null)
+			dataset.put("scheduledArrival", "NA");
+
 		super.getResponse().addData(dataset);
 	}
 }

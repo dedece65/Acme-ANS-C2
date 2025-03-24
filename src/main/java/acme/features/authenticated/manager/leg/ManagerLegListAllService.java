@@ -9,43 +9,31 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.leg.Leg;
-import acme.features.authenticated.manager.flight.ManagerFlightRepository;
 import acme.realms.Manager;
 
 @GuiService
-public class ManagerLegListService extends AbstractGuiService<Manager, Leg> {
+public class ManagerLegListAllService extends AbstractGuiService<Manager, Leg> {
 
 	// Internal State -------------------------------------------------------
 
 	@Autowired
-	private ManagerLegRepository	repository;
-
-	@Autowired
-	private ManagerFlightRepository	flightRepository;
+	private ManagerLegRepository repository;
 
 	// AbstractGuiService interface -----------------------------------------
 
 
 	@Override
 	public void authorise() {
-		int flightId;
-		int principalId;
-		int id;
-
-		flightId = super.getRequest().getData("masterId", int.class);
-		principalId = this.flightRepository.findFlightById(flightId).getManager().getUserAccount().getId();
-		id = super.getRequest().getPrincipal().getAccountId();
-
-		super.getResponse().setAuthorised(id == principalId);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Collection<Leg> legs;
 
-		int id = super.getRequest().getData("masterId", int.class);
+		int id = super.getRequest().getPrincipal().getAccountId();
 
-		legs = this.repository.findLegsByFlight(id);
+		legs = this.repository.findLegsByManager(id);
 
 		super.getBuffer().addData(legs);
 	}
