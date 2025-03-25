@@ -7,9 +7,8 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.services.GuiService;
 import acme.entities.flight.Flight;
+import acme.entities.leg.LegStatus;
 import acme.realms.Manager;
-
-// TODO: arreglar bug que no soporta POST
 
 @GuiService
 public class ManagerFlightUpdateService extends AbstractService<Manager, Flight> {
@@ -44,7 +43,7 @@ public class ManagerFlightUpdateService extends AbstractService<Manager, Flight>
 	@Override
 	public void bind(final Flight flight) {
 		assert flight != null;
-
+		LegStatus status = super.getRequest().getData("legStatus",LegStatus.class);
 		super.bindObject(flight, "tag", "requiresSelfTransfer", "cost", "description");
 	}
 

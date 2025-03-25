@@ -9,7 +9,9 @@ import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.aircraft.Aircraft;
 import acme.entities.airport.Airport;
+import acme.entities.flight.Flight;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
 import acme.realms.Manager;
@@ -38,6 +40,7 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 
 		leg = new Leg();
 
+		leg.setStatus(super.getRequest().getData("legStatus", LegStatus.class));
 		leg.setManager((Manager) super.getRequest().getPrincipal().getActiveRealm());
 
 		super.getBuffer().addData(leg);
@@ -47,7 +50,7 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 	public void bind(final Leg leg) {
 		assert leg != null;
 
-		super.bindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "legStatus", "departureAirport", "arrivalAirport", "aircraft", "flight");
+		super.bindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "departureAirport", "arrivalAirport", "aircraft", "flight");
 	}
 
 	@Override
@@ -71,13 +74,32 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 	@Override
 	public void unbind(final Leg leg) {
 		assert leg != null;
-		SelectChoices choices;
-		Dataset dataset;
-		List<Airport> airports = this.repository.findAllAirports();
 
-		choices = SelectChoices.from(LegStatus.class, leg.getStatus());
+		Dataset dataset;
 		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "departureAirport", "arrivalAirport", "aircraft", "flight");
+
+		SelectChoices choices;
+		choices = SelectChoices.from(LegStatus.class, leg.getStatus());
+		dataset.put("choices", choices);
 		dataset.put("legStatus", leg.getStatus());
+
+		if (leg.getAircraft() == null) {
+			List<Aircraft> aircrafts = this.repository.findAllAircraft();
+			SelectChoices aircraftChoices = SelectChoices.from(aircrafts, "id", leg.getAircraft());
+			dataset.put("aircraftChoices", aircraftChoices);
+		}
+
+		if (leg.getFlight() == null) {
+			List<Flight> flights = this.repository.findAllFlights();
+			SelectChoices flightChoices = SelectChoices.from(flights, "id", leg.getFlight());
+			dataset.put("flightChoices", flightChoices);
+		}
+
+		if (leg.getDepartureAirport() == null) {
+			List<Airport> airports = this.repository.findAllAirports();
+			SelectChoices airportChoices = SelectChoices.from(airports, "id", leg.getDepartureAirport());
+			dataset.put("airportChoices", airportChoices);
+		}
 
 		super.getResponse().addData(dataset);
 	}

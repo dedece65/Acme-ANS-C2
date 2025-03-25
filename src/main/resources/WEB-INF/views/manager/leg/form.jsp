@@ -7,11 +7,11 @@
 	<acme:input-textbox code="manager.form.label.flightNumber" path="flightNumber"/>
 	<acme:input-textbox code="manager.form.label.scheduledDeparture" path="scheduledDeparture"/>
 	<acme:input-textbox code="manager.form.label.scheduledArrival" path="scheduledArrival"/>
-	<acme:input-select code="manager.form.label.status" path="legStatus" choices="${legStatuses}"/>
-	<acme:input-textbox code="manager.form.label.departureAirport" path="departureAirport"/>
-	<acme:input-textbox code="manager.form.label.arrivalAirport" path="arrivalAirport"/>
-	<acme:input-textbox code="manager.form.label.aircraft" path="aircraft"/>
-	<acme:input-textbox code="manager.form.label.flight" path="flight"/>
+	<acme:input-select code="manager.form.label.status" path="status" choices="${choices}"/>
+	<acme:input-select code="manager.form.label.departureAirport" path="departureAirport" choices="${airportChoices}"/>
+	<acme:input-select code="manager.form.label.arrivalAirport" path="arrivalAirport" choices="${airportChoices}"/>
+	<acme:input-select code="manager.form.label.aircraft" path="aircraft" choices="${aircraftChoices}"/>
+	<acme:input-select code="manager.form.label.flight" path="flight" choices="${flightChoices}"/>
 
 	<jstl:if  test="${acme:anyOf(_command,'create')}">
 		<acme:submit code="manager.leg.form.button.create" action="/manager/leg/create"/>
