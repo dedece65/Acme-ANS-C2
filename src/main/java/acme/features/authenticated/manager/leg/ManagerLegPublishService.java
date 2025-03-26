@@ -4,11 +4,9 @@ package acme.features.authenticated.manager.leg;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.leg.Leg;
-import acme.entities.leg.LegStatus;
 import acme.realms.Manager;
 
 @GuiService
@@ -66,11 +64,8 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		assert object != null;
 
 		Dataset dataset;
-		SelectChoices choices;
-		choices = SelectChoices.from(LegStatus.class, object.getStatus());
-		dataset = super.unbindObject(object, "flightNumber", "scheduledDeparture", "scheduledArrival", "status", "departureAirport", "arrivalAirport", "aircraft", "flight", "draftMode");
-		dataset.put("choices", choices);
-
+		dataset = super.unbindObject(object, "flightNumber", "scheduledDeparture", "scheduledArrival", "departureAirport", "arrivalAirport", "aircraft", "flight", "draftMode");
+		dataset.put("legStatus", object.getStatus());
 		super.getResponse().addData(dataset);
 	}
 }

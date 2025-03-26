@@ -19,7 +19,6 @@ manager.form.label.departureAirport = Departure Airport
 manager.form.label.arrivalAirport = Arrival Airport
 manager.form.label.aircraft = Aircraft
 manager.form.label.manager = Manager
-manager.form.label.flight = Flight
 manager.form.label.draftMode = Draft Mode
 manager.leg.list.label.draftMode = Draft Mode
 
@@ -36,7 +35,6 @@ manager.leg.form.error.departureAirport = A departure airport must be specified.
 manager.leg.form.error.arrivalAirport = An arrival airport must be specified.
 manager.leg.form.error.aircraft = An aircraft must be specified.
 manager.leg.form.error.manager = A manager must be specified.
-manager.leg.form.error.flight = A flight must be specified.
 manager.leg.form.error.draftMode = The draft mode is required.
 
 manager.leg.list.label.flightNumber = Flight Number

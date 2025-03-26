@@ -9,3 +9,4 @@ leg-07,ABC1239,2028/02/29 12:00,2028/02/29 13:00,CANCELLED,airport-01,airport-02
 leg-08,ABC2234,2025/07/20 18:00,2025/07/20 19:45,ON_TIME,airport-01,airport-02,aircraft-01,manager-01,flight-07,true
 leg-09,ABC3234,2025/07/20 18:00,2025/07/20 19:45,DELAYED,airport-01,airport-02,aircraft-01,manager-01,flight-08,true
 leg-10,ABC4234,2025/07/20 18:00,2025/07/20 19:45,LANDED,airport-01,airport-02,aircraft-01,manager-01,flight-09,true
+leg-11,ABC4235,2025/07/20 18:00,2025/07/20 19:45,LANDED,airport-01,airport-02,aircraft-01,manager-01,flight-30,false

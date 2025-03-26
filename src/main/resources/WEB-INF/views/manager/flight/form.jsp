@@ -32,7 +32,5 @@
 	<jstl:if test="${draftMode && acme:anyOf(_command,'show|update|publish|delete')}">
 		<acme:submit code="manager.flight.form.button.publish" action="/manager/flight/publish"/>	
 	</jstl:if>
-	<jstl:if test="${layovers > 0 && acme:anyOf(_command,'show|update|publish|delete')}">
-		<acme:button code="manager.flight.form.button.legs" action="/manager/leg/list?masterId=${id}"/>
-	</jstl:if>
+	<acme:button code="manager.flight.form.button.legs" action="/manager/leg/list?masterId=${id}"/>
 </acme:form>

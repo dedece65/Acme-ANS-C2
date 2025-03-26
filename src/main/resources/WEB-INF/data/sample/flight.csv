@@ -28,3 +28,4 @@ flight-26,FL123,true,EUR 10.0,洛伦·伊普森,manager-01,true
 flight-27,FL123,true,EUR 10.0,<marquee>Hacked</marquee>,manager-01,true
 flight-28,FL123,true,EUR 10.0,<script>alert(‘Hacked!’);</script>,manager-01,true
 flight-29,FL123,true,EUR 10.0,' or 'A' = 'A,manager-01,true
+flight-30,FL123,true,EUR 10.0,' or 'A' = 'A,manager-01,false

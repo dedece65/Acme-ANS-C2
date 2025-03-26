@@ -11,7 +11,6 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.airport.Airport;
-import acme.entities.flight.Flight;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
 import acme.realms.Manager;
@@ -41,6 +40,7 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 		leg = new Leg();
 
 		leg.setStatus(super.getRequest().getData("legStatus", LegStatus.class));
+		leg.setFlight(this.repository.findFlightById(super.getRequest().getData("id", int.class)));
 		leg.setManager((Manager) super.getRequest().getPrincipal().getActiveRealm());
 
 		super.getBuffer().addData(leg);
@@ -83,23 +83,13 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 		dataset.put("choices", choices);
 		dataset.put("legStatus", leg.getStatus());
 
-		if (leg.getAircraft() == null) {
-			List<Aircraft> aircrafts = this.repository.findAllAircraft();
-			SelectChoices aircraftChoices = SelectChoices.from(aircrafts, "id", leg.getAircraft());
-			dataset.put("aircraftChoices", aircraftChoices);
-		}
+		List<Aircraft> aircrafts = this.repository.findAllAircraft();
+		SelectChoices aircraftChoices = SelectChoices.from(aircrafts, "id", leg.getAircraft());
+		dataset.put("aircraftChoices", aircraftChoices);
 
-		if (leg.getFlight() == null) {
-			List<Flight> flights = this.repository.findAllFlights();
-			SelectChoices flightChoices = SelectChoices.from(flights, "id", leg.getFlight());
-			dataset.put("flightChoices", flightChoices);
-		}
-
-		if (leg.getDepartureAirport() == null) {
-			List<Airport> airports = this.repository.findAllAirports();
-			SelectChoices airportChoices = SelectChoices.from(airports, "id", leg.getDepartureAirport());
-			dataset.put("airportChoices", airportChoices);
-		}
+		List<Airport> airports = this.repository.findAllAirports();
+		SelectChoices airportChoices = SelectChoices.from(airports, "id", leg.getDepartureAirport());
+		dataset.put("airportChoices", airportChoices);
 
 		super.getResponse().addData(dataset);
 	}

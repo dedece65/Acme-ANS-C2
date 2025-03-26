@@ -4,14 +4,13 @@ package acme.features.authenticated.manager.flight;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.services.AbstractService;
+import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flight.Flight;
-import acme.entities.leg.LegStatus;
 import acme.realms.Manager;
 
 @GuiService
-public class ManagerFlightUpdateService extends AbstractService<Manager, Flight> {
+public class ManagerFlightUpdateService extends AbstractGuiService<Manager, Flight> {
 
 	@Autowired
 	private ManagerFlightRepository repository;
@@ -43,7 +42,6 @@ public class ManagerFlightUpdateService extends AbstractService<Manager, Flight>
 	@Override
 	public void bind(final Flight flight) {
 		assert flight != null;
-		LegStatus status = super.getRequest().getData("legStatus",LegStatus.class);
 		super.bindObject(flight, "tag", "requiresSelfTransfer", "cost", "description");
 	}
 

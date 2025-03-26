@@ -11,10 +11,9 @@
 	<acme:input-select code="manager.form.label.departureAirport" path="departureAirport" choices="${airportChoices}"/>
 	<acme:input-select code="manager.form.label.arrivalAirport" path="arrivalAirport" choices="${airportChoices}"/>
 	<acme:input-select code="manager.form.label.aircraft" path="aircraft" choices="${aircraftChoices}"/>
-	<acme:input-select code="manager.form.label.flight" path="flight" choices="${flightChoices}"/>
 
 	<jstl:if  test="${acme:anyOf(_command,'create')}">
-		<acme:submit code="manager.leg.form.button.create" action="/manager/leg/create"/>
+		<acme:submit code="manager.leg.form.button.create" action="/manager/leg/create?masterId=${masterId}"/>
 	</jstl:if>
 	<jstl:if test="${draftMode && acme:anyOf(_command,'show|update|publish|delete')}">
 		<acme:submit code="manager.leg.form.button.update" action="/manager/leg/update"/>	

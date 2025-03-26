@@ -11,7 +11,6 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.airport.Airport;
-import acme.entities.flight.Flight;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
 import acme.realms.Manager;
@@ -67,24 +66,16 @@ public class ManagerLegShowService extends AbstractGuiService<Manager, Leg> {
 		SelectChoices choices;
 		choices = SelectChoices.from(LegStatus.class, leg.getStatus());
 		dataset.put("choices", choices);
+		dataset.put("legStatus", leg.getStatus());
 
-		if (leg.getAircraft() == null) {
-			List<Aircraft> aircrafts = this.repository.findAllAircraft();
-			SelectChoices aircraftChoices = SelectChoices.from(aircrafts, "id", leg.getAircraft());
-			dataset.put("aircraftChoices", aircraftChoices);
-		}
+		List<Aircraft> aircrafts = this.repository.findAllAircraft();
+		SelectChoices aircraftChoices = SelectChoices.from(aircrafts, "id", leg.getAircraft());
+		dataset.put("aircraftChoices", aircraftChoices);
 
-		if (leg.getFlight() == null) {
-			List<Flight> flights = this.repository.findAllFlights();
-			SelectChoices flightChoices = SelectChoices.from(flights, "id", leg.getFlight());
-			dataset.put("flightChoices", flightChoices);
-		}
+		List<Airport> airports = this.repository.findAllAirports();
+		SelectChoices airportChoices = SelectChoices.from(airports, "id", leg.getDepartureAirport());
+		dataset.put("airportChoices", airportChoices);
 
-		if (leg.getDepartureAirport() == null) {
-			List<Airport> airports = this.repository.findAllAirports();
-			SelectChoices airportChoices = SelectChoices.from(airports, "id", leg.getDepartureAirport());
-			dataset.put("airportChoices", airportChoices);
-		}
 		super.getResponse().addData(dataset);
 	}
 }

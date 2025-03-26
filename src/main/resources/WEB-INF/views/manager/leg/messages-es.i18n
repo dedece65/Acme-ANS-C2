@@ -19,7 +19,6 @@ manager.form.label.departureAirport = Aeropuerto de Salida
 manager.form.label.arrivalAirport = Aeropuerto de Llegada
 manager.form.label.aircraft = Aeronave
 manager.form.label.manager = Administrador
-manager.form.label.flight = Vuelo
 manager.form.label.draftMode = Modo Borrador
 manager.leg.list.label.draftMode = Borrador
 
@@ -36,7 +35,6 @@ manager.leg.form.error.departureAirport = Se debe especificar un aeropuerto de s
 manager.leg.form.error.arrivalAirport = Se debe especificar un aeropuerto de llegada.
 manager.leg.form.error.aircraft = Se debe especificar una aeronave.
 manager.leg.form.error.manager = Se debe especificar un administrador.
-manager.leg.form.error.flight = Se debe especificar un vuelo.
 manager.leg.form.error.draftMode = El modo borrador es obligatorio.
 
 manager.leg.list.label.flightNumber = Número de Vuelo
