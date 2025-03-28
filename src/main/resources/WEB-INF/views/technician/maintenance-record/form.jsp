@@ -17,10 +17,41 @@
 
 
 <acme:form readonly = "${readonly}">
-	<acme:input-textbox code = "technician.maintenanceRecords.form.label.maintenanceMoment" path = "maintenanceMoment"/>
-	<acme:input-textbox code = "technician.maintenanceRecords.form.label.status" path = "status"/>
-	<acme:input-textbox code = "technician.maintenanceRecords.form.label.nextInspectionDue" path = "nextInspectionDue"/>
-	<acme:input-textbox code = "technician.maintenanceRecords.form.label.estimatedCost" path = "estimatedCost"/>
-	<acme:input-textbox code = "technician.maintenanceRecords.form.label.notes" path = "notes"/>
 	
+	<jstl:if test="${not acme:anyOf(_command,'create')}">
+		<acme:input-textbox code="technician.maintenance-record.form.label.maintenanceMoment" path="maintenanceMoment"/>
+	</jstl:if>
+
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command,'show')}">
+			<acme:input-textbox code="technician.maintenance-record.form.label.status" path="status"/>
+			
+		</jstl:when>
+		<jstl:otherwise>
+			<acme:input-select code="technician.maintenance-record.form.label.status" path="status" choices="${status}"/>
+			
+		</jstl:otherwise>
+	</jstl:choose>
+
+	<acme:input-moment code="technician.maintenance-record.form.label.nextInspectionDue" path="nextInspectionDue"/>
+	<acme:input-money code="technician.maintenance-record.form.label.estimatedCost" path="estimatedCost"/>
+	<acme:input-textbox code="technician.maintenance-record.form.label.notes" path="notes"/>
+	<jstl:choose>
+	
+	<jstl:when test="${acme:anyOf(_command,'create')}">
+		<acme:input-select code="technician.maintenance-record.form.label.aircraft" path="aircraft" choices="${aircraft}"/>
+	</jstl:when>
+	</jstl:choose>
+	
+
+
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command,'show|update')}">
+			<acme:submit code="technician.maintenance-record.form.button.update" action="/technician/maintenance-record/update"/>	
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command,'create')}">
+			<acme:submit code="technician.maintenance-record.form.button.create" action="/technician/maintenance-record/create"/>
+		</jstl:when>
+	</jstl:choose>
+
 </acme:form>
