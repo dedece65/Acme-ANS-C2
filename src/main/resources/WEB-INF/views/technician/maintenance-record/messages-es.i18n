@@ -20,6 +20,7 @@ technician.maintenance-record.list.label.nextInspectionDue = Fecha de la próxim
 
 technician.maintenance-record.form.button.create = Crear
 technician.maintenance-record.form.button.update = Update
+technician.maintenance-record.form.button.delete = Borrar
 
 
 technician.maintenance-record.form.label.maintenanceMoment = Momento
