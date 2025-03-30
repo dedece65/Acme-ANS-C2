@@ -1,61 +1,61 @@
-key,maintenanceMoment,status,nextInspectionDue,estimatedCost,notes,key:aircraft,key:technician
-maintenance-001,2021/03/02 10:30,IN_PROGRESS,2026/02/09 10:30,EUR 36418.65,Unicode test: 你好,aircraft-01,technician-02
-maintenance-002,2020/03/03 10:30,IN_PROGRESS,2025/01/02 10:30,EUR 66449.86,Text with special characters! #$%@,aircraft-01,technician-02
-maintenance-003,2019/03/04 10:30,COMPLETED,2024/09/08 10:30,EUR 63005.07,Edge case with spaces              ,aircraft-01,technician-01
-maintenance-004,2018/03/05 10:30,IN_PROGRESS,2025/09/28 10:30,EUR 4100.45,Hello world!,aircraft-01,technician-01
-maintenance-005,2017/03/06 10:30,IN_PROGRESS,2024/10/24 10:30,EUR 28334.97,This one has exactly 50 characters in total length,aircraft-01,technician-02
-maintenance-006,2016/03/07 10:30,COMPLETED,2025/12/06 10:30,EUR 84924.41,This is a string with exactly 30 characters!!,aircraft-01,technician-02
-maintenance-007,2015/03/08 10:30,PENDING,2024/10/27 10:30,EUR 79104.56,A,aircraft-01,technician-01
-maintenance-008,2014/03/09 10:30,IN_PROGRESS,2025/04/15 10:30,EUR 43273.12,Lorem ipsum dolor sit amet consectetur adipiscing elit.,aircraft-01,technician-01
-maintenance-009,2013/03/10 10:30,IN_PROGRESS,2025/05/02 10:30,EUR 37796.47,Text with numbers 1234567890.,aircraft-01,technician-02
-maintenance-010,2012/03/11 10:30,IN_PROGRESS,2024/09/22 10:30,EUR 10902.29,Some symbols: ☀★♫,aircraft-01,technician-02
-maintenance-011,2011/03/12 10:30,COMPLETED,2025/06/15 10:30,EUR 27002.88,Some mixed Case tExt,aircraft-01,technician-02
-maintenance-012,2010/03/13 10:30,IN_PROGRESS,2026/02/14 10:30,EUR 86949.33,This note has 254 characters almost reaching the 255-character limit. We need to ensure the system handles this properly. If anything overflows or gets cut there might be a storage problem that we should investigate further.,aircraft-01,technician-01
-maintenance-013,2009/03/14 10:30,PENDING,2024/12/14 10:30,EUR 39967.50,Ten characters,aircraft-01,technician-01
-maintenance-014,2008/03/15 10:30,COMPLETED,2025/09/21 10:30,EUR 99999.99,This note is exactly 255 characters long. It should be stored correctly in the database without truncation. If the system trims any part of it then we have found a potential data loss bug that needs to be fixed. We are testing the absolute limit here.,aircraft-01,technician-02
-maintenance-015,2007/03/16 10:30,COMPLETED,2024/09/19 10:30,EUR 4426.69,Short!,aircraft-01,technician-01
-maintenance-016,2006/03/17 10:30,IN_PROGRESS,2025/06/11 10:30,EUR 31398.78,,aircraft-01,technician-01
-maintenance-017,2005/03/18 10:30,IN_PROGRESS,2026/03/10 10:30,EUR 12059.11,Short,aircraft-01,technician-02
-maintenance-018,2004/03/19 10:30,PENDING,2025/08/04 10:30,EUR 35622.64,All uppercase TEXT TEST,aircraft-01,technician-01
-maintenance-019,2003/03/20 10:30,IN_PROGRESS,2025/04/01 10:30,EUR 74329.48,all lowercase text test,aircraft-01,technician-01
-maintenance-020,2002/03/21 10:30,COMPLETED,2026/05/08 10:30,EUR 6533.98,This note contains 150 characters. It's used to ensure that we properly handle longer string inputs within our database system without failure.,aircraft-01,technician-02
-maintenance-021,2001/03/22 10:30,IN_PROGRESS,2025/03/05 10:30,EUR 54713.85,Non-ASCII characters: ñáüç,aircraft-01,technician-01
-maintenance-022,2000/03/23 10:30,COMPLETED,2025/10/31 10:30,EUR 98884.00,Navigation system calibration,aircraft-01,technician-02
-maintenance-023,2001/03/24 10:30,PENDING,2026/01/17 10:30,EUR 49385.50,Emergency oxygen system refill,aircraft-01,technician-01
-maintenance-024,2002/03/25 10:30,COMPLETED,2025/07/07 10:30,EUR 90512.63,Weather radar calibration,aircraft-01,technician-02
-maintenance-025,2003/03/26 10:30,IN_PROGRESS,2026/10/13 10:30,EUR 72132.16,Brake system evaluation,aircraft-01,technician-01
-maintenance-026,2004/03/27 10:30,COMPLETED,2024/12/02 10:30,EUR 5899.01,Propeller balance check,aircraft-01,technician-02
-maintenance-027,2005/03/28 10:30,IN_PROGRESS,2026/02/17 10:30,EUR 36442.35,Tire pressure monitoring,aircraft-01,technician-01
-maintenance-028,2006/03/29 10:30,COMPLETED,2025/06/06 10:30,EUR 99999.99,Cargo hold security check,aircraft-01,technician-02
-maintenance-029,2007/03/30 10:30,PENDING,2026/04/23 10:30,EUR 20005.34,Seatbelt tension evaluation,aircraft-01,technician-01
-maintenance-030,2008/03/31 10:30,IN_PROGRESS,2025/11/01 10:30,EUR 43288.91,Main turbine blade analysis,aircraft-01,technician-02
-maintenance-031,2009/05/02 10:30,COMPLETED,2025/01/12 10:30,EUR 45694.84,Unicode test: 你好,aircraft-01,technician-02
-maintenance-032,2010/05/03 10:30,IN_PROGRESS,2025/08/03 10:30,EUR 71473.42,This note contains 150 characters. It's used to ensure that we properly handle longer string inputs within our database system without failure.,aircraft-01,technician-02
-maintenance-033,2011/05/04 10:30,PENDING,2025/08/10 10:30,EUR 9052.08,Edge case with spaces              ,aircraft-01,technician-01
-maintenance-034,2012/05/05 10:30,IN_PROGRESS,2025/05/04 10:30,EUR 53539.96,Non-ASCII characters: ñáüç,aircraft-01,technician-01
-maintenance-035,2013/05/06 10:30,IN_PROGRESS,2025/10/06 10:30,EUR 32748.87,Text with numbers 1234567890.,aircraft-01,technician-02
-maintenance-036,2014/05/07 10:30,COMPLETED,2025/11/28 10:30,EUR 89761.59,Some mixed Case tExt,aircraft-01,technician-02
-maintenance-037,2015/05/08 10:30,PENDING,2025/06/07 10:30,EUR 6703.25,Lorem ipsum dolor sit amet consectetur adipiscing elit.,aircraft-01,technician-01
-maintenance-038,2016/05/09 10:30,IN_PROGRESS,2025/07/19 10:30,EUR 98454.76,Hello world!,aircraft-01,technician-01
-maintenance-039,2017/05/10 10:30,COMPLETED,2025/04/23 10:30,EUR 75824.32,This one has exactly 50 characters in total length,aircraft-01,technician-02
-maintenance-040,2018/05/11 10:30,IN_PROGRESS,2025/12/14 10:30,EUR 2385.09,Text with a URL: http://example.com,aircraft-01,technician-02
-maintenance-041,2019/05/12 10:30,PENDING,2025/09/18 10:30,EUR 92374.42,This is a string with exactly 30 characters!!,aircraft-01,technician-02
-maintenance-042,2020/05/13 10:30,COMPLETED,2025/08/22 10:30,EUR 10482.63,Supercalifragilisticexpialidocious,aircraft-01,technician-01
-maintenance-043,2021/05/14 10:30,IN_PROGRESS,2025/07/25 10:30,EUR 31892.18,Some symbols: ☀★♫,aircraft-01,technician-01
-maintenance-044,2020/05/15 10:30,COMPLETED,2025/10/30 10:30,EUR 55482.71,This is a note with 200 characters. It helps test how much text can be stored in this field. It ensures that longer descriptions do not cause unexpected truncation or errors when saved in the database.,aircraft-01,technician-02
-maintenance-045,2019/05/16 10:30,PENDING,2025/06/22 10:30,EUR 72184.88,All uppercase TEXT TEST,aircraft-01,technician-01
-maintenance-046,2018/05/17 10:30,COMPLETED,2025/05/20 10:30,EUR 47162.58,Short!,aircraft-01,technician-01
-maintenance-047,2017/05/18 10:30,IN_PROGRESS,2025/11/03 10:30,EUR 3529.64,Text with special characters! #$%@,aircraft-01,technician-02
-maintenance-048,2016/05/19 10:30,PENDING,2025/07/09 10:30,EUR 99999.99,This note has 254 characters almost reaching the 255-character limit. We need to ensure the system handles this properly. If anything overflows or gets cut there might be a storage problem that we should investigate further.,aircraft-01,technician-02
-maintenance-049,2015/05/20 10:30,COMPLETED,2025/08/31 10:30,EUR 20437.55,Cargo hold security check,aircraft-01,technician-01
-maintenance-050,2014/05/21 10:30,IN_PROGRESS,2025/09/15 10:30,EUR 8693.72,Brake system evaluation,aircraft-01,technician-01
-maintenance-051,2013/05/22 10:30,COMPLETED,2025/10/12 10:30,EUR 48271.47,Weather radar calibration,aircraft-01,technician-02
-maintenance-052,2012/05/23 10:30,PENDING,2025/06/29 10:30,EUR 9182.36,Main turbine blade analysis,aircraft-01,technician-01
-maintenance-053,2011/05/24 10:30,IN_PROGRESS,2025/12/17 10:30,EUR 53162.93,This is a string that contains precisely 100 characters so that it can test the database's ability to store long notes.,aircraft-01,technician-01
-maintenance-054,2010/05/25 10:30,COMPLETED,2025/11/09 10:30,EUR 68232.14,,aircraft-01,technician-02
-maintenance-055,2009/05/26 10:30,PENDING,2025/08/27 10:30,EUR 70023.59,Tire pressure monitoring,aircraft-01,technician-01
-maintenance-056,2008/05/27 10:30,IN_PROGRESS,2025/07/14 10:30,EUR 39501.28,Fuel system leakage check,aircraft-01,technician-01
-maintenance-057,2007/05/28 10:30,COMPLETED,2025/09/05 10:30,EUR 24519.93,A,aircraft-01,technician-02
-maintenance-058,2006/05/29 10:30,PENDING,2025/10/20 10:30,EUR 92374.00,Short,aircraft-01,technician-01
-maintenance-059,2005/05/30 10:30,IN_PROGRESS,2025/07/22 10:30,EUR 62183.41,Text with numbers 1234567890.,aircraft-01,technician-01
-maintenance-060,2004/05/31 10:30,COMPLETED,2025/06/30 10:30,EUR 38594.77,Text with a URL: http://example.com,aircraft-01,technician-02
+key,maintenanceMoment,status,nextInspectionDue,estimatedCost,notes,draft-mode,key:aircraft,key:technician
+maintenance-001,2021/03/02 10:30,IN_PROGRESS,2026/02/09 10:30,EUR 36418.65,Unicode test: 你好,TRUE,aircraft-01,technician-02
+maintenance-002,2020/03/03 10:30,IN_PROGRESS,2025/01/02 10:30,EUR 66449.86,Text with special characters! #$%@,TRUE,aircraft-01,technician-02
+maintenance-003,2019/03/04 10:30,COMPLETED,2024/09/08 10:30,EUR 63005.07,Edge case with spaces,TRUE,aircraft-01,technician-01
+maintenance-004,2018/03/05 10:30,IN_PROGRESS,2025/09/28 10:30,EUR 4100.45,Hello world!,TRUE,aircraft-01,technician-01
+maintenance-005,2017/03/06 10:30,IN_PROGRESS,2024/10/24 10:30,EUR 28334.97,This one has exactly 50 characters in total length,TRUE,aircraft-01,technician-02
+maintenance-006,2016/03/07 10:30,COMPLETED,2025/12/06 10:30,EUR 84924.41,This is a string with exactly 30 characters!!,TRUE,aircraft-01,technician-02
+maintenance-007,2015/03/08 10:30,PENDING,2024/10/27 10:30,EUR 79104.56,A,TRUE,aircraft-01,technician-01
+maintenance-008,2014/03/09 10:30,IN_PROGRESS,2025/04/15 10:30,EUR 43273.12,Lorem ipsum dolor sit amet consectetur adipiscing elit.,TRUE,aircraft-01,technician-01
+maintenance-009,2013/03/10 10:30,IN_PROGRESS,2025/05/02 10:30,EUR 37796.47,Text with numbers 1234567890.,TRUE,aircraft-01,technician-02
+maintenance-010,2012/03/11 10:30,IN_PROGRESS,2024/09/22 10:30,EUR 10902.29,Some symbols: ☀★♫,TRUE,aircraft-01,technician-02
+maintenance-011,2011/03/12 10:30,COMPLETED,2025/06/15 10:30,EUR 27002.88,Some mixed Case tExt,TRUE,aircraft-01,technician-02
+maintenance-012,2010/03/13 10:30,IN_PROGRESS,2026/02/14 10:30,EUR 86949.33,This note has 254 characters almost reaching the 255-character limit. We need to ensure the system handles this properly. If anything overflows or gets cut there might be a storage problem that we should investigate further.,TRUE,aircraft-01,technician-01
+maintenance-013,2009/03/14 10:30,PENDING,2024/12/14 10:30,EUR 39967.50,Ten characters,TRUE,aircraft-01,technician-01
+maintenance-014,2008/03/15 10:30,COMPLETED,2025/09/21 10:30,EUR 99999.99,This note is exactly 255 characters long. It should be stored correctly in the database without truncation. If the system trims any part of it then we have found a potential data loss bug that needs to be fixed. We are testing the absolute limit here.,TRUE,aircraft-01,technician-02
+maintenance-015,2007/03/16 10:30,COMPLETED,2024/09/19 10:30,EUR 4426.69,Short!,TRUE,aircraft-01,technician-01
+maintenance-016,2006/03/17 10:30,IN_PROGRESS,2025/06/11 10:30,EUR 31398.78,,TRUE,aircraft-01,technician-01
+maintenance-017,2005/03/18 10:30,IN_PROGRESS,2026/03/10 10:30,EUR 12059.11,Short,TRUE,aircraft-01,technician-02
+maintenance-018,2004/03/19 10:30,PENDING,2025/08/04 10:30,EUR 35622.64,All uppercase TEXT TEST,TRUE,aircraft-01,technician-01
+maintenance-019,2003/03/20 10:30,IN_PROGRESS,2025/04/01 10:30,EUR 74329.48,all lowercase text test,TRUE,aircraft-01,technician-01
+maintenance-020,2002/03/21 10:30,COMPLETED,2026/05/08 10:30,EUR 6533.98,This note contains 150 characters. It's used to ensure that we properly handle longer string inputs within our database system without failure.,TRUE,aircraft-01,technician-02
+maintenance-021,2001/03/22 10:30,IN_PROGRESS,2025/03/05 10:30,EUR 54713.85,Non-ASCII characters: ñáüç,TRUE,aircraft-01,technician-01
+maintenance-022,2000/03/23 10:30,COMPLETED,2025/10/31 10:30,EUR 98884.00,Navigation system calibration,TRUE,aircraft-01,technician-02
+maintenance-023,2001/03/24 10:30,PENDING,2026/01/17 10:30,EUR 49385.50,Emergency oxygen system refill,TRUE,aircraft-01,technician-01
+maintenance-024,2002/03/25 10:30,COMPLETED,2025/07/07 10:30,EUR 90512.63,Weather radar calibration,TRUE,aircraft-01,technician-02
+maintenance-025,2003/03/26 10:30,IN_PROGRESS,2026/10/13 10:30,EUR 72132.16,Brake system evaluation,TRUE,aircraft-01,technician-01
+maintenance-026,2004/03/27 10:30,COMPLETED,2024/12/02 10:30,EUR 5899.01,Propeller balance check,TRUE,aircraft-01,technician-02
+maintenance-027,2005/03/28 10:30,IN_PROGRESS,2026/02/17 10:30,EUR 36442.35,Tire pressure monitoring,TRUE,aircraft-01,technician-01
+maintenance-028,2006/03/29 10:30,COMPLETED,2025/06/06 10:30,EUR 99999.99,Cargo hold security check,TRUE,aircraft-01,technician-02
+maintenance-029,2007/03/30 10:30,PENDING,2026/04/23 10:30,EUR 20005.34,Seatbelt tension evaluation,TRUE,aircraft-01,technician-01
+maintenance-030,2008/03/31 10:30,IN_PROGRESS,2025/11/01 10:30,EUR 43288.91,Main turbine blade analysis,TRUE,aircraft-01,technician-02
+maintenance-031,2009/05/02 10:30,COMPLETED,2025/01/12 10:30,EUR 45694.84,Unicode test: 你好,TRUE,aircraft-01,technician-02
+maintenance-032,2010/05/03 10:30,IN_PROGRESS,2025/08/03 10:30,EUR 71473.42,This note contains 150 characters. It's used to ensure that we properly handle longer string inputs within our database system without failure.,TRUE,aircraft-01,technician-02
+maintenance-033,2011/05/04 10:30,PENDING,2025/08/10 10:30,EUR 9052.08,Edge case with spaces,TRUE,aircraft-01,technician-01
+maintenance-034,2012/05/05 10:30,IN_PROGRESS,2025/05/04 10:30,EUR 53539.96,Non-ASCII characters: ñáüç,TRUE,aircraft-01,technician-01
+maintenance-035,2013/05/06 10:30,IN_PROGRESS,2025/10/06 10:30,EUR 32748.87,Text with numbers 1234567890.,TRUE,aircraft-01,technician-02
+maintenance-036,2014/05/07 10:30,COMPLETED,2025/11/28 10:30,EUR 89761.59,Some mixed Case tExt,TRUE,aircraft-01,technician-02
+maintenance-037,2015/05/08 10:30,PENDING,2025/06/07 10:30,EUR 6703.25,Lorem ipsum dolor sit amet consectetur adipiscing elit.,TRUE,aircraft-01,technician-01
+maintenance-038,2016/05/09 10:30,IN_PROGRESS,2025/07/19 10:30,EUR 98454.76,Hello world!,TRUE,aircraft-01,technician-01
+maintenance-039,2017/05/10 10:30,COMPLETED,2025/04/23 10:30,EUR 75824.32,This one has exactly 50 characters in total length,TRUE,aircraft-01,technician-02
+maintenance-040,2018/05/11 10:30,IN_PROGRESS,2025/12/14 10:30,EUR 2385.09,Text with a URL: http://example.com,TRUE,aircraft-01,technician-02
+maintenance-041,2019/05/12 10:30,PENDING,2025/09/18 10:30,EUR 92374.42,This is a string with exactly 30 characters!!,TRUE,aircraft-01,technician-02
+maintenance-042,2020/05/13 10:30,COMPLETED,2025/08/22 10:30,EUR 10482.63,Supercalifragilisticexpialidocious,TRUE,aircraft-01,technician-01
+maintenance-043,2021/05/14 10:30,IN_PROGRESS,2025/07/25 10:30,EUR 31892.18,Some symbols: ☀★♫,TRUE,aircraft-01,technician-01
+maintenance-044,2020/05/15 10:30,COMPLETED,2025/10/30 10:30,EUR 55482.71,This is a note with 200 characters. It helps test how much text can be stored in this field. It ensures that longer descriptions do not cause unexpected truncation or errors when saved in the database.,TRUE,aircraft-01,technician-02
+maintenance-045,2019/05/16 10:30,PENDING,2025/06/22 10:30,EUR 72184.88,All uppercase TEXT TEST,TRUE,aircraft-01,technician-01
+maintenance-046,2018/05/17 10:30,COMPLETED,2025/05/20 10:30,EUR 47162.58,Short!,TRUE,aircraft-01,technician-01
+maintenance-047,2017/05/18 10:30,IN_PROGRESS,2025/11/03 10:30,EUR 3529.64,Text with special characters! #$%@,TRUE,aircraft-01,technician-02
+maintenance-048,2016/05/19 10:30,PENDING,2025/07/09 10:30,EUR 99999.99,This note has 254 characters almost reaching the 255-character limit. We need to ensure the system handles this properly. If anything overflows or gets cut there might be a storage problem that we should investigate further.,TRUE,aircraft-01,technician-02
+maintenance-049,2015/05/20 10:30,COMPLETED,2025/08/31 10:30,EUR 20437.55,Cargo hold security check,TRUE,aircraft-01,technician-01
+maintenance-050,2014/05/21 10:30,IN_PROGRESS,2025/09/15 10:30,EUR 8693.72,Brake system evaluation,TRUE,aircraft-01,technician-01
+maintenance-051,2013/05/22 10:30,COMPLETED,2025/10/12 10:30,EUR 48271.47,Weather radar calibration,TRUE,aircraft-01,technician-02
+maintenance-052,2012/05/23 10:30,PENDING,2025/06/29 10:30,EUR 9182.36,Main turbine blade analysis,TRUE,aircraft-01,technician-01
+maintenance-053,2011/05/24 10:30,IN_PROGRESS,2025/12/17 10:30,EUR 53162.93,This is a string that contains precisely 100 characters so that it can test the database's ability to store long notes.,TRUE,aircraft-01,technician-01
+maintenance-054,2010/05/25 10:30,COMPLETED,2025/11/09 10:30,EUR 68232.14,,TRUE,aircraft-01,technician-02
+maintenance-055,2009/05/26 10:30,PENDING,2025/08/27 10:30,EUR 70023.59,Tire pressure monitoring,TRUE,aircraft-01,technician-01
+maintenance-056,2008/05/27 10:30,IN_PROGRESS,2025/07/14 10:30,EUR 39501.28,Fuel system leakage check,TRUE,aircraft-01,technician-01
+maintenance-057,2007/05/28 10:30,COMPLETED,2025/09/05 10:30,EUR 24519.93,A,TRUE,aircraft-01,technician-02
+maintenance-058,2006/05/29 10:30,PENDING,2025/10/20 10:30,EUR 92374.00,Short,TRUE,aircraft-01,technician-01
+maintenance-059,2005/05/30 10:30,IN_PROGRESS,2025/07/22 10:30,EUR 62183.41,Text with numbers 1234567890.,TRUE,aircraft-01,technician-01
+maintenance-060,2004/05/31 10:30,COMPLETED,2025/06/30 10:30,EUR 38594.77,Text with a URL: http://example.com,TRUE,aircraft-01,technician-02
