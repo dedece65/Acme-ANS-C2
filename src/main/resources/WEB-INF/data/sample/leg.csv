@@ -1,12 +1,12 @@
 key,flightNumber,scheduledDeparture,scheduledArrival,status,key:departureAirport,key:arrivalAirport,key:aircraft,key:manager,key:flight,draftMode
-leg-01,AAA0000,2025/05/01 14:30,2025/05/01 16:00,CANCELLED,airport-01,airport-02,aircraft-01,manager-01,flight-01,true
-leg-02,ZZZ9999,2025/05/01 16:00,2025/05/01 17:15,CANCELLED,airport-01,airport-02,aircraft-01,manager-01,flight-01,true
-leg-03,ABC1234,2025/07/20 18:00,2025/07/20 19:45,CANCELLED,airport-01,airport-02,aircraft-01,manager-01,flight-02,true
-leg-04,ABC1235,2015/03/09 15:18,2015/03/09 16:18,CANCELLED,airport-01,airport-02,aircraft-01,manager-01,flight-03,true
-leg-05,ABC1236,2015/03/09 15:19,2015/03/09 16:19,CANCELLED,airport-01,airport-02,aircraft-01,manager-01,flight-04,true
-leg-06,ABC1237,2200/12/31 22:59,2200/12/31 23:59,CANCELLED,airport-01,airport-02,aircraft-01,manager-01,flight-05,true
-leg-07,ABC1239,2028/02/29 12:00,2028/02/29 13:00,CANCELLED,airport-01,airport-02,aircraft-01,manager-01,flight-06,true
-leg-08,ABC2234,2025/07/20 18:00,2025/07/20 19:45,ON_TIME,airport-01,airport-02,aircraft-01,manager-01,flight-07,true
-leg-09,ABC3234,2025/07/20 18:00,2025/07/20 19:45,DELAYED,airport-01,airport-02,aircraft-01,manager-01,flight-08,true
-leg-10,ABC4234,2025/07/20 18:00,2025/07/20 19:45,LANDED,airport-01,airport-02,aircraft-01,manager-01,flight-09,true
-leg-11,ABC4235,2025/07/20 18:00,2025/07/20 19:45,LANDED,airport-01,airport-02,aircraft-01,manager-01,flight-30,false
+leg-01,ABX1001,2025/05/01 14:30,2025/05/01 16:00,CANCELLED,airport-01,airport-02,aircraft-01,manager-01,flight-01,true
+leg-02,ACX1002,2025/05/01 16:00,2025/05/01 17:15,CANCELLED,airport-01,airport-02,aircraft-02,manager-02,flight-02,true
+leg-03,ADX1003,2025/07/20 18:00,2025/07/20 19:45,CANCELLED,airport-01,airport-02,aircraft-03,manager-03,flight-03,true
+leg-04,AFX1004,2015/03/09 15:18,2015/03/09 16:18,CANCELLED,airport-01,airport-02,aircraft-04,manager-04,flight-04,true
+leg-05,AFA1005,2015/03/09 15:19,2015/03/09 16:19,CANCELLED,airport-01,airport-02,aircraft-05,manager-05,flight-05,true
+leg-06,AFB1006,2200/12/31 22:59,2200/12/31 23:59,CANCELLED,airport-01,airport-02,aircraft-06,manager-06,flight-06,true
+leg-07,AFC1007,2028/02/29 12:00,2028/02/29 13:00,CANCELLED,airport-01,airport-02,aircraft-07,manager-07,flight-07,true
+leg-08,AFD1008,2025/07/20 18:00,2025/07/20 19:45,ON_TIME,airport-01,airport-02,aircraft-08,manager-08,flight-08,true
+leg-09,AFE1009,2025/07/20 18:00,2025/07/20 19:45,DELAYED,airport-01,airport-02,aircraft-09,manager-09,flight-09,true
+leg-10,AFF1010,2025/07/20 18:00,2025/07/20 19:45,LANDED,airport-01,airport-02,aircraft-10,manager-10,flight-10,true
+leg-11,QRX1011,2025/07/20 18:00,2025/07/20 19:45,LANDED,airport-01,airport-02,aircraft-11,manager-11,flight-11,false

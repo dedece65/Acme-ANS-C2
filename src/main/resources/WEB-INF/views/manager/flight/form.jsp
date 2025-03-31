@@ -7,7 +7,7 @@
 	<jstl:choose>
 			<jstl:when  test="${acme:anyOf(_command,'create')}">
 			<acme:input-textbox code="manager.form.label.tag" path="tag"/>
-			<acme:input-textbox code="manager.form.label.requiresSelfTransfer" path="requiresSelfTransfer"/>
+			<acme:input-checkbox code="manager.form.label.requiresSelfTransfer" path="requiresSelfTransfer"/>
 			<acme:input-textbox code="manager.form.label.cost" path="cost"/>
 			<acme:input-textbox code="manager.form.label.description" path="description"/>
 			<acme:submit code="manager.flight.form.button.create" action="/manager/flight/create"/>
@@ -32,5 +32,5 @@
 	<jstl:if test="${draftMode && acme:anyOf(_command,'show|update|publish|delete')}">
 		<acme:submit code="manager.flight.form.button.publish" action="/manager/flight/publish"/>	
 	</jstl:if>
-	<acme:button code="manager.flight.form.button.legs" action="/manager/leg/list?masterId=${id}"/>
+	<acme:button code="manager.flight.form.button.legs" action="/manager/leg/list?flightId=${id}"/>
 </acme:form>

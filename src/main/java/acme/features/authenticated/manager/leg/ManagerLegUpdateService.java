@@ -9,8 +9,6 @@ import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.entities.aircraft.Aircraft;
-import acme.entities.airport.Airport;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
 import acme.realms.Manager;
@@ -24,24 +22,23 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 
 	@Override
 	public void authorise() {
+		Leg object;
 		int id;
-		int accountId;
-		accountId = super.getRequest().getPrincipal().getAccountId();
-		id = super.getRequest().getData("id", int.class);
-		Leg leg = this.repository.findLegById(id);
 
-		super.getResponse().setAuthorised(leg.getManager().getUserAccount().getId() == accountId);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findLegById(id);
+
+		Manager manager = object == null ? null : object.getManager();
+		boolean allowed = object != null && super.getRequest().getPrincipal().hasRealm(manager);
+
+		super.getResponse().setAuthorised(allowed);
 	}
 
 	@Override
 	public void load() {
 		Leg leg;
 
-		leg = new Leg();
-
-		leg.setStatus(super.getRequest().getData("legStatus", LegStatus.class));
-		leg.setFlight(this.repository.findFlightById(super.getRequest().getData("id", int.class)));
-		leg.setManager((Manager) super.getRequest().getPrincipal().getActiveRealm());
+		leg = this.repository.findLegById(super.getRequest().getData("id", int.class));
 
 		super.getBuffer().addData(leg);
 	}
@@ -50,7 +47,8 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 	public void bind(final Leg leg) {
 		assert leg != null;
 
-		super.bindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "departureAirport", "arrivalAirport", "aircraft", "flight");
+		super.bindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "departureAirport", "arrivalAirport", "aircraft");
+		leg.setDraftMode(true);
 	}
 
 	@Override
@@ -61,7 +59,7 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 	@Override
 	public void perform(final Leg leg) {
 		assert leg != null;
-		int id = super.getRequest().getData("id", int.class);
+		int id = leg.getFlight().getId();
 
 		// Si hay ya un aircraft asignado a otro leg del mismo vuelo se queda ese aircraft
 		List<Leg> legsFromFlight = this.repository.findLegsByFlight(id);
@@ -76,19 +74,15 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 		assert leg != null;
 
 		Dataset dataset;
-		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "departureAirport", "arrivalAirport", "aircraft", "flight");
+		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "departureAirport", "arrivalAirport", "draftMode");
 
-		SelectChoices choices;
-		choices = SelectChoices.from(LegStatus.class, leg.getStatus());
+		SelectChoices choices = SelectChoices.from(LegStatus.class, leg.getStatus());
+		SelectChoices aircraftChoices = SelectChoices.from(this.repository.findAllAircraft(), "registrationNumber", leg.getAircraft());
+		SelectChoices airportChoices = SelectChoices.from(this.repository.findAllAirports(), "iataCode", leg.getDepartureAirport());
+
 		dataset.put("choices", choices);
 		dataset.put("legStatus", leg.getStatus());
-
-		List<Aircraft> aircrafts = this.repository.findAllAircraft();
-		SelectChoices aircraftChoices = SelectChoices.from(aircrafts, "id", leg.getAircraft());
 		dataset.put("aircraftChoices", aircraftChoices);
-
-		List<Airport> airports = this.repository.findAllAirports();
-		SelectChoices airportChoices = SelectChoices.from(airports, "id", leg.getDepartureAirport());
 		dataset.put("airportChoices", airportChoices);
 
 		super.getResponse().addData(dataset);

@@ -53,15 +53,6 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 	public void validate(final Flight flight) {
 		assert flight != null;
 
-		if (!this.getBuffer().getErrors().hasErrors("tag") && flight.getTag() != null)
-			super.state(flight.getTag().length() <= 50, "tag", "manager.flight.form.error.name", flight);
-		if (!this.getBuffer().getErrors().hasErrors("requiresSelfTransfer") && flight.getRequiresSelfTransfer() != null)
-			super.state(flight.getRequiresSelfTransfer() != null, "requiresSelfTransfer", "manager.flight.form.error.requiresSelfTransfer", flight);
-		if (!this.getBuffer().getErrors().hasErrors("cost") && flight.getCost() != null)
-			super.state(flight.getCost().getAmount() >= 0, "cost", "manager.flight.form.error.cost", flight);
-		if (!this.getBuffer().getErrors().hasErrors("description") && flight.getDescription() != null)
-			super.state(flight.getDescription().length() <= 255, "tag", "manager.flight.form.error.description", flight);
-
 		super.state(flight.getLayovers() > 0, "layovers", "manager.flight.form.error.layovers", flight);
 
 		// Todos los legs deben estar publicados

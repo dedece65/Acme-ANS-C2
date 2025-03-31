@@ -4,6 +4,7 @@ package acme.features.authenticated.manager.leg;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -43,6 +44,12 @@ public interface ManagerLegRepository extends AbstractRepository {
 
 	@Query("select count(l) from Leg l where l.flight.id = :flightId")
 	int numberOfLayovers(int flightId);
+
+	@Query("SELECT l FROM Leg l WHERE l.aircraft.id = :aircraftId AND l.id != :legId")
+	List<Leg> findByAircraftId(int aircraftId, int legId);
+
+	@Query("SELECT l FROM Leg l WHERE l.flightNumber = :flightNumber AND l.id != :legId")
+	Optional<Leg> findByFlightNumber(String flightNumber, int legId);
 
 	@Query("select a from Airport a")
 	List<Airport> findAllAirports();

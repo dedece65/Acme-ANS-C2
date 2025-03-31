@@ -1,16 +1,12 @@
 
 package acme.features.authenticated.manager.leg;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.entities.aircraft.Aircraft;
-import acme.entities.airport.Airport;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
 import acme.realms.Manager;
@@ -60,20 +56,16 @@ public class ManagerLegShowService extends AbstractGuiService<Manager, Leg> {
 
 		Dataset dataset;
 		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "departureAirport", "arrivalAirport", "aircraft", "flight", "draftMode");
+		dataset.put("duration", leg.durationHours());
+
+		SelectChoices choices = SelectChoices.from(LegStatus.class, leg.getStatus());
+		SelectChoices aircraftChoices = SelectChoices.from(this.repository.findAllAircraft(), "registrationNumber", leg.getAircraft());
+		SelectChoices airportChoices = SelectChoices.from(this.repository.findAllAirports(), "iataCode", leg.getDepartureAirport());
 
 		dataset.put("legStatus", leg.getStatus());
-
-		SelectChoices choices;
-		choices = SelectChoices.from(LegStatus.class, leg.getStatus());
 		dataset.put("choices", choices);
 		dataset.put("legStatus", leg.getStatus());
-
-		List<Aircraft> aircrafts = this.repository.findAllAircraft();
-		SelectChoices aircraftChoices = SelectChoices.from(aircrafts, "id", leg.getAircraft());
 		dataset.put("aircraftChoices", aircraftChoices);
-
-		List<Airport> airports = this.repository.findAllAirports();
-		SelectChoices airportChoices = SelectChoices.from(airports, "id", leg.getDepartureAirport());
 		dataset.put("airportChoices", airportChoices);
 
 		super.getResponse().addData(dataset);

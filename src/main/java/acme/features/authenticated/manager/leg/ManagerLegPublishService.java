@@ -4,6 +4,7 @@ package acme.features.authenticated.manager.leg;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.leg.Leg;
@@ -67,5 +68,10 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		dataset = super.unbindObject(object, "flightNumber", "scheduledDeparture", "scheduledArrival", "departureAirport", "arrivalAirport", "aircraft", "flight", "draftMode");
 		dataset.put("legStatus", object.getStatus());
 		super.getResponse().addData(dataset);
+	}
+
+	@Override
+	public void onSuccess() {
+		PrincipalHelper.handleUpdate();
 	}
 }

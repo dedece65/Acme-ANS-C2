@@ -28,12 +28,12 @@ public class ManagerLegListService extends AbstractGuiService<Manager, Leg> {
 
 	@Override
 	public void authorise() {
-		int masterId;
+		int flightId;
 		int principalId;
 		int id;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		principalId = this.flightRepository.findFlightById(masterId).getManager().getUserAccount().getId();
+		flightId = super.getRequest().getData("flightId", int.class);
+		principalId = this.flightRepository.findFlightById(flightId).getManager().getUserAccount().getId();
 		id = super.getRequest().getPrincipal().getAccountId();
 
 		super.getResponse().setAuthorised(id == principalId);
@@ -42,11 +42,12 @@ public class ManagerLegListService extends AbstractGuiService<Manager, Leg> {
 	@Override
 	public void load() {
 		Collection<Leg> legs;
+		int flightId;
 
-		int masterId = super.getRequest().getData("masterId", int.class);
+		flightId = super.getRequest().getData("flightId", int.class);
+		legs = this.repository.findLegsByFlight(flightId);
 
-		legs = this.repository.findLegsByFlight(masterId);
-
+		super.getResponse().addGlobal("flightId", flightId);
 		super.getBuffer().addData(legs);
 	}
 
@@ -54,12 +55,10 @@ public class ManagerLegListService extends AbstractGuiService<Manager, Leg> {
 	public void unbind(final Leg leg) {
 		assert leg != null;
 
-		int masterId = super.getRequest().getData("masterId", int.class);
-
 		Dataset dataset;
 
 		dataset = super.unbindObject(leg, "flightNumber", "status", "scheduledDeparture", "draftMode");
-		dataset.put("masterId", masterId);
+		dataset.put("flightId", leg.getFlight().getId());
 		super.getResponse().addData(dataset);
 	}
 }

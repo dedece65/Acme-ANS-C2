@@ -42,14 +42,13 @@ public class ManagerFlightDeleteService extends AbstractGuiService<Manager, Flig
 	@Override
 	public void bind(final Flight object) {
 		assert object != null;
-		super.bindObject(object, "id");
 	}
 
 	@Override
 	public void validate(final Flight object) {
 		assert object != null;
 
-		super.state(object.getDraftMode(), "layovers", "manager.flight.form.error.draftMode", object);
+		super.state(object.getDraftMode(), "draftMode", "manager.flight.form.error.draftMode", object);
 	}
 
 	@Override

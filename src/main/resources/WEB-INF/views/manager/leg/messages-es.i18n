@@ -21,6 +21,7 @@ manager.form.label.aircraft = Aeronave
 manager.form.label.manager = Administrador
 manager.form.label.draftMode = Modo Borrador
 manager.leg.list.label.draftMode = Borrador
+airline-manager.leg.form.label.duration = Duracion
 
 manager.leg.form.button.update = Actualizar Tramo
 manager.leg.form.button.publish = Publicar Tramo

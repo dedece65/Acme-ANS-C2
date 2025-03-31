@@ -21,6 +21,7 @@ manager.form.label.aircraft = Aircraft
 manager.form.label.manager = Manager
 manager.form.label.draftMode = Draft Mode
 manager.leg.list.label.draftMode = Draft Mode
+airline-manager.leg.form.label.duration = Duration
 
 manager.leg.form.button.update = Update Leg
 manager.leg.form.button.publish = Publish Leg

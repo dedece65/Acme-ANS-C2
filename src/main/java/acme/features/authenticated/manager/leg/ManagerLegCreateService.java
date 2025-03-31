@@ -9,8 +9,7 @@ import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.entities.aircraft.Aircraft;
-import acme.entities.airport.Airport;
+import acme.entities.flight.Flight;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
 import acme.realms.Manager;
@@ -29,17 +28,14 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 
 	@Override
 	public void load() {
-		Leg leg;
-		int masterId;
+		int flightId = super.getRequest().getData("flightId", int.class);
+		Flight flight = this.repository.findFlightById(flightId);
+		Manager manager = (Manager) super.getRequest().getPrincipal().getActiveRealm();
 
-		masterId = super.getRequest().getData("masterId", int.class);
-
-		leg = new Leg();
-
-		leg.setFlight(this.repository.findFlightById(masterId));
-		leg.setManager((Manager) super.getRequest().getPrincipal().getActiveRealm());
+		Leg leg = new Leg();
+		leg.setFlight(flight);
 		leg.setDraftMode(true);
-
+		leg.setManager(manager);
 		super.getBuffer().addData(leg);
 	}
 
@@ -61,10 +57,10 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 	@Override
 	public void perform(final Leg leg) {
 		assert leg != null;
-		int masterId = super.getRequest().getData("masterId", int.class);
+		int flightId = super.getRequest().getData("flightId", int.class);
 
 		// Si hay ya un aircraft asignado a otro leg del mismo vuelo se queda ese aircraft
-		List<Leg> legsFromFlight = this.repository.findLegsByFlight(masterId);
+		List<Leg> legsFromFlight = this.repository.findLegsByFlight(flightId);
 		if (legsFromFlight.size() > 0)
 			leg.setAircraft(legsFromFlight.get(0).getAircraft());
 
@@ -77,19 +73,15 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 
 		Dataset dataset;
 		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "departureAirport", "arrivalAirport", "flight", "draftMode");
-		dataset.put("masterId", leg.getFlight().getId());
 
-		SelectChoices choices;
-		choices = SelectChoices.from(LegStatus.class, leg.getStatus());
+		SelectChoices choices = SelectChoices.from(LegStatus.class, leg.getStatus());
+		SelectChoices aircraftChoices = SelectChoices.from(this.repository.findAllAircraft(), "registrationNumber", leg.getAircraft());
+		SelectChoices airportChoices = SelectChoices.from(this.repository.findAllAirports(), "iataCode", leg.getDepartureAirport());
+
 		dataset.put("choices", choices);
 		dataset.put("legStatus", leg.getStatus());
-
-		List<Aircraft> aircrafts = this.repository.findAllAircraft();
-		SelectChoices aircraftChoices = SelectChoices.from(aircrafts, "id", leg.getAircraft());
 		dataset.put("aircraftChoices", aircraftChoices);
-
-		List<Airport> airports = this.repository.findAllAirports();
-		SelectChoices airportChoices = SelectChoices.from(airports, "id", leg.getDepartureAirport());
+		dataset.put("flightId", leg.getFlight().getId());
 		dataset.put("airportChoices", airportChoices);
 
 		super.getResponse().addData(dataset);
