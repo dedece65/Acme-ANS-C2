@@ -1,10 +1,10 @@
 key,tag,requiresSelfTransfer,cost,description,key:manager,draftMode
 flight-01,FL123,true,EUR 10.0,Flight from city A to city B,manager-01,true
-flight-02,Lorem ipsum dolor sit ame,true,EUR 10.0,Flight from city A to city B,manager-02,true
+flight-02,Lorem ipsum dolor sit ame,true,EUR 10.0,Flight from city A to city B,manager-02,false
 flight-03,L,true,EUR 10.0,Flight from city A to city B,manager-03,true
 flight-04,Lo,true,EUR 10.0,Flight from city A to city B,manager-04,true
-flight-05,"Lorem ipsum dolor sit amet consectetur adipiscin",true,EUR 10.0,Flight from city A to city B,manager-05,true
-flight-06,"Lorem ipsum dolor sit amet consectetur adipiscing",true,EUR 10.0,Flight from city A to city B,manager-06,true
+flight-05,Lorem ipsum dolor sit amet consectetur adipiscin,true,EUR 10.0,Flight from city A to city B,manager-05,true
+flight-06,Lorem ipsum dolor sit amet consectetur adipiscing,true,EUR 10.0,Flight from city A to city B,manager-06,true
 flight-07,โลเร็ม อิปซัม,true,EUR 10.0,Flight from city A to city B,manager-07,true
 flight-08,لوريم إيبسوم,true,EUR 10.0,Flight from city A to city B,manager-08,true
 flight-09,洛伦·伊普森,true,EUR 10.0,Flight from city A to city B,manager-09,true
