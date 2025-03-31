@@ -23,3 +23,5 @@ administrator.maintenance-record.form.label.estimatedCost = Estimated Cost
 administrator.maintenance-record.form.label.notes = Notes
 administrator.maintenance-record.form.label.aircraft = Aircraft
 
+administrator.maintenance-record.form.button.tasks = Tasks 
+

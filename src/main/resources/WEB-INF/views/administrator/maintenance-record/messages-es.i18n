@@ -23,3 +23,5 @@ administrator.maintenance-record.form.label.nextInspectionDue = Próxima Inspecc
 administrator.maintenance-record.form.label.estimatedCost = Coste estimado
 administrator.maintenance-record.form.label.notes = Notas
 administrator.maintenance-record.form.label.aircraft = Aircraft
+
+administrator.maintenance-record.form.button.tasks = Tareas 
