@@ -17,6 +17,7 @@ import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.entities.aircraft.Aircraft;
@@ -37,7 +38,7 @@ public class MaintenanceRecord extends AbstractEntity {
 
 	@Mandatory
 	@Temporal(TemporalType.TIMESTAMP)
-	@Automapped
+	@ValidMoment(past = true)
 	private Date				maintenanceMoment;
 
 	@Mandatory
@@ -47,7 +48,7 @@ public class MaintenanceRecord extends AbstractEntity {
 
 	@Mandatory
 	@Future
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				nextInspectionDue;
 
 	@Mandatory
@@ -59,6 +60,10 @@ public class MaintenanceRecord extends AbstractEntity {
 	@ValidString(max = 255)
 	@Automapped
 	private String				notes;
+
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
 
 	// Derived attributes --------------------------------------------------------
 

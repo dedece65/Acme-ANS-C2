@@ -1,62 +1,31 @@
-key,tag,requiresSelfTransfer,cost,description,scheduledDeparture,scheduledArrival,originCity,destinationCity,layovers,key:manager
-flight-01,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-02,"Lorem ipsum dolor sit ame",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-03,"L",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-04,"Lo",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-05,"Lorem ipsum dolor sit amet, consectetur adipiscin",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-06,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-07,"โลเร็ม อิปซัม",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-08,"لوريم إيبسوم",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-09,"洛伦·伊普森",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-10,"<marquee>Hacked</marquee>",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-11,"<script>alert(‘Hacked!’);</script>",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-12,"' or 'A' = 'A ",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-13,"FL123",false,EUR 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-14,"FL123",true,EUR 500000.00,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-15,"FL123",true,EUR 0.00,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-16,"FL123",true,EUR 999999.99,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-17,"FL123",true,EUR 1000000.00,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-18,"FL123",true,YEN 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-19,"FL123",true,BTC 10.0,"Flight from city A to city B",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-20,"FL123",true,EUR 10.0,"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-21,"FL123",true,EUR 10.0,"L",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-22,"FL123",true,EUR 10.0,"Lo",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-23,"FL123",true,EUR 10.0,"Lorem ipsum dolor sit amet	 consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-24,"FL123",true,EUR 10.0,"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-25,"FL123",true,EUR 10.0,"โลเร็ม อิปซัม",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-26,"FL123",true,EUR 10.0,"洛伦·伊普森",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-27,"FL123",true,EUR 10.0,"<marquee>Hacked</marquee>",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-28,"FL123",true,EUR 10.0,"<script>alert(‘Hacked!’);</script>",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-29,"FL123",true,EUR 10.0,"' or 'A' = 'A ",2025/05/01 14:30,2025/05/01 16:00,"City A","City B",1,manager-01
-flight-30,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/03/03 18:07,2025/03/03 18:45,"City A","City B",1,manager-01
-flight-31,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/03/03 18:08,2025/03/03 18:45,"City A","City B",1,manager-01
-flight-32,"FL123",true,EUR 10.0,"Flight from city A to city B",2200/12/31 23:59,2200/12/31 23:59,"City A","City B",1,manager-01
-flight-33,"FL123",true,EUR 10.0,"Flight from city A to city B",2028/02/29 00:00,2028/02/29 00:45,"City A","City B",1,manager-01
-flight-34,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/03/03 18:00,2025/03/03 18:07,"City A","City B",1,manager-01
-flight-35,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/03/03 18:00,2025/03/03 18:08,"City A","City B",1,manager-01
-flight-36,"FL123",true,EUR 10.0,"Flight from city A to city B",2200/12/31 23:59,2200/12/01 23:59,"City A","City B",1,manager-01
-flight-37,"FL123",true,EUR 10.0,"Flight from city A to city B",2028/02/29 00:00,2028/02/29 00:45,"City A","City B",1,manager-01
-flight-38,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","City B",1,manager-01
-flight-39,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"L","City B",1,manager-01
-flight-40,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"Lo","City B",1,manager-01
-flight-41,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor","City B",1,manager-01
-flight-42,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*","City B",1,manager-01
-flight-43,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"โลเร็ม อิปซัม","City B",1,manager-01
-flight-44,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"لوريم إيبسوم","City B",1,manager-01
-flight-45,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"洛伦·伊普森","City B",1,manager-01
-flight-46,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"<marquee>Hacked</marquee>","City B",1,manager-01
-flight-47,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"<script>alert(‘Hacked!’);</script>","City B",1,manager-01
-flight-48,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"' or 'A' = 'A ","City B",1,manager-01
-flight-49,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",1,manager-01
-flight-50,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","L",1,manager-01
-flight-51,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","Lo",1,manager-01
-flight-52,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",1,manager-01
-flight-53,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",1,manager-01
-flight-54,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","โลเร็ม อิปซัม",1,manager-01
-flight-55,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","洛伦·伊普森",1,manager-01
-flight-56,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","<marquee>Hacked</marquee>",1,manager-01
-flight-57,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","<script>alert(‘Hacked!’);</script>",1,manager-01
-flight-58,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","' or 'A' = 'A ",1,manager-01
-flight-59,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","CityB",0,manager-01
-flight-60,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","CityB",1,manager-01
-flight-61,"FL123",true,EUR 10.0,"Flight from city A to city B",2025/05/01 14:00,2025/05/01 16:00,"City A","CityB",100,manager-01
+key,tag,requiresSelfTransfer,cost,description,key:manager,draftMode
+flight-01,FL123,true,EUR 10.0,Flight from city A to city B,manager-01,true
+flight-02,Lorem ipsum dolor sit ame,true,EUR 10.0,Flight from city A to city B,manager-02,false
+flight-03,L,true,EUR 10.0,Flight from city A to city B,manager-03,true
+flight-04,Lo,true,EUR 10.0,Flight from city A to city B,manager-04,true
+flight-05,Lorem ipsum dolor sit amet consectetur adipiscin,true,EUR 10.0,Flight from city A to city B,manager-05,true
+flight-06,Lorem ipsum dolor sit amet consectetur adipiscing,true,EUR 10.0,Flight from city A to city B,manager-06,true
+flight-07,โลเร็ม อิปซัม,true,EUR 10.0,Flight from city A to city B,manager-07,true
+flight-08,لوريم إيبسوم,true,EUR 10.0,Flight from city A to city B,manager-08,true
+flight-09,洛伦·伊普森,true,EUR 10.0,Flight from city A to city B,manager-09,true
+flight-10,<marquee>Hacked</marquee>,true,EUR 10.0,Flight from city A to city B,manager-10,true
+flight-11,<script>alert(‘Hacked!’);</script>,true,EUR 10.0,Flight from city A to city B,manager-11,true
+flight-12,' or 'A' = 'A,true,EUR 10.0,Flight from city A to city B,manager-12,true
+flight-13,FL123,false,EUR 10.0,Flight from city A to city B,manager-13,true
+flight-14,FL123,true,EUR 500000.00,Flight from city A to city B,manager-14,true
+flight-15,FL123,true,EUR 0.00,Flight from city A to city B,manager-15,true
+flight-16,FL123,true,EUR 999999.99,Flight from city A to city B,manager-16,true
+flight-17,FL123,true,EUR 1000000.00,Flight from city A to city B,manager-17,true
+flight-18,FL123,true,YEN 10.0,Flight from city A to city B,manager-18,true
+flight-19,FL123,true,BTC 10.0,Flight from city A to city B,manager-19,true
+flight-20,FL123,true,EUR 10.0,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,manager-20,true
+flight-21,FL123,true,EUR 10.0,L,manager-21,true
+flight-22,FL123,true,EUR 10.0,Lo,manager-22,true
+flight-23,FL123,true,EUR 10.0,Lorem ipsum dolor sit amet	 consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,manager-23,true
+flight-24,FL123,true,EUR 10.0,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,manager-24,true
+flight-25,FL123,true,EUR 10.0,โลเร็ม อิปซัม,manager-25,true
+flight-26,FL123,true,EUR 10.0,洛伦·伊普森,manager-26,true
+flight-27,FL123,true,EUR 10.0,<marquee>Hacked</marquee>,manager-27,true
+flight-28,FL123,true,EUR 10.0,<script>alert(‘Hacked!’);</script>,manager-28,true
+flight-29,FL123,true,EUR 10.0,' or 'A' = 'A,manager-29,true
+flight-30,FL123,true,EUR 10.0,' or 'A' = 'A,manager-30,false
