@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.technician.task;
+package acme.features.technician.task;
 
 import java.util.Collection;
 
