@@ -1,0 +1,25 @@
+customer.booking.list.label.locatorCode = Locator Code
+customer.booking.list.label.travelClass = Travel Class
+customer.booking.list.label.price = Price
+
+customer.booking.list.button.create = Create Booking
+
+customer.booking.list.title = My Bookings
+
+
+customer.booking.form.title = Booking information
+
+
+customer.booking.form.label.locatorCode = Locator Code
+customer.booking.form.label.purchaseMoment = Purchase Moment
+customer.booking.form.label.travelClass = Class
+customer.booking.form.label.price = Price
+customer.booking.form.label.lastNibble = Last Nibble
+customer.booking.form.label.passenger = Passengers
+customer.booking.form.label.published = Published
+
+customer.booking.form.button.update = Update
+
+customer.booking.form.button.publish = Publish
+
+customer.booking.form.button.create = Create

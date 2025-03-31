@@ -1,5 +1,5 @@
 key,locatorCode,purchaseMoment,travelClass,price,LastNibble,published,key:customer,key:flight
-booking-01,X9Y8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-01,flight-01
+booking-01,X9Y8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,true,customer-01,flight-01
 booking-02,123456,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-02,flight-02
 booking-03,12345678,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-04,flight-03
 booking-04,ABCDEF,2012/01/07 00:00,ECONOMY,EUR 123.32,0001,false,customer-04,flight-04
@@ -19,9 +19,3 @@ booking-17,UJ8Z7E,2012/01/07 00:00,ECONOMY,EUR 1000000.00,0001,false,customer-08
 booking-18,IK8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,1234,false,customer-09,flight-10
 booking-19,LO8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,5678,false,customer-01,flight-11
 booking-20,XX8Z7E,2012/01/07 00:00,ECONOMY,EUR 123.32,9012,false,customer-02,flight-11
-
-
-
-
-
-
