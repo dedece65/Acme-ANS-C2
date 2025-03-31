@@ -15,7 +15,10 @@ public class AdministratorTaskController extends AbstractGuiController<Administr
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AdministratorTaskListService listService;
+	private AdministratorTaskListService	listService;
+
+	@Autowired
+	private AdministratorTaskShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -23,6 +26,7 @@ public class AdministratorTaskController extends AbstractGuiController<Administr
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 
 	}
 

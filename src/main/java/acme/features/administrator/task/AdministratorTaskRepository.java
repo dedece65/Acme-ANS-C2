@@ -13,6 +13,9 @@ import acme.entities.task.Task;
 @Repository
 public interface AdministratorTaskRepository extends AbstractRepository {
 
+	@Query("select t from Task t where t.id = :id")
+	Task findTaskById(int id);
+
 	@Query("select mr from MaintenanceRecord mr where mr.id = :id")
 	MaintenanceRecord findMaintenanceRecordById(int id);
 
