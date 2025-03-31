@@ -14,28 +14,26 @@ import acme.realms.Technician;
 @GuiService
 public class TechnicianTaskShowService extends AbstractGuiService<Technician, Task> {
 
-	// Internal state ---------------------------------------------------------
+	//Internal state ----------------------------------------------------------
 
 	@Autowired
 	private TechnicianTaskRepository repository;
 
-	// AbstractGuiService interface -------------------------------------------
+	//AbstractGuiService state ----------------------------------------------------------
 
 
 	@Override
 	public void authorise() {
-
-		boolean status;
-		int masterId;
 		Task task;
-		Technician technician;
+		int id;
 
-		masterId = super.getRequest().getData("id", int.class);
-		task = this.repository.findTaskById(masterId);
-		technician = task == null ? null : task.getTechnician();
-		status = task != null && (super.getRequest().getPrincipal().hasRealm(technician) || !task.isDraftMode());
+		id = super.getRequest().getData("id", int.class);
+		task = this.repository.findTaskById(id);
+		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
-		super.getResponse().setAuthorised(status);
+		if (technician.equals(task.getTechnician()))
+			super.getResponse().setAuthorised(true);
+
 	}
 
 	@Override
@@ -51,13 +49,14 @@ public class TechnicianTaskShowService extends AbstractGuiService<Technician, Ta
 
 	@Override
 	public void unbind(final Task task) {
-		Dataset dataset;
-		SelectChoices choices;
 
-		choices = SelectChoices.from(TaskType.class, task.getType());
+		SelectChoices types;
+
+		Dataset dataset;
+		types = SelectChoices.from(TaskType.class, task.getType());
 
 		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration");
-		dataset.put("types", choices);
+		dataset.put("type", types);
 
 		super.getResponse().addData(dataset);
 	}
