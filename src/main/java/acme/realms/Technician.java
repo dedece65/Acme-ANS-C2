@@ -46,7 +46,7 @@ public class Technician extends AbstractRole {
 	@Mandatory
 	@ValidNumber
 	@Automapped
-	private int					yearsOfExperience;
+	private Integer				yearsOfExperience;
 
 	@Optional
 	@ValidString(max = 255)
