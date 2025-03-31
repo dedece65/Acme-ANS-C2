@@ -1,21 +1,19 @@
 
 package acme.entities.flight;
 
+import java.time.Instant;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
-import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
-import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
 import acme.realms.Manager;
 import lombok.Getter;
@@ -53,32 +51,33 @@ public class Flight extends AbstractEntity {
 	private String				description;
 
 	@Mandatory
-	@ValidMoment(past = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				scheduledDeparture;
-
-	@Mandatory
-	@ValidMoment(past = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				scheduledArrival;
-
-	@Mandatory
-	@ValidString()
-	@Automapped
-	private String				originCity;
-
-	@Mandatory
-	@ValidString()
-	@Automapped
-	private String				destinationCity;
-
-	@Mandatory
-	@ValidScore()
-	@Automapped
-	private Integer				layovers;
-
-	@Mandatory
 	@Valid
 	@ManyToOne(optional = true)
 	private Manager				manager;
+
+
+	@Transient
+	private Date getScheduledDeparture() {
+		return Date.from(Instant.now());
+	}
+
+	@Transient
+	private Date getScheduledArrival() {
+		return Date.from(Instant.now());
+	}
+
+	@Transient
+	private String getOriginCity() {
+		return "";
+	}
+
+	@Transient
+	private String getDestinationCity() {
+		return "";
+	}
+
+	@Transient
+	private Integer getLayovers() {
+		return 1;
+	}
 }
