@@ -52,7 +52,13 @@
 		<acme:menu-option code="master.menu.technician.maintenanceRecords" access="hasRealm('Technician')">
 			<acme:menu-suboption code="master.menu.technician.maintenanceRecords.maintenanceRecords-list" action="/technician/maintenance-record/list"/>
 			<acme:menu-suboption code="master.menu.technician.tasks-list" action="/technician/task/list?mine=true" />	
-		</acme:menu-option>	
+		</acme:menu-option>
+		<acme:menu-option code="master.menu.customer" access="hasRealm('Customer')">
+			<acme:menu-suboption code="master.menu.customer.dashboard" action="/customer/dashboard/show"/>
+			<acme:menu-suboption code="master.menu.customer.list-bookings" action="/customer/booking/list"/>
+			<acme:menu-suboption code="master.menu.customer.list-passengers" action="/customer/passenger/list"/>
+			<acme:menu-suboption code="master.menu.customer.list-booking-records" action="/customer/booking-record/list"/>
+		</acme:menu-option>		
 	</acme:menu-left>
 
 	<acme:menu-right>		

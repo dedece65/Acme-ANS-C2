@@ -39,17 +39,20 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
-<<<<<<< HEAD
+
 # master.menu.customer ####################################################
 
 master.menu.customer = Customer
-master.menu.customer.list-my-bookings = My Bookings
-=======
+master.menu.customer.dashboard = Dashboard
+master.menu.customer.list-bookings = My Bookings 
+master.menu.customer.list-passengers = My Passengers
+master.menu.customer.list-booking-records = My Booking Records
+
+
 # master.menu.manager ##########################################################
 
 master.menu.manager = Manager
 master.menu.manager.list-flights = Flights List
->>>>>>> develop
 
 # master.menu.user-account ####################################################
 

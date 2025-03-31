@@ -1,5 +1,5 @@
 
-package acme.features.customer.booking;
+package acme.features.customer.bookingRecord;
 
 import java.util.Collection;
 
@@ -8,16 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.entities.booking.Booking;
+import acme.entities.booking.BookingRecord;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerBookingListService extends AbstractGuiService<Customer, Booking> {
+public class CustomerBookingRecordListService extends AbstractGuiService<Customer, BookingRecord> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerBookingRepository customerBookingRepository;
+	private CustomerBookingRecordRepository customerBookingRecordRepository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -31,13 +31,13 @@ public class CustomerBookingListService extends AbstractGuiService<Customer, Boo
 	@Override
 	public void load() {
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		Collection<Booking> bookings = this.customerBookingRepository.findBookingsByCustomer(customerId);
-		super.getBuffer().addData(bookings);
+		Collection<BookingRecord> bookingRecords = this.customerBookingRecordRepository.getBookingRecordsByCustomerId(customerId);
+		super.getBuffer().addData(bookingRecords);
 	}
 
 	@Override
-	public void unbind(final Booking booking) {
-		Dataset dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "published", "id");
+	public void unbind(final BookingRecord bookingRecord) {
+		Dataset dataset = super.unbindObject(bookingRecord, "booking", "passenger");
 		super.getResponse().addData(dataset);
 	}
 
