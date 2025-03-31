@@ -16,7 +16,10 @@ public class AdministratorMaintenanceRecordController extends AbstractGuiControl
 	//Internal state --------------------------------------------------------------
 
 	@Autowired
-	private AdministratorMaintenanceRecordListService listService;
+	private AdministratorMaintenanceRecordListService	listService;
+
+	@Autowired
+	private AdministratorMaintenanceRecordShowService	showService;
 
 	//Constructors ----------------------------------------------------------------
 
@@ -24,6 +27,8 @@ public class AdministratorMaintenanceRecordController extends AbstractGuiControl
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
+
 	}
 
 }

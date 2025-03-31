@@ -17,3 +17,9 @@ administrator.maintenance-record.form.title = Detalles del documento de mantenim
 administrator.maintenance-record.list.label.maintenanceMoment = Momento
 administrator.maintenance-record.list.label.status = Estado
 administrator.maintenance-record.list.label.nextInspectionDue = Fecha de la próxima inspección
+
+administrator.maintenance-record.form.label.status = Estado
+administrator.maintenance-record.form.label.nextInspectionDue = Próxima Inspección
+administrator.maintenance-record.form.label.estimatedCost = Coste estimado
+administrator.maintenance-record.form.label.notes = Notas
+administrator.maintenance-record.form.label.aircraft = Aircraft
