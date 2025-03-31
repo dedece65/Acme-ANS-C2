@@ -50,3 +50,4 @@ master.menu.user-account.consumer-profile = Perfil de consumidor
 master.menu.technician = Técnico
 master.menu.technician.maintenanceRecords = Documentos de Mantenimiento
 master.menu.technician.maintenanceRecords.maintenanceRecords-list = Listado de los documentos de Mantenimiento
+master.menu.technician.tasks-list = Lista de tareas
