@@ -14,7 +14,7 @@ technician.task.list.title = Listado de tareas
 technician.task.form.label.type = Tipo:
 technician.task.form.label.description = Descripción:
 technician.task.form.label.priority = Prioridad:
-technician.task.form.label.estimatedDurationHours = Duración estimada (horas):
+technician.task.form.label.estimatedDuration = Duración estimada (horas):
 
 technician.task.form.button.create = Crear
 technician.task.form.button.update = Actualizar

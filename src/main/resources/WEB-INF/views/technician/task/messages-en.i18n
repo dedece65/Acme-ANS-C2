@@ -16,7 +16,7 @@ technician.task.my-list.title = Listing of my tasks
 technician.task.form.label.type = Type:
 technician.task.form.label.description = Description:
 technician.task.form.label.priority = Priority:
-technician.task.form.label.estimatedDurationHours = Estimated duration (hours):
+technician.task.form.label.estimatedDuration = Estimated duration (hours):
 
 technician.task.form.button.create = Create		
 technician.task.form.button.update = Update
