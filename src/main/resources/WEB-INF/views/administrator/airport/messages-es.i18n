@@ -32,6 +32,7 @@ administrator.form.label.website = Sitio web
 administrator.form.label.address = Dirección
 administrator.form.label.email = Correo
 administrator.form.label.phoneNumber = Número de teléfono
+administrator.aiport.form.label.confirm = Confirmar
 
 administrator.airport.form.error.noOperationalScope = No se ha seleccionado un alcance operativo
 administrator.airport.form.error.city = La ciudad debe tener 50 caracteres o menos
@@ -40,6 +41,7 @@ administrator.airport.form.error.website = Sitio web demasiado largo
 administrator.airport.form.error.address = Dirección demasiado larga
 administrator.airport.form.error.email = Correo electrónico demasiado largo
 administrator.airport.form.error.phoneNumber = Número de teléfono demasiado largo
+administrator.airport.form.error.confirmation = Debe confirmar la accion
 
 administrator.airport.form.button.create = REGISTRAR
 administrator.airport.form.button.update = ACTUALIZAR

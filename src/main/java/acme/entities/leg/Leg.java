@@ -17,14 +17,17 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidLeg;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.airport.Airport;
+import acme.entities.flight.Flight;
 import acme.realms.Manager;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
+@ValidLeg
 @Setter
 public class Leg extends AbstractEntity {
 
@@ -74,9 +77,19 @@ public class Leg extends AbstractEntity {
 	@ManyToOne
 	private Manager				manager;
 
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Flight				flight;
+
+	@Mandatory
+	@Valid
+	@Automapped
+	private Boolean				draftMode;
+
 
 	@Transient
-	private double durationHours() {
+	public double durationHours() {
 		Duration duration = Duration.ofMillis(this.scheduledArrival.getTime() - this.scheduledDeparture.getTime());
 		return duration.toHours();
 	};
