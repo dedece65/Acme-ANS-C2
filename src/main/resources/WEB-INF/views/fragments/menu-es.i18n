@@ -27,6 +27,11 @@ master.menu.administrator.populate-db-initial = Poblar BD (inicial)
 master.menu.administrator.populate-db-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-system-down = Parar el sistema
 
+# master.menu.administrator.maintenance-record #################################
+
+master.menu.administrator.maintenance-record = Documentos de Mantenimiento
+master.menu.administrator.maintenance-record-list = Lista de documentos de mantenimiento
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor

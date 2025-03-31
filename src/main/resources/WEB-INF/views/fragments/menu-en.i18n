@@ -27,6 +27,11 @@ master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
 master.menu.administrator.shut-system-down = Shut system down
 
+# master.menu.administrator.maintenance-record #################################
+
+master.menu.administrator.maintenance-record = MaintenanceRecord
+master.menu.administrator.maintenance-record-list = Maintenance Records List
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
