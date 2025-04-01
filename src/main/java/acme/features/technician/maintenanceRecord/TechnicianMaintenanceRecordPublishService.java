@@ -28,17 +28,20 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int maintenanceRecordId;
+		boolean exist;
 		MaintenanceRecord maintenanceRecord;
 		Technician technician;
+		int id;
 
-		maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
-		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
-		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
-		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+		id = super.getRequest().getData("id", int.class);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(id);
 
-		super.getResponse().setAuthorised(status);
+		exist = maintenanceRecord != null;
+		if (exist) {
+			technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
+			if (technician.equals(maintenanceRecord.getTechnician()))
+				super.getResponse().setAuthorised(true);
+		}
 	}
 
 	@Override

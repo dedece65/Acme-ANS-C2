@@ -27,16 +27,20 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 
 	@Override
 	public void authorise() {
+		boolean exist;
 		MaintenanceRecord maintenanceRecord;
+		Technician technician;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(id);
-		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
-		if (technician.equals(maintenanceRecord.getTechnician()))
-			super.getResponse().setAuthorised(true);
-
+		exist = maintenanceRecord != null;
+		if (exist) {
+			technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
+			if (technician.equals(maintenanceRecord.getTechnician()))
+				super.getResponse().setAuthorised(true);
+		}
 	}
 
 	@Override
