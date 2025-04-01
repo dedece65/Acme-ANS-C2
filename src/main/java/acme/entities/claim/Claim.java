@@ -62,7 +62,7 @@ public class Claim extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@Automapped
-	private ClaimStatus			indicator; //Se ha decidido que esta operación se hara en el nivel de servicio, pero depende del inidicador de TrackingLogs
+	private ClaimIndicator			indicator; //Se ha decidido que esta operación se hara en el nivel de servicio, pero depende del inidicador de TrackingLogs
 
 	// Relationships ----------------------------------------------------------
 
