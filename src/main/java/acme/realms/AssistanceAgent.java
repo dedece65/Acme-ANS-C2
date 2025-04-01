@@ -30,7 +30,7 @@ public class AssistanceAgent extends AbstractRole {
 
 	// Attributes -----------------------------------------------------------------
 	@Mandatory
-	@ValidEmployeeCode(value = 6)
+	@ValidEmployeeCode
 	@Automapped
 	private String				employeeCode;
 
@@ -55,9 +55,9 @@ public class AssistanceAgent extends AbstractRole {
 	private String				bio;
 
 	@Mandatory
-	@ValidMoney(min = 0.00)
+	@ValidMoney
 	@Automapped
-	private Money				salary; //preguntar double o validmoney
+	private Money				salary;
 
 	@Mandatory
 	@ValidUrl
