@@ -4,6 +4,7 @@ package acme.features.technician.task;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.components.principals.Principal;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
@@ -23,7 +24,18 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 	// AbstractGuiService interface -------------------------------------------
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean authorised = false;
+		Principal principal = super.getRequest().getPrincipal();
+		int userAccountId = principal.getAccountId();
+
+		// Buscar al técnico que está actualmente logueado
+		Technician technician = this.repository.findOneTechnicianByUserAccoundId(userAccountId);
+
+		if (technician != null)
+			// Verificar si el técnico está registrado en el sistema
+			authorised = true;
+
+		super.getResponse().setAuthorised(authorised);
 	}
 
 	@Override
@@ -33,6 +45,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 
 		task = new Task();
 		task.setTechnician(technician);
+		task.setDraftMode(true);
 		super.getBuffer().addData(task);
 	}
 

@@ -10,9 +10,13 @@ import acme.client.repositories.AbstractRepository;
 import acme.entities.maintenanceRecord.MaintenanceRecord;
 import acme.entities.maintenanceRecordTask.MaintenanceRecordTask;
 import acme.entities.task.Task;
+import acme.realms.Technician;
 
 @Repository
 public interface TechnicianTaskRepository extends AbstractRepository {
+
+	@Query("SELECT t FROM Technician t WHERE t.userAccount.id = :id")
+	Technician findOneTechnicianByUserAccoundId(int id);
 
 	@Query("select t from Task t where t.id = :id")
 	Task findTaskById(int id);
