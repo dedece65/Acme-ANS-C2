@@ -12,15 +12,16 @@ import javax.validation.Valid;
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
-import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidClaim;
 import acme.entities.leg.Leg;
 import acme.realms.AssistanceAgent;
 import lombok.Getter;
 import lombok.Setter;
 
+@ValidClaim
 @Entity
 @Getter
 @Setter
@@ -52,23 +53,27 @@ public class Claim extends AbstractEntity {
 	@Automapped
 	private ClaimType			claimType;
 
-	@Optional
-	@Valid
+	@Mandatory
 	@Automapped
-	private Boolean				indicator;
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
+	@Mandatory
+	@Valid
+	@Automapped
+	private ClaimStatus			indicator; //Se ha decidido que esta operación se hara en el nivel de servicio, pero depende del inidicador de TrackingLogs
+
 	// Relationships ----------------------------------------------------------
 
+	@Mandatory
 	@ManyToOne(optional = false)
 	@Valid
-	@Automapped
 	private AssistanceAgent		assistanceAgents;
 
+	@Mandatory
 	@ManyToOne(optional = false)
 	@Valid
-	@Automapped
 	private Leg					legs;
 
 }

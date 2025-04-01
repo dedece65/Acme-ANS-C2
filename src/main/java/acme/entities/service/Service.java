@@ -3,8 +3,10 @@ package acme.entities.service;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
@@ -16,12 +18,15 @@ import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
 import acme.constraints.ValidPromotionCode;
+import acme.constraints.ValidService;
+import acme.entities.airport.Airport;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@ValidService
 @Table(name = "Service", uniqueConstraints = @UniqueConstraint(columnNames = "promotionCode"))
 
 public class Service extends AbstractEntity {
@@ -48,7 +53,7 @@ public class Service extends AbstractEntity {
 	private String				promotionCode;
 
 	@Optional
-	@ValidMoney(min = 0.00, max = 1000000.00)
+	@ValidMoney
 	@Automapped
 	private Money				discountedMoney;
 
@@ -61,4 +66,8 @@ public class Service extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Airport				airport;
 }

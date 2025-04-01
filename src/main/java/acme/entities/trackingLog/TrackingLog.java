@@ -16,10 +16,12 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidPercentage;
+import acme.constraints.ValidTrackingLog;
 import acme.entities.claim.Claim;
 import lombok.Getter;
 import lombok.Setter;
 
+@ValidTrackingLog
 @Entity
 @Getter
 @Setter
@@ -46,10 +48,10 @@ public class TrackingLog extends AbstractEntity {
 	@Automapped
 	private String				resolutionPercentage;
 
-	@Optional
+	@Mandatory
 	@Valid
 	@Automapped
-	private Boolean				indicator;
+	private IndicatorType		indicator;
 
 	@Optional
 	@ValidString(max = 255)
@@ -60,8 +62,8 @@ public class TrackingLog extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
+	@Mandatory
 	@ManyToOne(optional = false)
 	@Valid
-	@Automapped
 	private Claim				claims;
 }
