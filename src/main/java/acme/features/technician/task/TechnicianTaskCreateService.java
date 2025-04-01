@@ -33,6 +33,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 
 		task = new Task();
 		task.setTechnician(technician);
+		task.setDraftMode(true);
 		super.getBuffer().addData(task);
 	}
 
