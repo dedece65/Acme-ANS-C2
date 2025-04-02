@@ -1,4 +1,4 @@
-key,type,description,priority,estimatedDuration,draft-mode,key:technician
+key,type,description,priority,estimatedDuration,draftMode,key:technician
 task-001,SYSTEM_CHECK,A,0,0.01,TRUE,technician-01
 task-002,INSPECTION,A,1,0.1,TRUE,technician-01
 task-003,MAINTENANCE,A,2,0.5,TRUE,technician-01
