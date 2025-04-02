@@ -31,18 +31,6 @@ public class FlightCrewMemberValidator extends AbstractValidator<ValidFlightCrew
 			{
 				if (StringHelper.isBlank(crewMember.getCode()))
 					super.state(context, false, "identifier", "java.validation.crewMember.identifier.identifier-couldnt-be-blank");
-				else {
-					String initials = "";
-					String name = crewMember.getUserAccount().getIdentity().getName();
-					String surname = crewMember.getUserAccount().getIdentity().getSurname();
-
-					initials += name.charAt(0);
-					initials += surname.charAt(0);
-
-					boolean validIdentifier = StringHelper.startsWith(crewMember.getCode(), initials, true);
-
-					super.state(context, validIdentifier, "identifier", "java.validation.crewMember.validIdentifier.invalid-identifier");
-				}
 			}
 			{
 				FlightCrewMemberRepository repository;
