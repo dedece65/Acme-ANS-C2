@@ -74,6 +74,7 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 
 		if (!this.getBuffer().getErrors().hasErrors("aircraft") && maintenanceRecord.getAircraft() != null)
 			super.state(this.repository.findAllAircrafts().contains(maintenanceRecord.getAircraft()), "aircraft", "technician.maintenance-record.form.error.aircraft", maintenanceRecord);
+
 	}
 
 	@Override
@@ -94,7 +95,7 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 		choices = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
 		aircraft = SelectChoices.from(aircrafts, "id", maintenanceRecord.getAircraft());
 
-		dataset = super.unbindObject(maintenanceRecord, "status", "nextInspectionDue", "estimatedCost", "notes", "aircraft");
+		dataset = super.unbindObject(maintenanceRecord, "status", "nextInspectionDue", "estimatedCost", "notes", "aircraft", "draftMode");
 
 		dataset.put("status", choices.getSelected().getKey());
 		dataset.put("status", choices);

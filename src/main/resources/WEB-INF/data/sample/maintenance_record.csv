@@ -1,4 +1,4 @@
-key,maintenanceMoment,status,nextInspectionDue,estimatedCost,notes,draft-mode,key:aircraft,key:technician
+key,maintenanceMoment,status,nextInspectionDue,estimatedCost,notes,draftMode,key:aircraft,key:technician
 maintenance-001,2021/03/02 10:30,IN_PROGRESS,2026/02/09 10:30,EUR 36418.65,Unicode test: 你好,TRUE,aircraft-01,technician-01
 maintenance-002,2020/03/03 10:30,IN_PROGRESS,2025/01/02 10:30,EUR 66449.86,Text with special characters! #$%@,TRUE,aircraft-01,technician-01
 maintenance-003,2019/03/04 10:30,COMPLETED,2024/09/08 10:30,EUR 63005.07,Edge case with spaces,TRUE,aircraft-01,technician-01
