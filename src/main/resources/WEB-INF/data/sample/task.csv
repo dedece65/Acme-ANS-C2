@@ -1,61 +1,61 @@
 key,type,description,priority,estimatedDuration,draft-mode,key:technician
 task-001,SYSTEM_CHECK,A,0,0.01,TRUE,technician-01
-task-002,INSPECTION,A,1,0.1,TRUE,technician-02
+task-002,INSPECTION,A,1,0.1,TRUE,technician-01
 task-003,MAINTENANCE,A,2,0.5,TRUE,technician-01
-task-004,REPAIR,A,3,1.0,TRUE,technician-02
+task-004,REPAIR,A,3,1.0,TRUE,technician-01
 task-005,SYSTEM_CHECK,A,4,2.0,TRUE,technician-01
-task-006,INSPECTION,A,5,3.5,TRUE,technician-02
+task-006,INSPECTION,A,5,3.5,TRUE,technician-01
 task-007,MAINTENANCE,A,6,5.0,TRUE,technician-01
-task-008,REPAIR,A,7,7.5,TRUE,technician-02
+task-008,REPAIR,A,7,7.5,TRUE,technician-01
 task-009,SYSTEM_CHECK,A,8,10.0,TRUE,technician-01
-task-010,INSPECTION,A,9,15.0,TRUE,technician-02
+task-010,INSPECTION,A,9,15.0,TRUE,technician-01
 task-011,SYSTEM_CHECK,ABCDEFGHIJ,0,0.01,TRUE,technician-01
-task-012,INSPECTION,1234567890,1,0.1,TRUE,technician-02
+task-012,INSPECTION,1234567890,1,0.1,TRUE,technician-01
 task-013,MAINTENANCE,!@#$%^&*(),2,0.5,TRUE,technician-01
-task-014,REPAIR,QWERTYUIOP,3,1.0,TRUE,technician-02
+task-014,REPAIR,QWERTYUIOP,3,1.0,TRUE,technician-01
 task-015,SYSTEM_CHECK,ZXCVBNMASD,4,2.0,TRUE,technician-01
-task-016,INSPECTION,0987654321,5,3.5,TRUE,technician-02
+task-016,INSPECTION,0987654321,5,3.5,TRUE,technician-01
 task-017,MAINTENANCE,HELLO-WORLD,6,5.0,TRUE,technician-01
-task-018,REPAIR,TECHNICIAN,7,7.5,TRUE,technician-02
+task-018,REPAIR,TECHNICIAN,7,7.5,TRUE,technician-01
 task-019,SYSTEM_CHECK,TEST1234567,8,10.0,TRUE,technician-01
-task-020,INSPECTION,ABCDEFGHIJ,9,15.0,TRUE,technician-02
+task-020,INSPECTION,ABCDEFGHIJ,9,15.0,TRUE,technician-01
 task-021,SYSTEM_CHECK,This is a description with exactly 50 characters long.,0,0.01,TRUE,technician-01
-task-022,INSPECTION,مرحبا بك في هذا النص التجريبي الذي يحتوي على خمسين حرفًا!,1,0.1,TRUE,technician-02
+task-022,INSPECTION,مرحبا بك في هذا النص التجريبي الذي يحتوي على خمسين حرفًا!,1,0.1,TRUE,technician-01
 task-023,MAINTENANCE,ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*(),2,0.5,TRUE,technician-01
-task-024,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing.,3,1.0,TRUE,technician-02
+task-024,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing.,3,1.0,TRUE,technician-01
 task-025,SYSTEM_CHECK,检查数据库的存储能力以验证文本输入长度。,4,2.0,TRUE,technician-01
-task-026,INSPECTION,ضمان عدم حدوث اقتطاع للنصوص في قواعد البيانات.,5,3.5,TRUE,technician-02
+task-026,INSPECTION,ضمان عدم حدوث اقتطاع للنصوص في قواعد البيانات.,5,3.5,TRUE,technician-01
 task-027,MAINTENANCE,تجربة التعامل مع الحقول النصية في بيئة منظمة.,6,5.0,TRUE,technician-01
-task-028,REPAIR,Edge case validation with proper storage verification.,7,7.5,TRUE,technician-02
+task-028,REPAIR,Edge case validation with proper storage verification.,7,7.5,TRUE,technician-01
 task-029,SYSTEM_CHECK,اختبار الحد الأقصى للحروف لضمان سعة التخزين.,8,10.0,TRUE,technician-01
-task-030,INSPECTION,结构化数据环境中的文本字段处理测试。,9,15.0,TRUE,technician-02
-task-031,SYSTEM_CHECK,This is a description that contains exactly one hundred characters to test proper database storage.,5,5.0,TRUE,technician-01
+task-030,INSPECTION,结构化数据环境中的文本字段处理测试。,9,15.0,TRUE,technician-01
+task-031,SYSTEM_CHECK,This is a description that contains exactly one hundred characters to test proper database storage.,5,5.0,TRUE,technician-02
 task-032,INSPECTION,مرحبا بك في هذا الاختبار حيث نتحقق من أن النصوص الطويلة يمكن تخزينها بالكامل دون فقدان أي بيانات.,1,0.1,TRUE,technician-02
-task-033,MAINTENANCE,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:'.<>?/.,2,0.5,TRUE,technician-01
+task-033,MAINTENANCE,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:'.<>?/.,2,0.5,TRUE,technician-02
 task-034,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus.,3,1.0,TRUE,technician-02
-task-035,SYSTEM_CHECK,数据库存储能力的测试，确保系统可以正确管理长文本数据，并保证数据完整性和一致性。,4,2.0,TRUE,technician-01
+task-035,SYSTEM_CHECK,数据库存储能力的测试，确保系统可以正确管理长文本数据，并保证数据完整性和一致性。,4,2.0,TRUE,technician-02
 task-036,INSPECTION,هذا هو اختبار النص الطويل حيث يتم إدخال مائة حرف لضمان أن نظام قاعدة البيانات يتعامل معها بسلاسة.,5,3.5,TRUE,technician-02
-task-037,MAINTENANCE,Testing database constraints with a 100-character string. Ensuring proper storage and no truncation issues.,6,5.0,TRUE,technician-01
+task-037,MAINTENANCE,Testing database constraints with a 100-character string. Ensuring proper storage and no truncation issues.,6,5.0,TRUE,technician-02
 task-038,REPAIR,اختبار إدخال نصوص طويلة في بيئة منظمة لضمان عدم حدوث أي مشاكل في تخزين واسترجاع المعلومات من النظام.,7,7.5,TRUE,technician-02
-task-039,SYSTEM_CHECK,Ensuring structured environments correctly handle maximum-length text fields without truncation errors.,8,10.0,TRUE,technician-01
+task-039,SYSTEM_CHECK,Ensuring structured environments correctly handle maximum-length text fields without truncation errors.,8,10.0,TRUE,technician-02
 task-040,INSPECTION,验证系统是否能够正确存储并检索包含100个字符的文本输入，同时保持数据的完整性和准确性。,9,15.0,TRUE,technician-02
-task-041,SYSTEM_CHECK,This is a description with 150 characters to ensure that the database can handle long text fields correctly without truncation or errors.,0,0.01,TRUE,technician-01
+task-041,SYSTEM_CHECK,This is a description with 150 characters to ensure that the database can handle long text fields correctly without truncation or errors.,0,0.01,TRUE,technician-02
 task-042,INSPECTION,مرحبا بك في هذا الاختبار الطويل حيث نتحقق من إدخال نصوص تصل إلى مائة وخمسين حرفًا لضمان تخزينها بشكل صحيح دون أي اقتطاع.,1,0.1,TRUE,technician-02
-task-043,MAINTENANCE,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:'.<>?/ Testing long descriptions for database storage.,2,0.5,TRUE,technician-01
+task-043,MAINTENANCE,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:'.<>?/ Testing long descriptions for database storage.,2,0.5,TRUE,technician-02
 task-044,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Nulla quis sem at nibh.,3,1.0,TRUE,technician-02
-task-045,SYSTEM_CHECK,数据库存储能力的测试，确保系统可以正确管理长文本数据，并保证数据完整性和一致性，同时适用于各种输入场景的存储。,4,2.0,TRUE,technician-01
+task-045,SYSTEM_CHECK,数据库存储能力的测试，确保系统可以正确管理长文本数据，并保证数据完整性和一致性，同时适用于各种输入场景的存储。,4,2.0,TRUE,technician-02
 task-046,INSPECTION,هذا هو اختبار النص الطويل حيث يتم إدخال مائة وخمسين حرفًا لضمان أن نظام قاعدة البيانات يتعامل معها بسلاسة وبدون أي مشاكل.,5,3.5,TRUE,technician-02
-task-047,MAINTENANCE,Testing database constraints with a 150-character string. Ensuring proper storage no truncation issues and structured data environments.,6,5.0,TRUE,technician-01
+task-047,MAINTENANCE,Testing database constraints with a 150-character string. Ensuring proper storage no truncation issues and structured data environments.,6,5.0,TRUE,technician-02
 task-048,REPAIR,اختبار إدخال نصوص طويلة في بيئة منظمة لضمان عدم حدوث أي مشاكل في تخزين واسترجاع المعلومات من النظام وضمان دقة البيانات المخزنة وسلامتها.,7,7.5,TRUE,technician-02
-task-049,SYSTEM_CHECK,Ensuring structured environments correctly handle maximum-length text fields without truncation errors ensuring long input is well supported.,8,10.0,TRUE,technician-01
+task-049,SYSTEM_CHECK,Ensuring structured environments correctly handle maximum-length text fields without truncation errors ensuring long input is well supported.,8,10.0,TRUE,technician-02
 task-050,INSPECTION,验证系统是否能够正确存储并检索包含150个字符的文本输入，同时保持数据的完整性和准确性，适用于不同语言的输入处理。,9,15.0,TRUE,technician-02
-task-051,SYSTEM_CHECK,This is a description with exactly 200 characters ensuring that the database can handle long text fields correctly without truncation errors or data loss. This test is crucial for validating system integrity and text storage.,0,0.01,TRUE,technician-01
+task-051,SYSTEM_CHECK,This is a description with exactly 200 characters ensuring that the database can handle long text fields correctly without truncation errors or data loss. This test is crucial for validating system integrity and text storage.,0,0.01,TRUE,technician-02
 task-052,INSPECTION,مرحبا بك في هذا الاختبار الطويل حيث نتحقق من إدخال نصوص تصل إلى 200 حرفًا لضمان تخزينها بشكل صحيح دون أي اقتطاع، مما يضمن استرجاع البيانات بدقة وكفاءة عالية في جميع السيناريوهات الممكنة دون فقدان أي معلومة.,1,0.1,TRUE,technician-02
-task-053,MAINTENANCE,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:'.<>?/ This test ensures databases properly store 200 characters,2,0.5,TRUE,technician-01
+task-053,MAINTENANCE,ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:'.<>?/ This test ensures databases properly store 200 characters,2,0.5,TRUE,technician-02
 task-054,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.,3,1.0,TRUE,technician-02
-task-055,SYSTEM_CHECK,数据库存储能力的测试，确保系统可以正确管理长文本数据，并保证数据完整性和一致性，同时适用于各种输入场景的存储，确保不同字符集的兼容性和无截断问题，为数据库系统提供最佳解决方案。,4,2.0,TRUE,technician-01
+task-055,SYSTEM_CHECK,数据库存储能力的测试，确保系统可以正确管理长文本数据，并保证数据完整性和一致性，同时适用于各种输入场景的存储，确保不同字符集的兼容性和无截断问题，为数据库系统提供最佳解决方案。,4,2.0,TRUE,technician-02
 task-056,INSPECTION,هذا هو اختبار نص طويل حيث يتم إدخال 200 حرف لضمان أن نظام قاعدة البيانات يتعامل معها بسلاسة وبدون أي مشاكل، يتم التحقق من سعة التخزين وسلامة البيانات المخزنة خلال جميع العمليات.,5,3.5,TRUE,technician-02
-task-057,MAINTENANCE,Ensuring database constraints with a 200-character string. Testing structured data environments with multiple languages encoding requirementsand data storage for system reliability without truncation.,6,5.0,TRUE,technician-01
+task-057,MAINTENANCE,Ensuring database constraints with a 200-character string. Testing structured data environments with multiple languages encoding requirementsand data storage for system reliability without truncation.,6,5.0,TRUE,technician-02
 task-058,REPAIR,إدخال نصوص طويلة في بيئة منظمة لضمان عدم حدوث أي مشاكل في تخزين واسترجاع المعلومات من النظام وضمان دقة البيانات المخزنة وسلامتها مع دعم الحروف الخاصة والمختلفة دون فقدان أي حرف أثناء الإدخال.,7,7.5,TRUE,technician-02
-task-059,SYSTEM_CHECK,Ensuring structured environments handle max-length text fields without truncation errors supporting long input for multilingual text and optimized storage retrieval.,8,10.0,TRUE,technician-01
+task-059,SYSTEM_CHECK,Ensuring structured environments handle max-length text fields without truncation errors supporting long input for multilingual text and optimized storage retrieval.,8,10.0,TRUE,technician-02
 task-060,INSPECTION,验证系统是否能够正确存储并检索包含200个字符的文本输入，同时保持数据的完整性和准确性，适用于不同语言的输入处理，确保不同字符集的兼容性和无截断问题，为系统提供长期稳定性。,9,15.0,TRUE,technician-02
