@@ -68,8 +68,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void validate(final Booking booking) {
-		boolean status = this.customerBookingRepository.findBookingByLocatorCode(booking.getLocatorCode()) == null;
-		super.state(status, "locatorCode", "acme.validation.identifier.repeated.message");
+
 	}
 
 	@Override

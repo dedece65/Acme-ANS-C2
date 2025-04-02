@@ -4,11 +4,10 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="customer.passenger.list.label.fullName" path="fullName" width="20%"/>
+	<acme:list-column code="customer.passenger.list.label.fullName" path="fullName" width="10%"/>
 	<acme:list-column code="customer.passenger.list.label.passportNumber" path="passportNumber" width="20%"/>
 	<acme:list-column code="customer.passenger.list.label.birthDate" path="dateOfBirth" width="20%"/>
 	<acme:list-column code="customer.passenger.list.label.published" path="published" width="20%"/>
-    <acme:list-payload path="payload"/>	
 </acme:list>	
 	
 <jstl:if test="${_command == 'list'}">
