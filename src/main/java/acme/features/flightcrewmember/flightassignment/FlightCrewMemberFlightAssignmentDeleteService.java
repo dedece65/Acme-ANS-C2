@@ -10,10 +10,10 @@ import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.entities.activityLog.ActivityLog;
-import acme.entities.flightAssignment.AssignmentStatus;
-import acme.entities.flightAssignment.Duty;
-import acme.entities.flightAssignment.FlightAssignment;
+import acme.entities.activitylog.ActivityLog;
+import acme.entities.flightassignment.AssignmentStatus;
+import acme.entities.flightassignment.Duty;
+import acme.entities.flightassignment.FlightAssignment;
 import acme.entities.leg.Leg;
 import acme.realms.FlightCrewMember;
 

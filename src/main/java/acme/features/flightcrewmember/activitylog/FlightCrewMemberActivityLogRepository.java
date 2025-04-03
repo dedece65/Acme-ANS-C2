@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
-import acme.entities.activityLog.ActivityLog;
-import acme.entities.flightAssignment.FlightAssignment;
+import acme.entities.activitylog.ActivityLog;
+import acme.entities.flightassignment.FlightAssignment;
 import acme.entities.leg.Leg;
 
 @Repository

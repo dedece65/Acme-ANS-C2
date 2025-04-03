@@ -10,7 +10,7 @@ import acme.client.components.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.entities.flightAssignment.FlightAssignment;
+import acme.entities.flightassignment.FlightAssignment;
 import acme.realms.FlightCrewMember;
 
 @GuiService

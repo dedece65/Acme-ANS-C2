@@ -9,8 +9,8 @@ import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.entities.activityLog.ActivityLog;
-import acme.entities.flightAssignment.FlightAssignment;
+import acme.entities.activitylog.ActivityLog;
+import acme.entities.flightassignment.FlightAssignment;
 import acme.realms.FlightCrewMember;
 
 @GuiService
