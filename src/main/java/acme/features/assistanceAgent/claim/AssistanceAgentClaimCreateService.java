@@ -20,88 +20,72 @@ import acme.realms.AssistanceAgent;
 @GuiService
 public class AssistanceAgentClaimCreateService extends AbstractGuiService<AssistanceAgent, Claim> {
 
-	// Internal State --------------------------------------------------------------------
-
 	@Autowired
 	private AssistanceAgentClaimRepository repository;
-
-	// AbstractGuiService ----------------------------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		boolean status;
-
-		status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class);
-
+		boolean status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class);
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Claim claim;
-		AssistanceAgent assistanceAgent;
-		int assistanceAgentId;
-		Date registrationMoment;
+		Claim claim = new Claim();
+		int assistanceAgentId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		AssistanceAgent assistanceAgent = this.repository.findAssistanceAgentById(assistanceAgentId);
+		Date registrationMoment = MomentHelper.getCurrentMoment();
 
-		assistanceAgentId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		assistanceAgent = this.repository.findAssistanceAgentById(assistanceAgentId);
-		registrationMoment = MomentHelper.getCurrentMoment();
-
-		claim = new Claim();
 		claim.setAssistanceAgents(assistanceAgent);
 		claim.setDraftMode(true);
 		claim.setRegistrationMoment(registrationMoment);
-
 		super.getBuffer().addData(claim);
 	}
 
 	@Override
 	public void bind(final Claim claim) {
-		int legId;
-
-		Leg leg;
-
-		legId = super.getRequest().getData("leg", int.class);
-		leg = this.repository.findLegById(legId);
-		claim.setLegs(leg);
-		super.bindObject(claim, "passengerEmail", "description", "type", "indicator");
+		super.bindObject(claim, "passengerEmail", "description", "claimType", "indicator", "legs");
 	}
 
 	@Override
 	public void validate(final Claim claim) {
+		if (!super.getBuffer().getErrors().hasErrors("passengerEmail"))
+			super.state(claim.getPassengerEmail() != null, "passengerEmail", "assistance-agent.claim.form.error.emptyEmail", claim);
 
-		if (claim.getLegs() == null)
-			super.state(claim.getLegs() != null, "leg", "assistanceAgent.claim.form.error.emptyLeg");
+		if (!super.getBuffer().getErrors().hasErrors("claimType"))
+			super.state(claim.getClaimType() != null, "claimType", "assistance-agent.claim.form.error.emptyClaimType", claim);
 
+		if (!super.getBuffer().getErrors().hasErrors("indicator"))
+			super.state(claim.getIndicator() != null, "indicator", "assistance-agent.claim.form.error.emptyIndicator", claim);
+
+		if (!super.getBuffer().getErrors().hasErrors("leg"))
+			super.state(claim.getLegs() != null, "leg", "assistance-agent.claim.form.error.emptyLeg", claim);
 	}
 
 	@Override
 	public void perform(final Claim claim) {
+		assert claim != null;
 		this.repository.save(claim);
 	}
 
 	@Override
 	public void unbind(final Claim claim) {
-		Dataset dataset;
-		SelectChoices types;
-		SelectChoices indicators;
-		SelectChoices legsChoices;
-
+		SelectChoices claimTypes, indicators, legsChoices;
 		Collection<Leg> legs;
-		legs = this.repository.findAllLegsNotPublished();
+		Dataset dataset;
 
-		types = SelectChoices.from(ClaimType.class, claim.getClaimType());
+		legs = this.repository.findAllLegs();
+		claimTypes = SelectChoices.from(ClaimType.class, claim.getClaimType());
 		indicators = SelectChoices.from(ClaimIndicator.class, claim.getIndicator());
 		legsChoices = SelectChoices.from(legs, "flightNumber", claim.getLegs());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "indicator");
-		dataset.put("types", types);
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "claimType", "indicator", "legs", "draftMode");
+
+		dataset.put("claimTypes", claimTypes);
 		dataset.put("indicators", indicators);
 		dataset.put("legs", legsChoices);
-		dataset.put("leg", legsChoices.getSelected().getKey());
 
 		super.getResponse().addData(dataset);
 	}
-
 }

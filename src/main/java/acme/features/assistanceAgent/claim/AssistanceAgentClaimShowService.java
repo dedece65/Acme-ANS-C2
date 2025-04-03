@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.components.principals.Principal;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
@@ -29,17 +30,18 @@ public class AssistanceAgentClaimShowService extends AbstractGuiService<Assistan
 	@Override
 	public void authorise() {
 		boolean status;
-		int assistanceAgentId;
+		int currentAssistanceAgentId;
 		int claimId;
-		AssistanceAgent assistanceAgent;
 		Claim selectedClaim;
+		Principal principal;
 
-		assistanceAgentId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		assistanceAgent = this.repository.findAssistanceAgentById(assistanceAgentId);
+		principal = super.getRequest().getPrincipal();
+
+		currentAssistanceAgentId = principal.getActiveRealm().getId();
 		claimId = super.getRequest().getData("id", int.class);
 		selectedClaim = this.repository.findClaimById(claimId);
 
-		status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class) && selectedClaim.getAssistanceAgents().equals(assistanceAgent);
+		status = principal.hasRealmOfType(AssistanceAgent.class) && selectedClaim.getAssistanceAgents().getId() == currentAssistanceAgentId;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -58,25 +60,33 @@ public class AssistanceAgentClaimShowService extends AbstractGuiService<Assistan
 	@Override
 	public void unbind(final Claim claim) {
 		Dataset dataset;
-		SelectChoices types;
+		SelectChoices claimTypes;
 		SelectChoices indicators;
 		SelectChoices legsChoices;
 
-		Collection<Leg> legs;
-		legs = this.repository.findAllLegsNotPublished();
+		// Obtener todas las Legs disponibles sin importar si están publicadas o no
+		Collection<Leg> allLegs = this.repository.findAllLegs();
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "indicator", "draftMode");
-		types = SelectChoices.from(ClaimType.class, claim.getClaimType());
+		// Obtener la Leg actual del Claim
+		Leg selectedLeg = claim.getLegs();
+
+		// Crear SelectChoices con todas las Legs, marcando la actual como seleccionada
+		legsChoices = SelectChoices.from(allLegs, "flightNumber", selectedLeg);
+
+		// Crear SelectChoices para claimTypes e indicators
+		claimTypes = SelectChoices.from(ClaimType.class, claim.getClaimType());
 		indicators = SelectChoices.from(ClaimIndicator.class, claim.getIndicator());
-		legsChoices = SelectChoices.from(legs, "flightNumber", claim.getLegs());
 
-		dataset.put("types", types);
+		// Crear dataset con la información relevante del Claim
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "claimType", "indicator", "legs", "draftMode");
+
+		// Agregar opciones al dataset
+		dataset.put("claimTypes", claimTypes);
 		dataset.put("indicators", indicators);
-		dataset.put("legFlightNumber", claim.getLegs().getFlightNumber());
 		dataset.put("legs", legsChoices);
 		dataset.put("leg", legsChoices.getSelected().getKey());
 
+		// Añadir dataset a la respuesta
 		super.getResponse().addData(dataset);
 	}
-
 }

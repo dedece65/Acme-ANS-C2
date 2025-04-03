@@ -1,0 +1,16 @@
+# messages-en.i18n
+
+
+assistance-agent.assistance-agent-dashboard.form.ratioResolvedClaims = ratioResolvedClaims
+assistance-agent.assistance-agent-dashboard.form.ratioRejectedClaims = ratioRejectedClaims
+assistance-agent.assistance-agent-dashboard.form.topThreeMonths = topThreeMonths
+assistance-agent.assistance-agent-dashboard.form.averageClaimLogs = averageClaimLogs
+assistance-agent.assistance-agent-dashboard.form.deviationClaimLogs = deviationClaimLogs
+assistance-agent.assistance-agent-dashboard.form.minClaimLogs = minClaimLogs
+assistance-agent.assistance-agent-dashboard.form.maxClaimLogs = maxClaimLogs
+assistance-agent.assistance-agent-dashboard.form.averageClaimsAssisted = averageClaimsAssisted 
+assistance-agent.assistance-agent-dashboard.form.deviationClaimsAssisted = deviationClaimsAssisted
+assistance-agent.assistance-agent-dashboard.form.minClaimsAssisted = minClaimsAssisted
+assistance-agent.assistance-agent-dashboard.form.maxClaimsAssisted = maxClaimsAssisted
+
+assistance-agent.assistance-agent-dashboard.list.title= My Dashboard

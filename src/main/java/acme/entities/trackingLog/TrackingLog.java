@@ -14,8 +14,8 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
-import acme.constraints.ValidPercentage;
 import acme.constraints.ValidTrackingLog;
 import acme.entities.claim.Claim;
 import lombok.Getter;
@@ -44,9 +44,9 @@ public class TrackingLog extends AbstractEntity {
 	private String				step;
 
 	@Mandatory
-	@ValidPercentage
+	@ValidScore
 	@Automapped
-	private String				resolutionPercentage;
+	private double				resolutionPercentage;
 
 	@Mandatory
 	@Valid
@@ -57,6 +57,10 @@ public class TrackingLog extends AbstractEntity {
 	@ValidString(max = 255)
 	@Automapped
 	private String				resolutionReason;
+
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 

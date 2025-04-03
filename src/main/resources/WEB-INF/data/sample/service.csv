@@ -1,10 +1,10 @@
 key,name,picture,promotionCode,discountedMoney,averageDwellTime,key:airport
-service-001,VIP Lounge Access,http://example.com/lounge.jpg,DSUR-25,EUR 100.00,3.5,airport-01
-service-002,VIP Lounge Access,http://example.com/lounge.jpg,NANI-25,EUR 100.00,3.5,airport-01
-service-003,VIP Lounge Access,http://example.com/lounge.jpg,JUAN-25,EUR 100.00,3.5,airport-01
-service-004,VIP Lounge Access,http://example.com/lounge.jpg,PXAS-25,EUR 100.00,6.5,airport-01
-service-005,VIP Lounge Access,http://example.com/lounge.jpg,SOUJ-25,EUR 100.00,6.5,airport-01
-service-006,VIP Lounge Access,http://example.com/lounge.jpg,,,3.5,airport-01
-service-007,Coctel,http://example.com/lounge.jpg,DWEL-25,USD 4.0,3.5,airport-04
-service-008,Buffet,http://example.com/lounge.jpg,DKSS-25,USD 100.00,3.5,airport-03
-service-009,Buffet,http://example.com/lounge.jpg,DKSZ-25,EUR 100.0,3.6,airport-02
+service-001,VIP Lounge Access,https://samchui.com/wp-content/uploads/2017/08/OS4A1524-1.jpg,DSUR-25,EUR 100.00,3.5,airport-01
+service-002,VIP Lounge Access,https://samchui.com/wp-content/uploads/2017/08/OS4A1524-1.jpg,NANI-25,EUR 100.00,3.5,airport-01
+service-003,VIP Lounge Access,https://samchui.com/wp-content/uploads/2017/08/OS4A1524-1.jpg,JUAN-25,EUR 100.00,3.5,airport-01
+service-004,VIP Lounge Access,https://samchui.com/wp-content/uploads/2017/08/OS4A1524-1.jpg,PXAS-25,EUR 100.00,6.5,airport-01
+service-005,VIP Lounge Access,https://samchui.com/wp-content/uploads/2017/08/OS4A1524-1.jpg,SOUJ-25,EUR 100.00,6.5,airport-01
+service-006,VIP Lounge Access,https://samchui.com/wp-content/uploads/2017/08/OS4A1524-1.jpg,,,3.5,airport-01
+service-007,Coctel,https://samchui.com/wp-content/uploads/2017/08/OS4A1524-1.jpg,DWEL-25,USD 4.0,3.5,airport-04
+service-008,Buffet,https://samchui.com/wp-content/uploads/2017/08/OS4A1524-1.jpg,DKSS-25,USD 100.00,3.5,airport-03
+service-009,Buffet,https://samchui.com/wp-content/uploads/2017/08/OS4A1524-1.jpg,DKSZ-25,EUR 100.0,3.6,airport-02

@@ -1,15 +1,3 @@
-<%--
-- footer.jsp
--
-- Copyright (C) 2012-2025 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
---%>
-
 <%@page%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -33,6 +21,12 @@
 		<acme:footer-option icon="fa fa-language" code="master.footer.label.english" action="/?locale=en"/>
 		<acme:footer-option icon="fa fa-language" code="master.footer.label.spanish" action="/?locale=es"/>
 	</acme:footer-subpanel>
+
+	<acme:menu-option code="master.footer.title.service" access="isAuthenticated()">
+     	<acme:footer-logo logo="images/service.png" alt="${picture}">
+    	</acme:footer-logo>
+	</acme:menu-option>
+  
 
 	<acme:footer-logo logo="images/logo.png" alt="master.company.name">
 		<acme:footer-copyright code="master.company.name"/>

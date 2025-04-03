@@ -15,17 +15,17 @@ import acme.realms.AssistanceAgent;
 @Repository
 public interface AssistanceAgentClaimRepository extends AbstractRepository {
 
-	@Query("select c from Claim c where (c.indicator = 0 or c.indicator = 2) and c.assistanceAgents.id = :assistanceAgentId")
+	@Query("select c from Claim c where c.indicator in (0, 2) and c.assistanceAgents.id = :assistanceAgentId")
 	Collection<Claim> findCompletedClaimsByAssistanceAgentId(int assistanceAgentId);
 
 	@Query("select c from Claim c where c.indicator = 1 and c.assistanceAgents.id = :assistanceAgentId")
 	Collection<Claim> findUndergoingClaimsByAssistanceAgentId(int assistanceAgentId);
 
+	@Query("select t from TrackingLog t where t.claims.id = :claimId")
+	Collection<TrackingLog> findAllTrackingLogsByClaimId(int claimId);
+
 	@Query("select c from Claim c where c.id = :id")
 	Claim findClaimById(int id);
-
-	@Query("select c from Claim c where c.assistanceAgents.id = :assistanceAgentId")
-	Collection<Claim> findAllClaimsByAssistanceAgentId(int assistanceAgentId);
 
 	@Query("select a from AssistanceAgent a where a.id = :assistanceAgentId")
 	AssistanceAgent findAssistanceAgentById(int assistanceAgentId);
@@ -36,7 +36,6 @@ public interface AssistanceAgentClaimRepository extends AbstractRepository {
 	@Query("select l from Leg l where l.id = :legId")
 	Leg findLegById(int legId);
 
-	@Query("select t from TrackingLog t where t.claims.id = :claimId")
-	Collection<TrackingLog> findAllTrackingLogsByClaimId(int claimId);
-
+	@Query("select l from Leg l")
+	Collection<Leg> findAllLegs();
 }

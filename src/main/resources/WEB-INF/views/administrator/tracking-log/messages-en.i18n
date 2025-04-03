@@ -1,0 +1,28 @@
+# messages-en.i18n
+
+assistance-agent.claim.list.title = Claims
+
+assistanceAgent.claim.list.label.registrationMoment = Registration moment
+assistanceAgent.claim.list.label.passengerEmail = Passenger email
+assistanceAgent.claim.list.label.description = Description
+assistanceAgent.claim.list.label.type = Type
+assistanceAgent.claim.list.label.indicator = Status 
+assistanceAgent.claim.list.label.draftMode = Draft mode
+assistanceAgent.claim.list.button.create = Create
+
+assistance-agent.claim.form.title = Claim form
+assistanceAgent.claim.form.label.registrationMoment = Registration moment
+assistanceAgent.claim.form.label.passengerEmail = Passenger email
+assistanceAgent.claim.form.label.description = Description
+assistanceAgent.claim.form.label.type = Type
+assistanceAgent.claim.form.label.indicator = Status
+assistanceAgent.claim.form.label.leg = Leg
+
+assistanceAgent.claim.form.button.create = Create
+assistanceAgent.claim.form.button.update = Update
+assistanceAgent.claim.form.button.delete = Delete
+assistanceAgent.claim.form.button.publish = Publish
+assistanceAgent.claim.form.button.tracking-logs = Tracking Logs
+
+assistanceAgent.claim.form.error.emptyLeg = You must select the leg
+assistanceAgent.claim.form.error.draftMode = You cannot perform this action because the claim is published.
