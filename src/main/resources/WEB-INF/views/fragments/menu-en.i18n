@@ -34,6 +34,9 @@ master.menu.administrator.maintenance-record-list = Maintenance Records List
 # master.menu.administrator.airports #################################
 master.menu.administrator.list-airports = List Airports
 
+# master.menu.administrator.aircraft #################################
+master.menu.administrator.aircraft.aircraft-list = List aircrafts
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -66,3 +69,8 @@ master.menu.technician = Technician
 master.menu.technician.maintenanceRecords.maintenanceRecords-list = Maintenance Records List
 master.menu.technician.tasks-list = Tasks List
 
+# master.menu.flightcrewmember ########################################################
+master.menu.flightcrewmember = Flight Crew Member
+master.menu.flightcrewmember.flightassignments.flightAssignments-list-completed = Completed Flight Assignments List
+master.menu.flightcrewmember.flightassignments.flightAssignments-list-planned = Planned Flight Assignments List
+master.menu.flightcrewmember.activitylogs.activitylogs-list = Activity Logs List

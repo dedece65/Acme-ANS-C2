@@ -9,37 +9,63 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activitylog.ActivityLog;
+import acme.entities.flightassignment.FlightAssignment;
 import acme.realms.FlightCrewMember;
 
 @GuiService
 public class FlightCrewMemberActivityLogListService extends AbstractGuiService<FlightCrewMember, ActivityLog> {
 
+	//Internal state ---------------------------------------------
+
 	@Autowired
 	private FlightCrewMemberActivityLogRepository repository;
+
+	//AbstractGuiService interface -------------------------------
 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		int masterId;
+		int flightCrewMemberId;
+		FlightAssignment flightAssignment;
+		boolean status;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		flightCrewMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		flightAssignment = this.repository.findFlightAssignmentById(masterId);
+
+		status = flightAssignment.getCrewMember().getId() == flightCrewMemberId;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		FlightCrewMember member = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
+		Collection<ActivityLog> activityLogs;
+		int masterId;
 
-		Collection<ActivityLog> logs = this.repository.findAllLogsByCrewMemberId(member.getId());
+		masterId = super.getRequest().getData("masterId", int.class);
 
-		super.getBuffer().addData(logs);
+		activityLogs = this.repository.findAllActivityLogsByFlightAssignmentId(masterId);
+
+		super.getBuffer().addData(activityLogs);
 	}
 
 	@Override
-	public void unbind(final ActivityLog log) {
+	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(log, "incidentType", "severity", "registrationMoment");
-		super.addPayload(dataset, log, "description");
-		super.getResponse().addData(dataset);
+		dataset = super.unbindObject(activityLog, "registrationMoment", "incidentType", "severityLevel", "publish");
 
+		super.addPayload(dataset, activityLog, "publish");
+
+		super.getResponse().addData(dataset);
 	}
 
+	@Override
+	public void unbind(final Collection<ActivityLog> activityLog) {
+		int masterId;
+		masterId = super.getRequest().getData("masterId", int.class);
+		super.getResponse().addGlobal("masterId", masterId);
+	}
 }
