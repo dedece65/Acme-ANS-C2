@@ -1,5 +1,5 @@
 
-package acme.features.flightCrewMember.activityLog;
+package acme.features.flightcrewmember.activitylog;
 
 import java.util.Collection;
 

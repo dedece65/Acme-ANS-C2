@@ -1,5 +1,5 @@
 
-package acme.features.flightCrewMember.activityLog;
+package acme.features.flightcrewmember.activitylog;
 
 import java.util.Collection;
 import java.util.Date;
@@ -16,7 +16,7 @@ import acme.entities.flightAssignment.FlightAssignment;
 import acme.realms.FlightCrewMember;
 
 @GuiService
-public class FlightCrewMemberActivityLogPublishService extends AbstractGuiService<FlightCrewMember, ActivityLog> {
+public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService<FlightCrewMember, ActivityLog> {
 
 	@Autowired
 	private FlightCrewMemberActivityLogRepository repository;
@@ -24,7 +24,17 @@ public class FlightCrewMemberActivityLogPublishService extends AbstractGuiServic
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int logId;
+		FlightCrewMember member;
+		ActivityLog log;
+
+		logId = super.getRequest().getData("id", int.class);
+		log = this.repository.findActivityLogById(logId);
+		member = log == null ? null : log.getFlightAssignment().getCrewMember();
+		status = member != null && super.getRequest().getPrincipal().hasRealm(member) && log.getDraftMode();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -55,15 +65,12 @@ public class FlightCrewMemberActivityLogPublishService extends AbstractGuiServic
 
 	@Override
 	public void validate(final ActivityLog log) {
-		FlightAssignment assignment = log.getFlightAssignment();
-		if (assignment.getDraftMode())
-			super.state(false, "*", "acme.validation.activity-log.flight-assignment-not-published.message");
+		;
 	}
 
 	@Override
-	public void perform(final ActivityLog log) {
-		log.setDraftMode(false);
-		this.repository.save(log);
+	public void perform(final ActivityLog activityLog) {
+		this.repository.delete(activityLog);
 	}
 
 	@Override
@@ -81,4 +88,5 @@ public class FlightCrewMemberActivityLogPublishService extends AbstractGuiServic
 
 		super.getResponse().addData(dataset);
 	}
+
 }

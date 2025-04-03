@@ -1,5 +1,5 @@
 
-package acme.features.flightCrewMember.activityLog;
+package acme.features.flightcrewmember.activitylog;
 
 import java.util.Collection;
 import java.util.Date;
@@ -16,7 +16,7 @@ import acme.entities.flightAssignment.FlightAssignment;
 import acme.realms.FlightCrewMember;
 
 @GuiService
-public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService<FlightCrewMember, ActivityLog> {
+public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService<FlightCrewMember, ActivityLog> {
 
 	@Autowired
 	private FlightCrewMemberActivityLogRepository repository;
@@ -32,7 +32,7 @@ public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService
 		logId = super.getRequest().getData("id", int.class);
 		log = this.repository.findActivityLogById(logId);
 		member = log == null ? null : log.getFlightAssignment().getCrewMember();
-		status = member != null && super.getRequest().getPrincipal().hasRealm(member) && log.getDraftMode();
+		status = member != null && super.getRequest().getPrincipal().hasRealm(member);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -69,8 +69,8 @@ public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService
 	}
 
 	@Override
-	public void perform(final ActivityLog activityLog) {
-		this.repository.delete(activityLog);
+	public void perform(final ActivityLog log) {
+		this.repository.save(log);
 	}
 
 	@Override
@@ -88,5 +88,4 @@ public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService
 
 		super.getResponse().addData(dataset);
 	}
-
 }
