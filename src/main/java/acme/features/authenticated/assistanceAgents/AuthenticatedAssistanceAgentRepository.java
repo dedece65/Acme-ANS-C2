@@ -28,7 +28,7 @@ public interface AuthenticatedAssistanceAgentRepository extends AbstractReposito
 	UserAccount findUserAccountById(int id);
 
 	@Query("select a from AssistanceAgent a where a.userAccount.id = :id")
-	AssistanceAgent findConsumerByUserAccountId(int id);
+	AssistanceAgent findAssistanceAgentByUserAccountId(int id);
 
 	@Query("SELECT a FROM AssistanceAgent a WHERE a.employeeCode = :employeeCode")
 	Optional<AssistanceAgent> findByEmployeeCode(String employeeCode);

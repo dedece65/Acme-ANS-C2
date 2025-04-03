@@ -1,0 +1,15 @@
+# messages-es.i18n
+
+assistance-agent.assistance-agent-dashboard.form.ratioResolvedClaims = ratioReclamacionesResueltas
+assistance-agent.assistance-agent-dashboard.form.ratioRejectedClaims = ratioReclamacionesRechazadas
+assistance-agent.assistance-agent-dashboard.form.topThreeMonths = TopTresMeses
+assistance-agent.assistance-agent-dashboard.form.averageClaimLogs = PromedioRegistrosPorReclamación
+assistance-agent.assistance-agent-dashboard.form.deviationClaimLogs = DesviaciónRegistrosPorReclamación
+assistance-agent.assistance-agent-dashboard.form.minClaimLogs = MinRegistrosPorReclamación
+assistance-agent.assistance-agent-dashboard.form.maxClaimLogs =  MaxRegistrosPorReclamación
+assistance-agent.assistance-agent-dashboard.form.averageClaimsAssisted = PromedioReclamacionesAsistidas
+assistance-agent.assistance-agent-dashboard.form.deviationClaimsAssisted = DesviaciónReclamacionesAsistidas
+assistance-agent.assistance-agent-dashboard.form.minClaimsAssisted = MinReclamacionesAsistidas
+assistance-agent.assistance-agent-dashboard.form.maxClaimsAssisted = MaxReclamacionesAsistidas
+
+assistance-agent.assistance-agent-dashboard.list.title= Mi Dashboard

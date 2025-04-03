@@ -1,32 +1,32 @@
 key,claimType,description,indicator,passenger_email,registrationMoment,key:assistanceAgents,key:legs,draftMode
-claim-01,FLIGHT_ISSUES,Flight delayed for more than 5 hours. causing missed connection. Long wait at the gate.,ACCEPTED,passenger1@example.com,2021/06/11 14:00,agent-01,leg-01,false
+claim-01,FLIGHT_ISSUES,Flight delayed for more than 5 hours. causing missed connection. Long wait at the gate.,ACCEPTED,passenger1@example.com,2021/06/11 14:00,agent-01,leg-02,false
 claim-02,LUGGAGE_ISSUES,Luggage was lost during transfer and arrived 3 days late. Multiple complaints to customer service.,ACCEPTED,passenger2@example.com,2021/06/11 14:00,agent-02,leg-02,false
-claim-03,SECURITY_INCIDENT,Security check caused delays. missed check-in time. The process was disorganized and frustrating.,ACCEPTED,passenger3@example.com,2021/06/11 14:00,agent-01,leg-03,false
-claim-04,OTHER_ISSUES,Overcharged for seat selection on the flight. which was supposed to be free. No refund offered.,ACCEPTED,passenger4@example.com,2021/06/11 14:00,agent-02,leg-03,false
-claim-05,FLIGHT_ISSUES,Flight was canceled last minute due to weather. No assistance or clear communication from the airline.,ACCEPTED,passenger5@example.com,2021/06/11 14:00,agent-02,leg-03,false
-claim-06,LUGGAGE_ISSUES,Bag arrived damaged and with broken items inside. Unable to claim compensation due to lack of documentation.,ACCEPTED,passenger6@example.com,2021/06/11 14:00,agent-01,leg-04,false
-claim-07,SECURITY_INCIDENT,Airport security failed to handle the crowd. causing unnecessary stress and delays.,ACCEPTED,passenger7@example.com,2021/06/11 14:00,agent-02,leg-05,false
-claim-08,OTHER_ISSUES,Rude behavior from flight attendants when I requested assistance. Felt ignored and disrespected.,ACCEPTED,passenger8@example.com,2021/06/11 14:00,agent-01,leg-05,false
-claim-09,FLIGHT_ISSUES,Flight was overbooked and passengers were left stranded. No alternative arrangements made.,ACCEPTED,passenger9@example.com,2021/06/11 14:00,agent-02,leg-06,false
-claim-10,LUGGAGE_ISSUES,My suitcase was sent to the wrong destination and took 4 days to arrive.,ACCEPTED,passenger10@example.com,2021/06/11 14:00,agent-01,leg-06,false
-claim-11,SECURITY_INCIDENT,X-ray scanner malfunctioned and delayed the process. Missed my connecting flight.,ACCEPTED,passenger11@example.com,2021/06/11 14:00,agent-01,leg-08,false
-claim-12,OTHER_ISSUES,Charged extra for baggage despite being within the weight limit stated on the ticket.,ACCEPTED,passenger12@example.com,2021/06/11 14:00,agent-02,leg-10,false
-claim-13,FLIGHT_ISSUES,Flight was delayed for more than 12 hours. and no compensation was offered.,ACCEPTED,passenger13@example.com,2021/06/11 14:00,agent-01,leg-09,true
-claim-14,LUGGAGE_ISSUES,Received my luggage. but it had been tampered with and items were missing.,ACCEPTED,passenger14@example.com,2021/06/11 14:00,agent-01,leg-09,true
-claim-15,SECURITY_INCIDENT,Security line was disorganized. causing delays and missed flight.,ACCEPTED,passenger15@example.com,2021/06/11 14:00,agent-02,leg-09,true
-claim-16,OTHER_ISSUES,Flight attendants were unhelpful when I asked for water during the flight.,ACCEPTED,passenger16@example.com,2021/06/11 14:00,agent-01,leg-09,false
-claim-17,FLIGHT_ISSUES,Flight was rerouted due to a sudden technical issue. resulting in inconvenience.,ACCEPTED,passenger17@example.com,2021/06/11 14:00,agent-01,leg-09,false
-claim-18,LUGGAGE_ISSUES,Lost my luggage upon arrival. no information available about its location.,ACCEPTED,passenger18@example.com,2021/06/11 14:00,agent-02,leg-05,false
-claim-19,SECURITY_INCIDENT,Security check was slow and inefficient. causing a delay in boarding.,ACCEPTED,passenger19@example.com,2021/06/11 14:00,agent-01,leg-04,false
-claim-20,OTHER_ISSUES,Inadequate seating arrangement caused discomfort during the entire flight.,ACCEPTED,passenger20@example.com,2021/06/11 14:00,agent-01,leg-07,false
-claim-21,FLIGHT_ISSUES,Missed my connecting flight due to delays on the initial leg of the trip.,ACCEPTED,passenger21@example.com,2021/06/11 14:00,agent-02,leg-06,false
-claim-22,LUGGAGE_ISSUES,Bag arrived with damaged straps. unable to claim any compensation from the airline.,ACCEPTED,passenger22@example.com,2021/06/11 14:00,agent-01,leg-02,false
-claim-23,SECURITY_INCIDENT,X-ray machine malfunctioned. causing confusion and delays for all passengers.,ACCEPTED,passenger23@example.com,2021/06/11 14:00,agent-01,leg-03,false
-claim-24,OTHER_ISSUES,In-flight entertainment system was broken for the entire flight.,ACCEPTED,passenger24@example.com,2021/06/11 14:00,agent-02,leg-01,false
-claim-25,FLIGHT_ISSUES,The flight was delayed for more than 8 hours. and we were not informed of the status.,ACCEPTED,passenger25@example.com,2021/06/11 14:00,agent-01,leg-02,false
-claim-26,LUGGAGE_ISSUES,Bag arrived soaked due to mishandling. many of my personal items were damaged.,ACCEPTED,passenger26@example.com,2021/06/11 14:00,agent-01,leg-04,false
-claim-27,SECURITY_INCIDENT,The security check process was inefficient and caused unnecessary delays.,ACCEPTED,passenger27@example.com,2021/06/11 14:00,agent-02,leg-05,false
-claim-28,OTHER_ISSUES,Flight attendants were rude and uncooperative when I asked for assistance with my seat.,ACCEPTED,passenger28@example.com,2021/06/11 14:00,agent-02,leg-07,false
-claim-29,FLIGHT_ISSUES,Flight was canceled without sufficient notice. causing significant inconvenience.,ACCEPTED,passenger29@example.com,2021/06/11 14:00,agent-01,leg-08,false
-claim-30,LUGGAGE_ISSUES,My luggage was sent to the wrong destination and delayed for over a week.,REJECTED,passenger30@example.com,2021/06/11 14:00,agent-02,leg-03,true
-claim-31,SECURITY_INCIDENT,The security process took longer than expected. and I missed my connecting flight.,PENDING,passenger31@example.com,2021/06/11 14:00,agent-02,leg-06,true
+claim-03,SECURITY_INCIDENT,Security check caused delays. missed check-in time. The process was disorganized and frustrating.,ACCEPTED,passenger3@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-04,OTHER_ISSUES,Overcharged for seat selection on the flight. which was supposed to be free. No refund offered.,ACCEPTED,passenger4@example.com,2021/06/11 14:00,agent-02,leg-02,true
+claim-05,FLIGHT_ISSUES,Flight was canceled last minute due to weather. No assistance or clear communication from the airline.,ACCEPTED,passenger5@example.com,2021/06/11 14:00,agent-02,leg-02,true
+claim-06,LUGGAGE_ISSUES,Bag arrived damaged and with broken items inside. Unable to claim compensation due to lack of documentation.,ACCEPTED,passenger6@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-07,SECURITY_INCIDENT,Airport security failed to handle the crowd. causing unnecessary stress and delays.,ACCEPTED,passenger7@example.com,2021/06/11 14:00,agent-02,leg-02,true
+claim-08,OTHER_ISSUES,Rude behavior from flight attendants when I requested assistance. Felt ignored and disrespected.,ACCEPTED,passenger8@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-09,FLIGHT_ISSUES,Flight was overbooked and passengers were left stranded. No alternative arrangements made.,ACCEPTED,passenger9@example.com,2021/06/11 14:00,agent-02,leg-02,true
+claim-10,LUGGAGE_ISSUES,My suitcase was sent to the wrong destination and took 4 days to arrive.,ACCEPTED,passenger10@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-11,SECURITY_INCIDENT,X-ray scanner malfunctioned and delayed the process. Missed my connecting flight.,ACCEPTED,passenger11@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-12,OTHER_ISSUES,Charged extra for baggage despite being within the weight limit stated on the ticket.,ACCEPTED,passenger12@example.com,2021/06/11 14:00,agent-02,leg-02,true
+claim-13,FLIGHT_ISSUES,Flight was delayed for more than 12 hours. and no compensation was offered.,ACCEPTED,passenger13@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-14,LUGGAGE_ISSUES,Received my luggage. but it had been tampered with and items were missing.,ACCEPTED,passenger14@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-15,SECURITY_INCIDENT,Security line was disorganized. causing delays and missed flight.,ACCEPTED,passenger15@example.com,2021/06/11 14:00,agent-02,leg-02,true
+claim-16,OTHER_ISSUES,Flight attendants were unhelpful when I asked for water during the flight.,ACCEPTED,passenger16@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-17,FLIGHT_ISSUES,Flight was rerouted due to a sudden technical issue. resulting in inconvenience.,ACCEPTED,passenger17@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-18,LUGGAGE_ISSUES,Lost my luggage upon arrival. no information available about its location.,ACCEPTED,passenger18@example.com,2021/06/11 14:00,agent-02,leg-02,true
+claim-19,SECURITY_INCIDENT,Security check was slow and inefficient. causing a delay in boarding.,ACCEPTED,passenger19@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-20,OTHER_ISSUES,Inadequate seating arrangement caused discomfort during the entire flight.,ACCEPTED,passenger20@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-21,FLIGHT_ISSUES,Missed my connecting flight due to delays on the initial leg of the trip.,ACCEPTED,passenger21@example.com,2021/06/11 14:00,agent-02,leg-02,true
+claim-22,LUGGAGE_ISSUES,Bag arrived with damaged straps. unable to claim any compensation from the airline.,ACCEPTED,passenger22@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-23,SECURITY_INCIDENT,X-ray machine malfunctioned. causing confusion and delays for all passengers.,ACCEPTED,passenger23@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-24,OTHER_ISSUES,In-flight entertainment system was broken for the entire flight.,ACCEPTED,passenger24@example.com,2021/06/11 14:00,agent-02,leg-02,true
+claim-25,FLIGHT_ISSUES,The flight was delayed for more than 8 hours. and we were not informed of the status.,ACCEPTED,passenger25@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-26,LUGGAGE_ISSUES,Bag arrived soaked due to mishandling. many of my personal items were damaged.,ACCEPTED,passenger26@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-27,SECURITY_INCIDENT,The security check process was inefficient and caused unnecessary delays.,ACCEPTED,passenger27@example.com,2021/06/11 14:00,agent-02,leg-02,true
+claim-28,OTHER_ISSUES,Flight attendants were rude and uncooperative when I asked for assistance with my seat.,ACCEPTED,passenger28@example.com,2021/06/11 14:00,agent-02,leg-02,true
+claim-29,FLIGHT_ISSUES,Flight was canceled without sufficient notice. causing significant inconvenience.,ACCEPTED,passenger29@example.com,2021/06/11 14:00,agent-01,leg-02,true
+claim-30,LUGGAGE_ISSUES,My luggage was sent to the wrong destination and delayed for over a week.,REJECTED,passenger30@example.com,2021/06/11 14:00,agent-01,leg-02,false
+claim-31,SECURITY_INCIDENT,The security process took longer than expected. and I missed my connecting flight.,PENDING,passenger31@example.com,2021/06/11 14:00,agent-01,leg-02,true
