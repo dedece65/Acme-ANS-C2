@@ -22,10 +22,10 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 	@Query("select fa from FlightAssignment fa where fa.id = :id")
 	FlightAssignment findFlightAssignmentById(int id);
 
-	@Query("select fa from FlightAssignment fa where fa.flightLeg.scheduledArrival < :now and fa.flightCrewMember.id = :id")
+	@Query("select fa from FlightAssignment fa where fa.leg.scheduledArrival < :now and fa.crewMember.id = :id")
 	Collection<FlightAssignment> findCompletedFlightAssignmentsByMemberId(Date now, int id);
 
-	@Query("select fa from FlightAssignment fa where fa.flightLeg.scheduledDeparture > :now and fa.flightCrewMember.id = :id")
+	@Query("select fa from FlightAssignment fa where fa.leg.scheduledDeparture > :now and fa.crewMember.id = :id")
 	Collection<FlightAssignment> findPlannedFlightAssignmentsByMemberId(Date now, int id);
 
 	@Query("select l from Leg l")
@@ -34,18 +34,18 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 	@Query("select l from Leg l where l.id = :legId")
 	Leg findLegById(int legId);
 
-	@Query("select m from FlightCrewMembers m")
+	@Query("select m from FlightCrewMember m")
 	Collection<FlightCrewMember> findAllCrewMembers();
 
-	@Query("select m from FlightCrewMembers m where m.id = :memberId")
+	@Query("select m from FlightCrewMember m where m.id = :memberId")
 	FlightCrewMember findMemberById(int memberId);
 
-	@Query("select l from ActivityLog l where l.flightAssignment.id = :id")
+	@Query("select al from ActivityLog al where al.flightAssignment.id = :id")
 	Collection<ActivityLog> findActivityLogsByAssignmentId(int id);
 
-	@Query("select distinct fa.flightLeg from FlightAssignment fa where fa.flightCrewMember.id = :memberId")
+	@Query("select distinct fa.leg from FlightAssignment fa where fa.crewMember.id = :memberId")
 	Collection<Leg> findLegsByFlightCrewMemberId(int memberId);
 
-	@Query("select fa from FlightAssignment fa where fa.flightLeg.id = :legId")
+	@Query("select fa from FlightAssignment fa where fa.leg.id = :legId")
 	Collection<FlightAssignment> findFlightAssignmentByLegId(int legId);
 }

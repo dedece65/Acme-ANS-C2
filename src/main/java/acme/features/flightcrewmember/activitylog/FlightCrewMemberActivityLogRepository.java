@@ -14,8 +14,8 @@ import acme.entities.leg.Leg;
 @Repository
 public interface FlightCrewMemberActivityLogRepository extends AbstractRepository {
 
-	@Query("select al from ActivityLog al where al.flightAssignment.flightCrewMember.id = :memberId")
-	Collection<ActivityLog> findAllLogsByFlightCrewMemberId(int memberId);
+	@Query("select al from ActivityLog al where al.flightAssignment.crewMember.id = :memberId")
+	Collection<ActivityLog> findAllLogsByCrewMemberId(int memberId);
 
 	@Query("select al from ActivityLog al where al.id = :logId")
 	ActivityLog findActivityLogById(int logId);
