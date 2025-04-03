@@ -9,7 +9,7 @@
 	
 	<jstl:choose>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="customer.bookingPassenger.form.button.create" action="/customer/booking-record/create"/>
+			<acme:submit code="customer.bookingRecord.form.button.create" action="/customer/booking-record/create"/>
 			
 		</jstl:when>		
 	</jstl:choose>	
