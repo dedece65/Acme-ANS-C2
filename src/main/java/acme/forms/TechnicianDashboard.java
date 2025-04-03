@@ -1,11 +1,12 @@
 
 package acme.forms;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import acme.client.components.basis.AbstractForm;
 import acme.entities.aircraft.Aircraft;
-import acme.entities.maintenanceRecord.MaintenanceRecord;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,10 +20,10 @@ public class TechnicianDashboard extends AbstractForm {
 	// Attributes -------------------------------------------------------------
 
 	// Number of maintenance records grouped by their status
-	private Integer				maintenanceStatus;
+	Map<String, Integer>		numberOfRecordsGroupedByStatus;
 
 	// Maintenance record with the nearest inspection due date
-	private MaintenanceRecord	nearestInspectionMaintenanceRecord;
+	private Date				nearestInspectionMaintenanceRecord;
 
 	// Top five aircrafts with the highest number of tasks in their maintenance records
 	private List<Aircraft>		topFiveAircrafts;
