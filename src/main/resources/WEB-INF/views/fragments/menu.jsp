@@ -38,7 +38,7 @@
       <acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.list-airports" action="/administrator/airport/list"/>
 			<acme:menu-suboption code="master.menu.administrator.maintenance-record-list" action="/administrator/maintenance-record/list"/>
-		
+			<acme:menu-suboption code="master.menu.administrator.list-airlines" action="/administrator/airline/list"/>
 		</acme:menu-option>
 		
 
