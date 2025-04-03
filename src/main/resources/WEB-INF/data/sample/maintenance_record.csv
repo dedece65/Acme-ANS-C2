@@ -1,13 +1,13 @@
 key,maintenanceMoment,status,nextInspectionDue,estimatedCost,notes,draftMode,key:aircraft,key:technician
 maintenance-001,2021/03/02 10:30,IN_PROGRESS,2026/02/09 10:30,EUR 36418.65,Unicode test: 你好,TRUE,aircraft-01,technician-01
-maintenance-002,2020/03/03 10:30,IN_PROGRESS,2025/01/02 10:30,EUR 66449.86,Text with special characters! #$%@,TRUE,aircraft-01,technician-01
-maintenance-003,2019/03/04 10:30,COMPLETED,2024/09/08 10:30,EUR 63005.07,Edge case with spaces,TRUE,aircraft-01,technician-01
-maintenance-004,2018/03/05 10:30,IN_PROGRESS,2025/09/28 10:30,EUR 4100.45,Hello world!,TRUE,aircraft-01,technician-01
-maintenance-005,2017/03/06 10:30,IN_PROGRESS,2024/10/24 10:30,EUR 28334.97,This one has exactly 50 characters in total length,TRUE,aircraft-01,technician-01
-maintenance-006,2016/03/07 10:30,COMPLETED,2025/12/06 10:30,EUR 84924.41,This is a string with exactly 30 characters!!,TRUE,aircraft-01,technician-01
-maintenance-007,2015/03/08 10:30,PENDING,2024/10/27 10:30,EUR 79104.56,A,TRUE,aircraft-01,technician-01
+maintenance-002,2020/03/03 10:30,IN_PROGRESS,2025/01/02 10:30,EUR 66449.86,Text with special characters! #$%@,TRUE,aircraft-02,technician-01
+maintenance-003,2019/03/04 10:30,COMPLETED,2024/09/08 10:30,EUR 63005.07,Edge case with spaces,TRUE,aircraft-03,technician-01
+maintenance-004,2018/03/05 10:30,IN_PROGRESS,2025/09/28 10:30,EUR 4100.45,Hello world!,TRUE,aircraft-04,technician-01
+maintenance-005,2017/03/06 10:30,IN_PROGRESS,2024/10/24 10:30,EUR 28334.97,This one has exactly 50 characters in total length,TRUE,aircraft-05,technician-01
+maintenance-006,2016/03/07 10:30,COMPLETED,2025/12/06 10:30,EUR 84924.41,This is a string with exactly 30 characters!!,TRUE,aircraft-06,technician-01
+maintenance-007,2015/03/08 10:30,PENDING,2024/10/27 10:30,EUR 79104.56,A,TRUE,aircraft-07,technician-01
 maintenance-008,2014/03/09 10:30,IN_PROGRESS,2025/04/15 10:30,EUR 43273.12,Lorem ipsum dolor sit amet consectetur adipiscing elit.,TRUE,aircraft-01,technician-01
-maintenance-009,2013/03/10 10:30,IN_PROGRESS,2025/05/02 10:30,EUR 37796.47,Text with numbers 1234567890.,TRUE,aircraft-01,technician-01
+maintenance-009,2013/03/10 10:30,IN_PROGRESS,2025/05/02 10:30,EUR 37796.47,Text with numbers 1234567890.,TRUE,aircraft-02,technician-01
 maintenance-010,2012/03/11 10:30,IN_PROGRESS,2024/09/22 10:30,EUR 10902.29,Some symbols: ☀★♫,TRUE,aircraft-01,technician-01
 maintenance-011,2011/03/12 10:30,COMPLETED,2025/06/15 10:30,EUR 27002.88,Some mixed Case tExt,TRUE,aircraft-01,technician-01
 maintenance-012,2010/03/13 10:30,IN_PROGRESS,2026/02/14 10:30,EUR 86949.33,This note has 254 characters almost reaching the 255-character limit. We need to ensure the system handles this properly. If anything overflows or gets cut there might be a storage problem that we should investigate further.,TRUE,aircraft-01,technician-01
