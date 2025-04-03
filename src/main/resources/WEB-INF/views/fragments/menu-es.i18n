@@ -32,9 +32,11 @@ master.menu.administrator.shut-system-down = Parar el sistema
 master.menu.administrator.maintenance-record = Técnico
 master.menu.administrator.maintenance-record-list = Lista de documentos de mantenimiento
 
-# master.menu.administrator.airports #################################
-master.menu.administrator.list-airports = Lista aeropuertos
+# master.menu.administrator.aircraft #################################
+master.menu.administrator.aircraft.aircraft-list = Lista de aviones
 
+# master.menu.administrator.airports #################################
+master.menu.administrator.airlines.airlines-list = List airlines
 
 # master.menu.administrator.airlines #################################
 master.menu.administrator.list-airlines = Lista de aerolineas
@@ -82,4 +84,12 @@ master.menu.user-account.technician-profile = Perfil de técnico
 master.menu.technician = Técnico
 master.menu.technician.maintenanceRecords.maintenanceRecords-list = Listado de los documentos de Mantenimiento
 master.menu.technician.tasks-list = Lista de tareas
+
+# master.menu.flightcrewmember ########################################################
+master.menu.flightcrewmember = Miembro de tripulación
+master.menu.flightcrewmember.flightassignments.flightAssignments-list-completed = Listado de las asignaciones de vuelo completadas
+master.menu.flightcrewmember.flightassignments.flightAssignments-list-planned = Listado de las asignaciones de vuelo planificadas
+master.menu.flightcrewmember.activitylogs.activitylogs-list = Listado de los registros de actividad
+
 master.menu.technician.dashboard = Tablero
+
