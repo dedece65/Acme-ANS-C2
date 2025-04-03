@@ -22,7 +22,7 @@ import javax.validation.constraints.Pattern;
 public @interface ValidIdentifier {
 	// Standard validation properties -----------------------------------------
 
-	String message() default "{acme.validation.identifier.message}";
+	String message() default "The license number must start with 2 or 3 uppercase letters followed by exactly 6 digits.";
 
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};

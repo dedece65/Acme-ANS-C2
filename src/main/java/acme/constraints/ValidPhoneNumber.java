@@ -21,7 +21,7 @@ public @interface ValidPhoneNumber {
 
 	// Standard validation properties -----------------------------------------
 
-	String message() default "{acme.validation.phone.number.message}";
+	String message() default "The phone number must contain between 6 and 15 digits.";
 
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
