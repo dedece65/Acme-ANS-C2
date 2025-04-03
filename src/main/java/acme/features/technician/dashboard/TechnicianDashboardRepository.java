@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.aircraft.Aircraft;
 import acme.entities.maintenanceRecord.MaintenanceRecord;
 import acme.realms.Technician;
 
@@ -18,6 +19,16 @@ public interface TechnicianDashboardRepository extends AbstractRepository {
 
 	@Query("SELECT COUNT(m) FROM MaintenanceRecord m WHERE m.technician.id = :technicianId")
 	Integer countMaintenanceRecordsByTechnicianId(int technicianId);
+
+	@Query("""
+		    SELECT m.aircraft
+		    FROM MaintenanceRecordTask mrt
+		    JOIN mrt.maintenanceRecord m
+		    WHERE m.technician.id = :technicianId
+		    GROUP BY m.aircraft
+		    ORDER BY COUNT(mrt.task) DESC
+		""")
+	List<Aircraft> findTopFiveAircraftsByTechnicianId(int technicianId);
 
 	@Query("SELECT m FROM MaintenanceRecord m WHERE m.technician.id = :technicianId ORDER BY m.nextInspectionDue ASC")
 	List<MaintenanceRecord> findNearestInspectionRecordsByTechnicianId(int technicianId);
