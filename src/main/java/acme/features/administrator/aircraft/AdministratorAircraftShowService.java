@@ -54,7 +54,7 @@ public class AdministratorAircraftShowService extends AbstractGuiService<Adminis
 
 		choiceStatuses = SelectChoices.from(Status.class, aircraft.getStatus());
 
-		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status", "details");
+		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoweight", "status", "details");
 		dataset.put("airlines", choicesAirlines);
 		dataset.put("statuses", choiceStatuses);
 		dataset.put("confirmation", false);

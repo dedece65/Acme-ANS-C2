@@ -70,7 +70,7 @@ public class AdministratorAircraftCreateService extends AbstractGuiService<Admin
 		airlines = this.repository.findAllAirlines();
 		choicesAirlines = SelectChoices.from(airlines, "name", aircraft.getAirline());
 
-		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status", "details");
+		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoweight", "status", "details");
 		dataset.put("statuses", choicesStatuses);
 		dataset.put("airlines", choicesAirlines);
 		dataset.put("confirmation", false);

@@ -49,7 +49,7 @@ public class AdministratorAircraftDisableService extends AbstractGuiService<Admi
 
 	@Override
 	public void bind(final Aircraft aircraft) {
-		super.bindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status", "details", "airline");
+		super.bindObject(aircraft, "model", "registrationNumber", "capacity", "cargoweight", "status", "details", "airline");
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class AdministratorAircraftDisableService extends AbstractGuiService<Admi
 		airlines = this.repository.findAllAirlines();
 		choicesAirlines = SelectChoices.from(airlines, "name", aircraft.getAirline());
 
-		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status", "details");
+		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoweight", "status", "details");
 		dataset.put("statuses", choicesStatuses);
 		dataset.put("airlines", choicesAirlines);
 		dataset.put("confirmation", false);
