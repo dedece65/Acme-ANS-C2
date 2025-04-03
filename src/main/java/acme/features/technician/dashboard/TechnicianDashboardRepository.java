@@ -2,6 +2,7 @@
 package acme.features.technician.dashboard;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import acme.client.repositories.AbstractRepository;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.maintenanceRecord.MaintenanceRecord;
+import acme.entities.maintenanceRecord.MaintenanceStatus;
 import acme.realms.Technician;
 
 @Repository
@@ -19,6 +21,14 @@ public interface TechnicianDashboardRepository extends AbstractRepository {
 
 	@Query("SELECT COUNT(m) FROM MaintenanceRecord m WHERE m.technician.id = :technicianId")
 	Integer countMaintenanceRecordsByTechnicianId(int technicianId);
+
+	@Query("""
+		    SELECT COUNT(m)
+		    FROM MaintenanceRecord m
+		    WHERE m.technician.id = :technicianId
+		    AND m.status = :status
+		""")
+	Optional<Integer> countMaintenanceRecordsByStatus(int technicianId, MaintenanceStatus status);
 
 	@Query("""
 		    SELECT m.aircraft

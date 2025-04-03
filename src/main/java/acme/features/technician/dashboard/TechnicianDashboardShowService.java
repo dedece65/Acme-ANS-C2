@@ -2,7 +2,9 @@
 package acme.features.technician.dashboard;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.maintenanceRecord.MaintenanceRecord;
+import acme.entities.maintenanceRecord.MaintenanceStatus;
 import acme.forms.TechnicianDashboard;
 import acme.realms.Technician;
 
@@ -31,7 +34,18 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean authorised = false;
+		Principal principal = super.getRequest().getPrincipal();
+		int userAccountId = principal.getAccountId();
+
+		// Buscar al técnico que está actualmente logueado
+		Technician technician = this.repository.findOneTechnicianByUserAccoundId(userAccountId);
+
+		if (technician != null)
+			// Verificar si el técnico está registrado en el sistema
+			authorised = true;
+
+		super.getResponse().setAuthorised(authorised);
 	}
 
 	@Override
@@ -44,8 +58,20 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		userAccountId = principal.getAccountId();
 		final Technician technician = this.repository.findOneTechnicianByUserAccoundId(userAccountId);
 
-		// Number of maintenance records grouped by their status
-		//dashboard.setNumberOfRecordsGroupedByStatus(this.repository.countMaintenanceRecordsByTechnicianId(technician.getId()));
+		//NumOfMaintenanceRecordsByStatus
+		final Map<String, Integer> numOfRecordsByStatus = new HashMap<>();
+		final Integer pendingRecords = this.repository.countMaintenanceRecordsByStatus(technician.getId(), MaintenanceStatus.PENDING).orElse(0);
+		final Integer inProgressRecords = this.repository.countMaintenanceRecordsByStatus(technician.getId(), MaintenanceStatus.IN_PROGRESS).orElse(0);
+		final Integer completedRecords = this.repository.countMaintenanceRecordsByStatus(technician.getId(), MaintenanceStatus.COMPLETED).orElse(0);
+
+		numOfRecordsByStatus.put("PENDING", pendingRecords);
+		numOfRecordsByStatus.put("IN_PROGRESS", inProgressRecords);
+		numOfRecordsByStatus.put("COMPLETED", completedRecords);
+
+		// Pasar el mapa al dashboard
+		dashboard.setNumberOfRecordsGroupedByStatus(numOfRecordsByStatus);
+
+		super.getBuffer().addData(dashboard);
 
 		// Maintenance record with the nearest inspection due date
 		MaintenanceRecord nearestRecord = this.repository.findNearestInspectionRecordsByTechnicianId(technician.getId()).stream().findFirst().orElse(null);
@@ -104,6 +130,9 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 
 		// Añadir la lista formateada como un String al dataset
 		dataset.put("topFiveAircrafts", formattedAircrafts);
+
+		// Añadir el mapa de estados al dataset (Para gráfico Chart.js)
+		dataset.put("numberOfRecordsGroupedByStatus", object.getNumberOfRecordsGroupedByStatus());
 
 		// Añadir el dataset al response
 		super.getResponse().addData(dataset);

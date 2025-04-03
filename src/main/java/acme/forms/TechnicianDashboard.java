@@ -7,7 +7,6 @@ import java.util.Map;
 
 import acme.client.components.basis.AbstractForm;
 import acme.entities.aircraft.Aircraft;
-import acme.entities.maintenanceRecord.MaintenanceStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,29 +15,29 @@ import lombok.Setter;
 public class TechnicianDashboard extends AbstractForm {
 
 	// Serialisation Identifier
-	private static final long		serialVersionUID	= 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	// Number of maintenance records grouped by their status
-	Map<MaintenanceStatus, Integer>	numberOfRecordsGroupedByStatus;
+	Map<String, Integer>		numberOfRecordsGroupedByStatus;
 
 	// Maintenance record with the nearest inspection due date
-	private Date					nearestInspectionMaintenanceRecord;
+	private Date				nearestInspectionMaintenanceRecord;
 
 	// Top five aircrafts with the highest number of tasks in their maintenance records
-	private List<Aircraft>			topFiveAircrafts;
+	private List<Aircraft>		topFiveAircrafts;
 
 	// Statistics on the estimated cost of maintenance records in the last year
-	private double					averageEstimatedCost;
-	private double					deviationEstimatedCost;
-	private double					minEstimatedCost;
-	private double					maxEstimatedCost;
+	private double				averageEstimatedCost;
+	private double				deviationEstimatedCost;
+	private double				minEstimatedCost;
+	private double				maxEstimatedCost;
 
 	// Statistics on the estimated duration of tasks in which the technician is involved
-	private double					averageEstimatedDuration;
-	private double					deviationEstimatedDuration;
-	private double					minEstimatedDuration;
-	private double					maxEstimatedDuration;
+	private double				averageEstimatedDuration;
+	private double				deviationEstimatedDuration;
+	private double				minEstimatedDuration;
+	private double				maxEstimatedDuration;
 
 }

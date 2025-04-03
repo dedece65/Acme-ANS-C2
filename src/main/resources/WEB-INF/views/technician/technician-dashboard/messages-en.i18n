@@ -8,8 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-
-technician.dashboard.form.label.maintenanceStatus=Maintenance Status
+technician.technician-dashboard.form.title =Technician Dashboard
 technician.dashboard.form.label.nearestInspectionDue=Nearest Inspection Due
 technician.dashboard.form.label.averageEstimatedCost=Average Estimated Cost
 technician.dashboard.form.label.deviationEstimatedCost=Deviation Estimated Cost

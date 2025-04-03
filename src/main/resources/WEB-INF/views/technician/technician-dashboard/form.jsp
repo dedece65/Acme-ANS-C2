@@ -14,14 +14,7 @@
 <%@ taglib prefix="acme" uri="http://acme-framework.org/" %>
 
 <table class="table table-sm">
-    <tr>
-        <th scope="row">
-            <acme:print code="technician.dashboard.form.label.maintenanceStatus"/>
-        </th>
-        <td>
-            <acme:print value="${maintenanceStatus}"/>
-        </td>
-    </tr>
+
     <tr>
         <th scope="row">
             <acme:print code="technician.dashboard.form.label.nearestInspectionDue"/>
@@ -103,6 +96,53 @@
         </td>
     </tr>
 </table>
+<!-- Gráfico de Maintenance Records por Status -->
+<h3>Maintenance Records Status Distribution</h3>
+<div>
+    <canvas id="statusCanvas"></canvas>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var statusData = {
+            labels : ["PENDING", "IN_PROGRESS", "COMPLETED"],
+            datasets : [{
+                data : [
+                    ${numberOfRecordsGroupedByStatus['PENDING']}, 
+                    ${numberOfRecordsGroupedByStatus['IN_PROGRESS']}, 
+                    ${numberOfRecordsGroupedByStatus['COMPLETED']}
+                ],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',  // PENDING
+                    'rgb(54, 162, 235)',  // IN_PROGRESS
+                    'rgb(75, 192, 192)'   // COMPLETED
+                ]
+            }]
+        };
+        
+        var statusOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    enabled: true
+                }
+            }
+        };
+        
+        var statusCtx = document.getElementById("statusCanvas").getContext("2d");
+        new Chart(statusCtx, {
+            type : "doughnut",  // Cambiamos de 'bar' a 'doughnut'
+            data : statusData,
+            options : statusOptions
+        });
+    });
+</script>
+
+
+
 
 <!-- Gráfico de Costos -->
 <h3>Cost Statistics Chart</h3>
