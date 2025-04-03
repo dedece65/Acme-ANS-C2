@@ -36,6 +36,10 @@ master.menu.administrator.maintenance-record-list = Lista de documentos de mante
 master.menu.administrator.list-airports = Lista aeropuertos
 
 
+# master.menu.administrator.airlines #################################
+master.menu.administrator.list-airlines = Lista de aerolineas
+
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
@@ -46,10 +50,21 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+
+# master.menu.customer ####################################################
+
+master.menu.customer = Customer
+master.menu.customer.dashboard= Dashboard
+master.menu.customer.list-bookings = Mis Reservas 
+master.menu.customer.list-passengers = Mis Pasajeros
+master.menu.customer.list-booking-records = Mis Registros de Reserva
+
+
 # master.menu.manager ##########################################################
 
 master.menu.manager = Gerente
 master.menu.manager.list-flights = Lista de vuelos
+
 
 # master.menu.user-account ####################################################
 
