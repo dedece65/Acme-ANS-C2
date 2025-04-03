@@ -36,6 +36,10 @@ master.menu.administrator.maintenance-record-list = Lista de documentos de mante
 master.menu.administrator.list-airports = Lista aeropuertos
 
 
+# master.menu.administrator.airlines #################################
+master.menu.administrator.list-airlines = Lista de aerolineas
+
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
