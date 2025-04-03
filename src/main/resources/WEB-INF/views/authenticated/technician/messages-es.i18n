@@ -20,3 +20,5 @@ authenticated.technician.form.label.certifications = Certificaciones:
 # Botones del formulario de Técnico
 authenticated.technician.form.button.create = Registrar Técnico
 authenticated.technician.form.button.update = Actualizar Técnico
+
+javax.validation.constraints.Unique.message=El número de licencia debe ser único. Otro técnico ya está utilizando este número de licencia.

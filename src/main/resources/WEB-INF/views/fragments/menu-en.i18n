@@ -27,7 +27,20 @@ master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
 master.menu.administrator.shut-system-down = Shut system down
 
+# master.menu.administrator.maintenance-record #################################
+
+master.menu.administrator.maintenance-record-list = Maintenance Records List
+
+# master.menu.administrator.airports #################################
 master.menu.administrator.list-airports = List Airports
+
+
+# master.menu.administrator.aircraft #################################
+master.menu.administrator.aircraft.aircraft-list = List Aircrafts
+
+# master.menu.administrator.airlines #################################
+master.menu.administrator.list-airlines = List airlines
+
 
 # master.menu.provider ########################################################
 
@@ -38,6 +51,16 @@ master.menu.provider.favourite-link = Favourite link
 
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
+
+
+# master.menu.customer ####################################################
+
+master.menu.customer = Customer
+master.menu.customer.dashboard = Dashboard
+master.menu.customer.list-bookings = My Bookings 
+master.menu.customer.list-passengers = My Passengers
+master.menu.customer.list-booking-records = My Booking Records
+
 
 # master.menu.manager ##########################################################
 
@@ -53,14 +76,25 @@ master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
 master.menu.user-account.become-technician = Become a Technician
+master.menu.user-account.technician-profile = Technician profile
+
+
 master.menu.user-account.become-assistance-agent = Become an Assistance Agent
 master.menu.user-account.assistance-agent-agent-profile = Assistance Agent profile
 
+
 # master.menu.technician ########################################################
 master.menu.technician = Technician
-master.menu.technician.maintenanceRecords = Maintenance Records
 master.menu.technician.maintenanceRecords.maintenanceRecords-list = Maintenance Records List
 master.menu.technician.tasks-list = Tasks List
+master.menu.technician.dashboard = Dashboard
+
+
+# master.menu.flightcrewmember ########################################################
+master.menu.flightcrewmember = Flight Crew Member
+master.menu.flightcrewmember.flightassignments.flightAssignments-list-completed = Completed Flight Assignments List
+master.menu.flightcrewmember.flightassignments.flightAssignments-list-planned = Planned Flight Assignments List
+master.menu.flightcrewmember.activitylogs.activitylogs-list = Activity Logs List
 
 # master.menu.assistance-agent ####################################################
 
@@ -70,4 +104,5 @@ master.menu.assistance-agent.claim.list-mine-undergoing = Undergoing Claims
 master.menu.assistance-agent.claim = Claims
 master.menu.assistance-agent.assistance-agent-dashboard = My Dashboard
 master.menu.assistance-agent.assistance-agent-dashboard.list = Dashboard
+
 

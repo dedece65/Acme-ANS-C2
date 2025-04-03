@@ -9,7 +9,6 @@ import acme.client.components.principals.UserAccount;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.features.authenticated.provider.AuthenticatedProviderRepository;
 import acme.realms.Technician;
 
 @GuiService
@@ -17,7 +16,7 @@ public class AuthenticatedTechnicianCreateService extends AbstractGuiService<Aut
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedProviderRepository repository;
+	private AuthenticatedTechnicianRepository repository;
 
 	// AbstractService<Authenticated, Provider> ---------------------------
 

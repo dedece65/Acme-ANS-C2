@@ -1,5 +1,5 @@
 
-package acme.entities.flightAssignment;
+package acme.entities.flightassignment;
 
 import java.util.Date;
 
@@ -50,6 +50,11 @@ public class FlightAssignment extends AbstractEntity {
 	@ValidString(max = 255)
 	@Automapped
 	private String				remarks;
+
+	@Mandatory
+	@Valid
+	@Automapped
+	private Boolean				draftMode;
 
 	// Derived attributes ---------------------------------------------------
 
