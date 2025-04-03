@@ -55,7 +55,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 	@Override
 	public void unbind(final Booking booking) {
 		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
-		Collection<Flight> flights = this.customerBookingRepository.findAllFlight();
+		Collection<Flight> flights = this.customerBookingRepository.findAllPublishedFlights();
 		SelectChoices flightChoices = SelectChoices.from(flights, "tag", booking.getFlight());
 		List<Passenger> passengers = this.customerPassengerRepository.findPassengerByBookingId(booking.getId());
 
