@@ -58,49 +58,58 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 		userAccountId = principal.getAccountId();
 		final Technician technician = this.repository.findOneTechnicianByUserAccoundId(userAccountId);
 
-		//NumOfMaintenanceRecordsByStatus
-		final Map<String, Integer> numOfRecordsByStatus = new HashMap<>();
-		final Integer pendingRecords = this.repository.countMaintenanceRecordsByStatus(technician.getId(), MaintenanceStatus.PENDING).orElse(0);
-		final Integer inProgressRecords = this.repository.countMaintenanceRecordsByStatus(technician.getId(), MaintenanceStatus.IN_PROGRESS).orElse(0);
-		final Integer completedRecords = this.repository.countMaintenanceRecordsByStatus(technician.getId(), MaintenanceStatus.COMPLETED).orElse(0);
+		if (technician != null) {
 
-		numOfRecordsByStatus.put("PENDING", pendingRecords);
-		numOfRecordsByStatus.put("IN_PROGRESS", inProgressRecords);
-		numOfRecordsByStatus.put("COMPLETED", completedRecords);
+			// NumOfMaintenanceRecordsByStatus
+			final Map<String, Integer> numOfRecordsByStatus = new HashMap<>();
+			Integer pendingRecords = 0;
+			Integer inProgressRecords = 0;
+			Integer completedRecords = 0;
 
-		// Pasar el mapa al dashboard
-		dashboard.setNumberOfRecordsGroupedByStatus(numOfRecordsByStatus);
+			if (technician.getId() != 0) {
+				pendingRecords = this.repository.countMaintenanceRecordsByStatus(technician.getId(), MaintenanceStatus.PENDING).orElse(0);
+				inProgressRecords = this.repository.countMaintenanceRecordsByStatus(technician.getId(), MaintenanceStatus.IN_PROGRESS).orElse(0);
+				completedRecords = this.repository.countMaintenanceRecordsByStatus(technician.getId(), MaintenanceStatus.COMPLETED).orElse(0);
+			}
 
-		super.getBuffer().addData(dashboard);
+			numOfRecordsByStatus.put("PENDING", pendingRecords);
+			numOfRecordsByStatus.put("IN_PROGRESS", inProgressRecords);
+			numOfRecordsByStatus.put("COMPLETED", completedRecords);
+			dashboard.setNumberOfRecordsGroupedByStatus(numOfRecordsByStatus);
 
-		// Maintenance record with the nearest inspection due date
-		MaintenanceRecord nearestRecord = this.repository.findNearestInspectionRecordsByTechnicianId(technician.getId()).stream().findFirst().orElse(null);
-		Date nearestRecordDate = nearestRecord.getNextInspectionDue();
-		dashboard.setNearestInspectionMaintenanceRecord(nearestRecordDate);
+			// Maintenance record with the nearest inspection due date
+			MaintenanceRecord nearestRecord = null;
+			Date nearestRecordDate = null;
+			if (technician.getId() != 0) {
+				nearestRecord = this.repository.findNearestInspectionRecordsByTechnicianId(technician.getId()).stream().findFirst().orElse(null);
+				if (nearestRecord != null)
+					nearestRecordDate = nearestRecord.getNextInspectionDue();
+			}
+			dashboard.setNearestInspectionMaintenanceRecord(nearestRecordDate);
 
-		// Obtener todos los Aircraft asociados a MaintenanceRecords del Technician
-		List<Aircraft> allAircrafts = this.repository.findTopFiveAircraftsByTechnicianId(technician.getId());
+			// Obtener todos los Aircraft asociados a MaintenanceRecords del Technician
+			List<Aircraft> allAircrafts = null;
+			if (technician.getId() != 0)
+				allAircrafts = this.repository.findTopFiveAircraftsByTechnicianId(technician.getId());
 
-		// Seleccionar solo los 5 primeros (los que tienen más tareas)
-		List<Aircraft> topFiveAircrafts = allAircrafts.stream().limit(5).toList();
+			List<Aircraft> topFiveAircrafts = allAircrafts != null && !allAircrafts.isEmpty() ? allAircrafts.stream().limit(5).toList() : List.of();
+			dashboard.setTopFiveAircrafts(topFiveAircrafts);
 
-		dashboard.setTopFiveAircrafts(topFiveAircrafts);
+			// Estadísticas de costos estimados de registros de mantenimiento (Con manejo de null)
+			dashboard.setAverageEstimatedCost(this.repository.findAverageEstimatedCost(technician.getId()) != null ? this.repository.findAverageEstimatedCost(technician.getId()) : 0.0);
+			dashboard.setDeviationEstimatedCost(this.repository.findDeviationEstimatedCost(technician.getId()) != null ? this.repository.findDeviationEstimatedCost(technician.getId()) : 0.0);
+			dashboard.setMinEstimatedCost(this.repository.findMinEstimatedCost(technician.getId()) != null ? this.repository.findMinEstimatedCost(technician.getId()) : 0.0);
+			dashboard.setMaxEstimatedCost(this.repository.findMaxEstimatedCost(technician.getId()) != null ? this.repository.findMaxEstimatedCost(technician.getId()) : 0.0);
 
-		super.getBuffer().addData(dashboard);
+			// Estadísticas de duración estimada (Con manejo de null)
+			dashboard.setAverageEstimatedDuration(this.repository.findAverageEstimatedDuration(technician.getId()) != null ? this.repository.findAverageEstimatedDuration(technician.getId()) : 0.0);
+			dashboard.setDeviationEstimatedDuration(this.repository.findDeviationEstimatedDuration(technician.getId()) != null ? this.repository.findDeviationEstimatedDuration(technician.getId()) : 0.0);
+			dashboard.setMinEstimatedDuration(this.repository.findMinEstimatedDuration(technician.getId()) != null ? this.repository.findMinEstimatedDuration(technician.getId()) : 0.0);
+			dashboard.setMaxEstimatedDuration(this.repository.findMaxEstimatedDuration(technician.getId()) != null ? this.repository.findMaxEstimatedDuration(technician.getId()) : 0.0);
 
-		// Statistics on the estimated cost of maintenance records in the last year
-		dashboard.setAverageEstimatedCost(this.repository.findAverageEstimatedCost(technician.getId()));
-		dashboard.setDeviationEstimatedCost(this.repository.findDeviationEstimatedCost(technician.getId()));
-		dashboard.setMinEstimatedCost(this.repository.findMinEstimatedCost(technician.getId()));
-		dashboard.setMaxEstimatedCost(this.repository.findMaxEstimatedCost(technician.getId()));
+			super.getBuffer().addData(dashboard);
+		}
 
-		// Statistics on the estimated duration of tasks in which the technician is involved
-		dashboard.setAverageEstimatedDuration(this.repository.findAverageEstimatedDuration(technician.getId()));
-		dashboard.setDeviationEstimatedDuration(this.repository.findDeviationEstimatedDuration(technician.getId()));
-		dashboard.setMinEstimatedDuration(this.repository.findMinEstimatedDuration(technician.getId()));
-		dashboard.setMaxEstimatedDuration(this.repository.findMaxEstimatedDuration(technician.getId()));
-
-		super.getBuffer().addData(dashboard);
 	}
 
 	@Override
