@@ -11,6 +11,8 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.maintenanceRecord.MaintenanceRecord;
+import acme.entities.maintenanceRecord.MaintenanceStatus;
+import acme.entities.task.Task;
 import acme.realms.Technician;
 
 @GuiService
@@ -61,6 +63,17 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
 
+		Collection<Task> tasks = this.repository.findTasksByMaintenanceRecordId(maintenanceRecord.getId());
+
+		boolean hasPublishedTask = tasks.stream().anyMatch(task -> !task.isDraftMode());
+		boolean hasAnyTask = !tasks.isEmpty();
+
+		// Si hay alguna tarea publicada, no se puede eliminar el MaintenanceRecord
+		super.state(!hasPublishedTask, "*", "technician.maintenance-record.form.error.has-published-tasks");
+
+		// Si no hay tareas publicadas pero hay tareas asociadas, también se debe impedir la eliminación
+		if (!hasPublishedTask && hasAnyTask)
+			super.state(false, "*", "technician.maintenance-record.form.error.has-associated-tasks-must-delete-first");
 	}
 
 	@Override
@@ -70,17 +83,21 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 
 	@Override
 	public void unbind(final MaintenanceRecord maintenanceRecord) {
+		SelectChoices choices;
 		Collection<Aircraft> aircrafts;
 		SelectChoices aircraft;
 
 		Dataset dataset;
 		aircrafts = this.repository.findAllAircrafts();
-
+		choices = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
 		aircraft = SelectChoices.from(aircrafts, "id", maintenanceRecord.getAircraft());
 
-		dataset = super.unbindObject(maintenanceRecord, "status", "nextInspectionDue", "estimatedCost", "notes", "aircraft");
+		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "status", "nextInspectionDue", "estimatedCost", "notes", "aircraft", "draftMode");
 
+		dataset.put("status", choices.getSelected().getKey());
+		dataset.put("status", choices);
 		dataset.put("aircraft", aircraft.getSelected().getKey());
+		dataset.put("aircraft", aircraft);
 
 		super.getResponse().addData(dataset);
 	}

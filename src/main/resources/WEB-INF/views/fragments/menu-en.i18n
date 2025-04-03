@@ -27,6 +27,11 @@ master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
 master.menu.administrator.shut-system-down = Shut system down
 
+# master.menu.administrator.maintenance-record #################################
+
+master.menu.administrator.maintenance-record-list = Maintenance Records List
+
+# master.menu.administrator.airports #################################
 master.menu.administrator.list-airports = List Airports
 
 # master.menu.provider ########################################################
@@ -63,10 +68,12 @@ master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
 master.menu.user-account.become-technician = Become a Technician
+master.menu.user-account.technician-profile = Technician profile
+
 
 # master.menu.technician ########################################################
 master.menu.technician = Technician
-master.menu.technician.maintenanceRecords = Maintenance Records
 master.menu.technician.maintenanceRecords.maintenanceRecords-list = Maintenance Records List
 master.menu.technician.tasks-list = Tasks List
+master.menu.technician.dashboard = Dashboard
 

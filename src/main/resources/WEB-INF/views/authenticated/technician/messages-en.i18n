@@ -20,3 +20,5 @@ authenticated.technician.form.label.certifications = Certifications:
 # Technician Form Buttons
 authenticated.technician.form.button.create = Register Technician
 authenticated.technician.form.button.update = Update Technician
+
+javax.validation.constraints.Unique.message=License Number must be unique. Another technician is already using this License Number

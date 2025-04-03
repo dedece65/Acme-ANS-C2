@@ -22,6 +22,7 @@ technician.maintenance-record.form.button.update = Update
 technician.maintenance-record.form.button.delete = Delete
 technician.maintenance-record.form.button.tasks  = Tasks
 technician.maintenance-record.form.button.publish = Publish 
+technician.maintenance-record.form.button.add.task = Add Task
 
 
 technician.maintenance-record.form.label.maintenanceMoment = Moment
@@ -39,3 +40,5 @@ technician.maintenance-record.form.error.aircraft = The selected aircraft does n
 
 technician.maintenance-record.form.error.zero-tasks = In order to publish a maintenance record, it must have at least one published task
 technician.maintenance-record.form.error.not-all-tasks-published = In order to publish a maintenance record, it must have all it tasks published
+technician.maintenance-record.form.error.has-published-tasks = You cannot delete this Maintenance Record because it has published tasks associated with it.
+technician.maintenance-record.form.error.has-associated-tasks-must-delete-first = You cannot delete this Maintenance Record because it has associated tasks. Please delete all associated tasks

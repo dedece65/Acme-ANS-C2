@@ -16,7 +16,10 @@ public class AuthenticatedTechnicianController extends AbstractGuiController<Aut
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedTechnicianCreateService createService;
+	private AuthenticatedTechnicianCreateService	createService;
+
+	@Autowired
+	private AuthenticatedTechnicianUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -24,6 +27,8 @@ public class AuthenticatedTechnicianController extends AbstractGuiController<Aut
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
+
 	}
 
 }

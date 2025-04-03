@@ -1,3 +1,4 @@
 key,key:userAccount,licenseNumber,phoneNumber,specialisation,passedHealthTest,yearsOfExperience,certifications
 technician-01,user-account-technician-01,AB123456,9876543210,Electrical,true,5,First Aid OSHA Certified
 technician-02,user-account-technician-02,CD654321,9876543210,Mechanical,false,3,Safety Training
+technician-03,user-account-technician-03,EF321654,9876543210,Electrical,false,2,

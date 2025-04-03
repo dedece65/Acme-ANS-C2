@@ -7,6 +7,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.components.principals.Principal;
 import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
@@ -28,7 +29,18 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 	// AbstractGuiService interface -------------------------------------------
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean authorised = false;
+		Principal principal = super.getRequest().getPrincipal();
+		int userAccountId = principal.getAccountId();
+
+		// Buscar al técnico que está actualmente logueado
+		Technician technician = this.repository.findOneTechnicianByUserAccoundId(userAccountId);
+
+		if (technician != null)
+			// Verificar si el técnico está registrado en el sistema
+			authorised = true;
+
+		super.getResponse().setAuthorised(authorised);
 	}
 
 	@Override
@@ -40,6 +52,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 		maintenanceRecord = new MaintenanceRecord();
 		maintenanceRecord.setTechnician(technician);
 		maintenanceRecord.setMaintenanceMoment(moment);
+		maintenanceRecord.setDraftMode(true);
 		super.getBuffer().addData(maintenanceRecord);
 	}
 
@@ -85,7 +98,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 		choices = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
 		aircraft = SelectChoices.from(aircrafts, "id", maintenanceRecord.getAircraft());
 
-		dataset = super.unbindObject(maintenanceRecord, "status", "nextInspectionDue", "estimatedCost", "notes", "aircraft");
+		dataset = super.unbindObject(maintenanceRecord, "status", "nextInspectionDue", "estimatedCost", "notes", "aircraft", "draftMode");
 
 		dataset.put("status", choices.getSelected().getKey());
 		dataset.put("status", choices);

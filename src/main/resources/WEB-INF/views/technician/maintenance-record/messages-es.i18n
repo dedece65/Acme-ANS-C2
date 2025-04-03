@@ -23,6 +23,7 @@ technician.maintenance-record.form.button.update = Update
 technician.maintenance-record.form.button.delete = Borrar
 technician.maintenance-record.form.button.tasks  = Tareas
 technician.maintenance-record.form.button.publish = Publicar
+technician.maintenance-record.form.button.add.task = Añade tarea
 
 
 technician.maintenance-record.form.label.maintenanceMoment = Momento
@@ -41,3 +42,5 @@ technician.maintenance-record.form.error.aircraft = El avión seleccionado no ex
 
 technician.maintenance-record.form.error.zero-tasks = Para publicar un registro de mantenimiento, este debe tener al menos una tarea publicada
 technician.maintenance-record.form.error.not-all-tasks-published = Para publicar un registro de mantenimiento, este debe tener todas sus tareas publicadas
+technician.maintenance-record.form.error.has-published-tasks = No puedes eliminar este Registro de Mantenimiento porque tiene tareas publicadas asociadas.
+technician.maintenance-record.form.error.has-associated-tasks-must-delete-first = No puedes eliminar este Registro de Mantenimiento porque tiene tareas asociadas. Por favor, elimina todas las tareas asociadas
