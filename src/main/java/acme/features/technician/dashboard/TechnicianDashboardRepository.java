@@ -1,6 +1,8 @@
 
 package acme.features.technician.dashboard;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -18,15 +20,18 @@ public interface TechnicianDashboardRepository extends AbstractRepository {
 	Integer countMaintenanceRecordsByTechnicianId(int technicianId);
 
 	@Query("SELECT m FROM MaintenanceRecord m WHERE m.technician.id = :technicianId ORDER BY m.nextInspectionDue ASC")
-	MaintenanceRecord findNearestInspectionRecordByTechnicianId(int technicianId);
+	List<MaintenanceRecord> findNearestInspectionRecordsByTechnicianId(int technicianId);
 
-	@Query("SELECT STDDEV(m.estimatedCost) FROM MaintenanceRecord m WHERE m.technician.id = :technicianId")
+	@Query("SELECT AVG(m.estimatedCost.amount) FROM MaintenanceRecord m WHERE m.technician.id = :technicianId")
+	Double findAverageEstimatedCost(int technicianId);
+
+	@Query("SELECT STDDEV(m.estimatedCost.amount) FROM MaintenanceRecord m WHERE m.technician.id = :technicianId")
 	Double findDeviationEstimatedCost(int technicianId);
 
-	@Query("SELECT MIN(m.estimatedCost) FROM MaintenanceRecord m WHERE m.technician.id = :technicianId")
+	@Query("SELECT MIN(m.estimatedCost.amount) FROM MaintenanceRecord m WHERE m.technician.id = :technicianId")
 	Double findMinEstimatedCost(int technicianId);
 
-	@Query("SELECT MAX(m.estimatedCost) FROM MaintenanceRecord m WHERE m.technician.id = :technicianId")
+	@Query("SELECT MAX(m.estimatedCost.amount) FROM MaintenanceRecord m WHERE m.technician.id = :technicianId")
 	Double findMaxEstimatedCost(int technicianId);
 
 	@Query("SELECT AVG(t.estimatedDuration) FROM Task t WHERE t.technician.id = :technicianId")

@@ -65,4 +65,5 @@ master.menu.user-account.technician-profile = Technician profile
 master.menu.technician = Technician
 master.menu.technician.maintenanceRecords.maintenanceRecords-list = Maintenance Records List
 master.menu.technician.tasks-list = Tasks List
+master.menu.technician.dashboard = Dashboard
 
