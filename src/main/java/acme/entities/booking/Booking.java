@@ -83,6 +83,12 @@ public class Booking extends AbstractEntity {
 		return price;
 	}
 
+	@Transient
+	public Integer getNumberOfPassengers() {
+		CustomerPassengerRepository customerPassengerRepository = SpringHelper.getBean(CustomerPassengerRepository.class);
+		return customerPassengerRepository.findPassengerByBookingId(this.getId()).size();
+	}
+
 	// Relationships ----------------------------------------------------------
 
 

@@ -8,11 +8,11 @@ import acme.client.components.datatypes.Money;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 public class CustomerDashboard extends AbstractForm {
 
-	// Serialisation identifier -----------------------------------------------
+	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
 
@@ -32,9 +32,4 @@ public class CustomerDashboard extends AbstractForm {
 	private Integer				bookingMinimumPassengers;
 	private Integer				bookingMaximumPassengers;
 	private Double				bookingDeviationPassengers;
-
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
-
 }
