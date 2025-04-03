@@ -11,9 +11,13 @@ import acme.entities.aircraft.Aircraft;
 import acme.entities.maintenanceRecord.MaintenanceRecord;
 import acme.entities.maintenanceRecordTask.MaintenanceRecordTask;
 import acme.entities.task.Task;
+import acme.realms.Technician;
 
 @Repository
 public interface TechnicianMaintenanceRecordRepository extends AbstractRepository {
+
+	@Query("SELECT t FROM Technician t WHERE t.userAccount.id = :id")
+	Technician findOneTechnicianByUserAccoundId(int id);
 
 	@Query("SELECT m FROM MaintenanceRecord m")
 	Collection<MaintenanceRecord> findAllMaintenanceRecords();
