@@ -1,7 +1,6 @@
 
 package acme.entities.flight;
 
-import java.time.Instant;
 import java.util.Date;
 
 import javax.persistence.Entity;
