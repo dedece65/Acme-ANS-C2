@@ -34,7 +34,6 @@
 			<acme:submit code="technician.maintenance-record.form.button.publish" action="/technician/maintenance-record/publish?maintenanceRecordId=${id}"/>
 			
 			<acme:button code="technician.maintenance-record.form.button.tasks" action="/technician/task/list?maintenanceRecordId=${id}"/>
-			<acme:button code="technician.maintenance-record.form.button.add.task" action="/technician/maintenance-record-task/create?maintenanceRecordId=${id}"/>	
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="technician.maintenance-record.form.button.create" action="/technician/maintenance-record/create"/>

@@ -22,3 +22,10 @@
 </acme:list>
 
 <acme:button code="technician.task.list.button.create" action ="/technician/task/create"/>
+
+<jstl:choose>
+		<jstl:when test="${maintenanceRecordId != null && showCreate }">
+			<acme:button code="technician.maintenance-record.form.button.add.task"
+	             action="/technician/maintenance-record-task/create?maintenanceRecordId=${maintenanceRecordId}"/>
+		</jstl:when>		
+</jstl:choose>	
