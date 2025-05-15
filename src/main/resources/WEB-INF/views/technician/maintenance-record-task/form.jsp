@@ -19,9 +19,7 @@
      <acme:input-select code="technician.maintenance-record-task.form.label.task" path="task" choices="${task}"/>
  	<jstl:choose>
  	
- 		<jstl:when test="${_command == 'create'}">
- 			<acme:button code="technician.task.list.button.create" action ="/technician/task/create"/>
- 			
+ 		<jstl:when test="${_command == 'create'}"> 			
  			<acme:submit code="technician.maintenance-record-task.form.button.create" action="/technician/maintenance-record-task/create?maintenanceRecordId=${maintenanceRecordId}"/>
  		</jstl:when>
  				

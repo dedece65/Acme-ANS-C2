@@ -2,6 +2,8 @@
 package acme.features.technician.maintenanceRecordTask;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -75,7 +77,15 @@ public class TechnicianMaintenanceRecordTaskCreateService extends AbstractGuiSer
 
 		Collection<Task> taskOnMaintenanceRecord = this.repository.findTaskOfMaintenanceRecord(maintenanceRecordId);
 
-		Collection<Task> tasks = this.repository.findAllTaskByTechnicianId(technicianId).stream().filter(t -> !taskOnMaintenanceRecord.contains(t)).toList();
+		Collection<Task> technicianTasks = this.repository.findAllTaskByTechnicianId(technicianId).stream().filter(t -> !taskOnMaintenanceRecord.contains(t)).toList();
+
+		Collection<Task> publishedTasks = this.repository.findAllPublishedTasks();
+
+		Set<Task> combinedTasks = new HashSet<>();
+		combinedTasks.addAll(technicianTasks);
+		combinedTasks.addAll(publishedTasks);
+
+		Collection<Task> tasks = combinedTasks.stream().filter(t -> !taskOnMaintenanceRecord.contains(t)).toList();
 
 		task = SelectChoices.from(tasks, "id", maintenanceRecordTask.getTask());
 
