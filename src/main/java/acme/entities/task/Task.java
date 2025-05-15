@@ -4,7 +4,9 @@ package acme.entities.task;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
 
@@ -20,6 +22,10 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "draftMode"),              // 
+	@Index(columnList = "draftMode, technician_id")
+})
 public class Task extends AbstractEntity {
 
 	//Serialisation version ------------------------------------------------------
