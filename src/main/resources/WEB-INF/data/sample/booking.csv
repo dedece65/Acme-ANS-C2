@@ -4,7 +4,7 @@ booking-02,123456,2012/01/07 00:00,ECONOMY,0001,false,customer-02,flight-02
 booking-03,12345678,2012/01/07 00:00,ECONOMY,0001,false,customer-04,flight-03
 booking-04,ABCDEF,2012/01/07 00:00,ECONOMY,0001,false,customer-04,flight-04
 booking-05,ABCDEFGH,2012/01/07 00:00,ECONOMY,0001,false,customer-05,flight-05
-booking-06,1A2B3C,2012/01/07 00:00,ECONOMY,0001,false,customer-06,flight-06
+booking-06,1A2B3C,2012/01/07 00:00,ECONOMY,0001,false,customer-01,flight-01
 booking-07,1A2B3C4D,2012/01/07 00:00,ECONOMY,0001,false,customer-07,flight-07
 booking-08,X9Y8Z7,2000/01/01 00:00,ECONOMY,0001,false,customer-08,flight-08
 booking-09,X9Y8ZE,2000/01/01 00:01,ECONOMY,0001,false,customer-09,flight-09

@@ -13,9 +13,10 @@
 	<acme:input-textbox code="customer.booking.form.label.passengers" path="passengers" readonly="true"/>
 
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|publish') && published == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && published == false}">
 			<acme:submit code="customer.booking.form.button.update" action="/customer/booking/update"/>
 			<acme:submit code="customer.booking.form.button.publish" action="/customer/booking/publish"/>
+			<acme:submit code="customer.booking.form.button.delete" action="/customer/booking/delete?bookingId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="customer.booking.form.button.create" action="/customer/booking/create"/>
