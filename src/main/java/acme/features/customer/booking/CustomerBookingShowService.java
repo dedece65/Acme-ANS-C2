@@ -56,7 +56,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 	public void unbind(final Booking booking) {
 		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		Collection<Flight> flights = this.customerBookingRepository.findAllPublishedFlights();
-		SelectChoices flightChoices = SelectChoices.from(flights, "tag", booking.getFlight());
+		SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
 		List<Passenger> passengers = this.customerPassengerRepository.findPassengerByBookingId(booking.getId());
 
 		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "published");
