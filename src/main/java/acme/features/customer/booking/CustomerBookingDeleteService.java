@@ -12,7 +12,6 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
 import acme.entities.booking.BookingRecord;
-import acme.entities.booking.Passenger;
 import acme.entities.booking.TravelClass;
 import acme.entities.flight.Flight;
 import acme.features.customer.passenger.CustomerPassengerRepository;
@@ -75,16 +74,18 @@ public class CustomerBookingDeleteService extends AbstractGuiService<Customer, B
 	public void unbind(final Booking booking) {
 		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		Collection<Flight> flights = this.customerBookingRepository.findAllPublishedFlights();
-		List<Passenger> passengers = this.customerPassengerRepository.findPassengerByBookingId(booking.getId());
 
 		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "published", "id");
 		dataset.put("travelClass", travelClasses);
+
+		Boolean hasPassengers;
+		hasPassengers = !this.customerPassengerRepository.findPassengerByBookingId(booking.getId()).isEmpty();
+		super.getResponse().addGlobal("hasPassengers", hasPassengers);
 
 		if (!flights.isEmpty()) {
 			SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
 			dataset.put("flights", flightChoices);
 		}
-		dataset.put("passengers", passengers);
 
 		super.getResponse().addData(dataset);
 

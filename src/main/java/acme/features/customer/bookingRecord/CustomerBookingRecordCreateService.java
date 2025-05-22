@@ -57,7 +57,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 		Collection<Passenger> passengers = this.customerBookingRecordRepository.getAllPassengersByCustomer(customerId);
 		Collection<Booking> bookings = this.customerBookingRecordRepository.getBookingsByCustomerId(customerId);
-		SelectChoices passengerChoices = SelectChoices.from(passengers, "id", bookingRecord.getPassenger());
+		SelectChoices passengerChoices = SelectChoices.from(passengers, "fullName", bookingRecord.getPassenger());
 		SelectChoices bookingChoices = SelectChoices.from(bookings, "locatorCode", bookingRecord.getBooking());
 		Dataset dataset = super.unbindObject(bookingRecord, "passenger", "booking");
 		dataset.put("passengers", passengerChoices);
