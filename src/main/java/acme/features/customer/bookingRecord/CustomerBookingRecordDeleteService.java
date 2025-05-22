@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.entities.booking.Booking;
 import acme.entities.booking.BookingRecord;
 import acme.realms.Customer;
 
@@ -50,10 +49,10 @@ public class CustomerBookingRecordDeleteService extends AbstractGuiService<Custo
 
 	@Override
 	public void validate(final BookingRecord bookingRecord) {
-		Booking booking = this.customerBookingRecordRepository.getBookingByBookingRecordId(bookingRecord.getBooking().getId());
-		boolean status;
-		status = booking.getPublished();
-		super.state(!status, "*", "customer.booking.form.error.existingRecord");
+		//		Booking booking = this.customerBookingRecordRepository.getBookingFromBookingRecord(bookingRecord.getBooking().getId());
+		//		boolean status;
+		//		status = booking.getPublished();
+		//		super.state(!status, "*", "customer.booking.form.error.existingRecord");
 
 	}
 
