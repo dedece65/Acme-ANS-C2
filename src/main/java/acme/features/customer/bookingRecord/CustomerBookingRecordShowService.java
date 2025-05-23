@@ -43,8 +43,11 @@ public class CustomerBookingRecordShowService extends AbstractGuiService<Custome
 
 	@Override
 	public void unbind(final BookingRecord bookingRecord) {
+		Boolean publishedBooking = bookingRecord.getBooking().getPublished();
 		Dataset dataset = super.unbindObject(bookingRecord, "booking", "passenger");
-
+		dataset.put("bookingLocator", bookingRecord.getBooking().getLocatorCode());
+		dataset.put("passengerFullName", bookingRecord.getPassenger().getFullName());
+		dataset.put("publishedBooking", publishedBooking);
 		super.getResponse().addData(dataset);
 	}
 

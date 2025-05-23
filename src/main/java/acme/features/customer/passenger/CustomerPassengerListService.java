@@ -18,7 +18,6 @@ public class CustomerPassengerListService extends AbstractGuiService<Customer, P
 
 	@Autowired
 	private CustomerPassengerRepository customerPassengerRepository;
-
 	// AbstractGuiService interface -------------------------------------------
 
 
@@ -48,9 +47,11 @@ public class CustomerPassengerListService extends AbstractGuiService<Customer, P
 	@Override
 	public void unbind(final Passenger passenger) {
 		assert passenger != null;
+		Boolean containsBookingId;
 
 		Dataset dataset = super.unbindObject(passenger, "fullName", "email", "passportNumber", "dateOfBirth", "specialNeeds", "published");
-
+		containsBookingId = super.getRequest().getData().containsKey("bookingId");
+		super.getResponse().addGlobal("containsBookingId", containsBookingId);
 		super.getResponse().addData(dataset);
 
 	}

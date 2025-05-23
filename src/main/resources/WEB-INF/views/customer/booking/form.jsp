@@ -10,16 +10,23 @@
 	<acme:input-select code="customer.booking.form.label.travelClass" path="travelClass" choices="${travelClass}" readonly="${published}"/>	
 	<acme:input-textarea code="customer.booking.form.label.price" path="price" readonly="true"/>
 	<acme:input-textarea code="customer.booking.form.label.lastNibble" path="lastNibble" readonly="${published}"/>
-	<acme:input-textbox code="customer.booking.form.label.passengers" path="passengers" readonly="true"/>
 
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && published == false}">
 			<acme:submit code="customer.booking.form.button.update" action="/customer/booking/update"/>
 			<acme:submit code="customer.booking.form.button.publish" action="/customer/booking/publish"/>
 			<acme:submit code="customer.booking.form.button.delete" action="/customer/booking/delete?bookingId=${id}"/>
+			<jstl:if test="${ hasPassengers == true}">
+					<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/list?bookingId=${id}"/>
+				</jstl:if>
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && published == true}">
+			<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/list?bookingId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="customer.booking.form.button.create" action="/customer/booking/create"/>
 		</jstl:when>		
 	</jstl:choose>
+			
+	
 </acme:form>
