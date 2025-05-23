@@ -80,6 +80,8 @@ master.menu.user-account.consumer-profile = Perfil de consumidor
 master.menu.user-account.become-technician = Hazte Técnico
 master.menu.user-account.technician-profile = Perfil de técnico 
 
+master.menu.user-account.become-customer = Hacerse cliente
+master.menu.user-account.customer-profile = Perfil de cliente
 
 master.menu.user-account.become-assistance-agent = Hazte Agente de Asistencia
 master.menu.user-account.assistance-agent-profile = Perfil de Agente de Asistencia
