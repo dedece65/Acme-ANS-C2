@@ -1,15 +1,15 @@
-administrator.airline.form.title = Airline form 
-administrator.airline.list.title = List of airlines
+administrator.airline.form.title = Airline details
+administrator.airline.list.title = List of Airlines
 
 administrator.airline.label.name = Name:
 administrator.airline.label.iata = IATA code:
 administrator.airline.label.website = Website:
 administrator.airline.label.type = Type:
 administrator.airline.label.foundationMoment = Foundation date: 
-administrator.airline.label.email = Email:
-administrator.airline.label.phoneNumber = Phone number:
+administrator.airline.label.email = Email (Optional):
+administrator.airline.label.phoneNumber = Phone number (Optional):
 
 administrator.airline.button.create = Create
 administrator.airline.button.update = Update
 
-administrator.airline.form.label.confirmation = Confirm the airline
+administrator.airline.form.label.confirmation = ¿Are you sure?
