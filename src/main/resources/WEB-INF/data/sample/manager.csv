@@ -11,12 +11,12 @@ manager-09,JA000009,5,2000/01/01 00:01,https://linkToPicture.com/manager-picture
 manager-10,JA000010,5,2020/03/03 15:32,https://linkToPicture.com/manager-picture,airline-10,user-account-manager-10
 manager-11,JA000011,5,2020/03/03 15:33,https://linkToPicture.com/manager-picture,airline-11,user-account-manager-11
 manager-12,JA000012,5,2003/10/08 00:00,http://lorem.com/ipsum,airline-12,user-account-manager-12
-manager-13,JA000013,5,2003/10/08 00:00,ftp://a,airline-13,user-account-manager-13
-manager-14,JA000014,5,2003/10/08 00:00,ftp://a.b,airline-14,user-account-manager-14
+manager-13,JA000013,5,2003/10/08 00:00,http://lorem.com/ipsum,airline-13,user-account-manager-13
+manager-14,JA000014,5,2003/10/08 00:00,http://lorem.com/ipsum,airline-14,user-account-manager-14
 manager-15,JA000015,5,2003/10/08 00:00,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/,airline-15,user-account-manager-15
 manager-16,JA000016,5,2003/10/08 00:00,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X,airline-16,user-account-manager-16
 manager-17,JA000017,5,2003/10/08 00:00,https://www.lorem-ipsum.org,airline-17,user-account-manager-17
-manager-18,JA000018,5,2003/10/08 00:00,ftp://www.lorem-ipsum.org,airline-18,user-account-manager-18
+manager-18,JA000018,5,2003/10/08 00:00,http://lorem.com/ipsum,airline-18,user-account-manager-18
 manager-19,JA000019,5,2003/10/08 00:00,http://www.lorem-ipsum.org/dolor/sit.html,airline-19,user-account-manager-19
 manager-20,JA000020,5,2003/10/08 00:00,http://www.lorem-ipsum.org/dolor/sit.html#dolor,airline-20,user-account-manager-20
 manager-21,JA000021,5,2003/10/08 00:00,http://example.org?a=1&b=2,airline-21,user-account-manager-21
