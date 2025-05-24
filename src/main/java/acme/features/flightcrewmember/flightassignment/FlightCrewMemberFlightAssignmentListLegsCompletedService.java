@@ -22,29 +22,28 @@ public class FlightCrewMemberFlightAssignmentListLegsCompletedService extends Ab
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+
+		int flightCrewMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		boolean authorised = this.repository.existsFlightCrewMember(flightCrewMemberId);
+		super.getResponse().setAuthorised(authorised);
 	}
 
 	@Override
 	public void load() {
-		Collection<FlightAssignment> assignments;
-		int id;
-		Date now;
+		Collection<FlightAssignment> flightAssignments;
 
-		id = super.getRequest().getPrincipal().getActiveRealm().getId();
-		now = MomentHelper.getCurrentMoment();
+		Date currentMoment;
+		int flightCrewMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		assignments = this.repository.findCompletedFlightAssignmentsByMemberId(now, id);
+		currentMoment = MomentHelper.getCurrentMoment();
+		flightAssignments = this.repository.findAllFlightAssignmentByCompletedLeg(currentMoment, flightCrewMemberId);
 
-		super.getBuffer().addData(assignments);
+		super.getBuffer().addData(flightAssignments);
 	}
 
 	@Override
-	public void unbind(final FlightAssignment assignment) {
-		Dataset dataset;
-
-		dataset = super.unbindObject(assignment, "lastUpdate", "status", "duty");
-		super.addPayload(dataset, assignment, "remarks");
+	public void unbind(final FlightAssignment flightAssignment) {
+		Dataset dataset = super.unbindObject(flightAssignment, "duty", "lastUpdate", "status", "remarks", "draftMode");
 
 		super.getResponse().addData(dataset);
 	}

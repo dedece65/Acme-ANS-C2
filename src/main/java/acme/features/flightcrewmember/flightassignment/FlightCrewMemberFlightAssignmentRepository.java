@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
 import acme.entities.activitylog.ActivityLog;
+import acme.entities.flightassignment.Duty;
 import acme.entities.flightassignment.FlightAssignment;
 import acme.entities.leg.Leg;
 import acme.realms.FlightCrewMember;
@@ -48,4 +49,28 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 
 	@Query("select fa from FlightAssignment fa where fa.leg.id = :legId")
 	Collection<FlightAssignment> findFlightAssignmentByLegId(int legId);
+
+	@Query("SELECT CASE WHEN COUNT(fa) > 0 THEN true ELSE false END FROM FlightAssignment fa WHERE fa.id = :id")
+	boolean existsFlightAssignment(int id);
+
+	@Query("SELECT CASE WHEN COUNT(fcm) > 0 THEN true ELSE false END FROM FlightCrewMember fcm WHERE fcm.id = :id")
+	boolean existsFlightCrewMember(int id);
+
+	@Query("select count(fa) > 0 from FlightAssignment fa where fa.id = :flightAssignmentId and fa.crewMember.id = :flightCrewMemberId")
+	boolean thatFlightAssignmentIsOf(int flightAssignmentId, int flightCrewMemberId);
+
+	@Query("select case when count(fa) > 0 then true else false end " + "from FlightAssignment fa " + "where fa.id = :flightAssignmentId " + "and fa.leg.scheduledArrival < :currentMoment")
+	boolean areLegsCompletedByFlightAssignment(int flightAssignmentId, Date currentMoment);
+
+	@Query("select fa from FlightAssignment fa where fa.leg.scheduledArrival < :currentMoment and fa.crewMember.id = :flighCrewMemberId")
+	Collection<FlightAssignment> findAllFlightAssignmentByCompletedLeg(Date currentMoment, int flighCrewMemberId);
+
+	@Query("select fa from FlightAssignment fa where fa.leg.scheduledArrival >= :currentMoment and fa.crewMember.id = :flighCrewMemberId")
+	Collection<FlightAssignment> findAllFlightAssignmentByPlannedLeg(Date currentMoment, int flighCrewMemberId);
+
+	@Query("SELECT CASE WHEN COUNT(l) > 0 THEN true ELSE false END FROM Leg l WHERE l.id = :id")
+	boolean existsLeg(int id);
+
+	@Query("select count(fa) > 0 from FlightAssignment fa where fa.leg.id = :legId and fa.duty = :duty")
+	boolean existsFlightCrewMemberWithDutyInLeg(int legId, Duty duty);
 }

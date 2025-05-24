@@ -94,10 +94,9 @@ master.menu.technician.tasks-list = Lista de tareas
 
 
 # master.menu.flightcrewmember ########################################################
-master.menu.flightcrewmember = Miembro de tripulación
-master.menu.flightcrewmember.flightassignments.flightAssignments-list-completed = Listado de las asignaciones de vuelo completadas
-master.menu.flightcrewmember.flightassignments.flightAssignments-list-planned = Listado de las asignaciones de vuelo planificadas
-master.menu.flightcrewmember.activitylogs.activitylogs-list = Listado de los registros de actividad
+master.menu.flight-crew-member = Miembro de tripulación
+master.menu.flight-crew-member.flight-assignment.completedlist = Listado de las asignaciones de vuelo completadas
+master.menu.flight-crew-member.flight-assignment.plannedlist = Listado de las asignaciones de vuelo planificadas
 
 master.menu.technician.dashboard = Tablero
 
