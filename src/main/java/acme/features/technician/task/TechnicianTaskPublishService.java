@@ -68,13 +68,13 @@ public class TechnicianTaskPublishService extends AbstractGuiService<Technician,
 
 	@Override
 	public void unbind(final Task task) {
-		SelectChoices choices;
+		SelectChoices types;
 
 		Dataset dataset;
-		choices = SelectChoices.from(TaskType.class, task.getType());
+		types = SelectChoices.from(TaskType.class, task.getType());
 
-		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration", "draftMode", "draftMode");
-		dataset.put("type", choices.getSelected().getKey());
+		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration", "draftMode");
+		dataset.put("type", types);
 
 		super.getResponse().addData(dataset);
 	}
