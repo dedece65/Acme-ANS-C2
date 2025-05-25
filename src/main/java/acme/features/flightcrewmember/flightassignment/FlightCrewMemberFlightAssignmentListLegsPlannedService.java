@@ -2,15 +2,14 @@
 package acme.features.flightcrewmember.flightassignment;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flightassignment.FlightAssignment;
+import acme.entities.leg.LegStatus;
 import acme.realms.FlightCrewMember;
 
 @GuiService
@@ -32,11 +31,14 @@ public class FlightCrewMemberFlightAssignmentListLegsPlannedService extends Abst
 	public void load() {
 		Collection<FlightAssignment> flightAssignments;
 
-		Date currentMoment;
+		LegStatus onTime = LegStatus.ON_TIME;
+		LegStatus delayed = LegStatus.DELAYED;
+		LegStatus cancelled = LegStatus.CANCELLED;
 		int flightCrewMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		currentMoment = MomentHelper.getCurrentMoment();
-		flightAssignments = this.repository.findAllFlightAssignmentByPlannedLeg(currentMoment, flightCrewMemberId);
+		flightAssignments = this.repository.findAllFlightAssignmentByLegStatus(onTime, flightCrewMemberId);
+		flightAssignments.addAll(this.repository.findAllFlightAssignmentByLegStatus(delayed, flightCrewMemberId));
+		flightAssignments.addAll(this.repository.findAllFlightAssignmentByLegStatus(cancelled, flightCrewMemberId));
 
 		super.getBuffer().addData(flightAssignments);
 	}

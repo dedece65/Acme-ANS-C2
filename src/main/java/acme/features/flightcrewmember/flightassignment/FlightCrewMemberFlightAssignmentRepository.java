@@ -12,6 +12,7 @@ import acme.entities.activitylog.ActivityLog;
 import acme.entities.flightassignment.Duty;
 import acme.entities.flightassignment.FlightAssignment;
 import acme.entities.leg.Leg;
+import acme.entities.leg.LegStatus;
 import acme.realms.FlightCrewMember;
 
 @Repository
@@ -62,11 +63,8 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 	@Query("select case when count(fa) > 0 then true else false end " + "from FlightAssignment fa " + "where fa.id = :flightAssignmentId " + "and fa.leg.scheduledArrival < :currentMoment")
 	boolean areLegsCompletedByFlightAssignment(int flightAssignmentId, Date currentMoment);
 
-	@Query("select fa from FlightAssignment fa where fa.leg.scheduledArrival < :currentMoment and fa.crewMember.id = :flighCrewMemberId")
-	Collection<FlightAssignment> findAllFlightAssignmentByCompletedLeg(Date currentMoment, int flighCrewMemberId);
-
-	@Query("select fa from FlightAssignment fa where fa.leg.scheduledArrival >= :currentMoment and fa.crewMember.id = :flighCrewMemberId")
-	Collection<FlightAssignment> findAllFlightAssignmentByPlannedLeg(Date currentMoment, int flighCrewMemberId);
+	@Query("select fa from FlightAssignment fa where fa.leg.status = :status and fa.crewMember.id = :flighCrewMemberId")
+	Collection<FlightAssignment> findAllFlightAssignmentByLegStatus(LegStatus status, int flighCrewMemberId);
 
 	@Query("SELECT CASE WHEN COUNT(l) > 0 THEN true ELSE false END FROM Leg l WHERE l.id = :id")
 	boolean existsLeg(int id);
