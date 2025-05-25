@@ -93,7 +93,6 @@ public class FlightCrewMemberFlightAssignmentUpdateService extends AbstractGuiSe
 	public void validate(final FlightAssignment flightAssignment) {
 		FlightAssignment original = this.repository.findFlightAssignmentById(flightAssignment.getId());
 		Leg leg = flightAssignment.getLeg();
-		Duty duty = flightAssignment.getDuty();
 		AvailabilityStatus status = flightAssignment.getCrewMember().getStatus();
 		boolean cambioDuty = !original.getDuty().equals(flightAssignment.getDuty());
 		boolean cambioLeg = !original.getLeg().equals(flightAssignment.getLeg());
@@ -108,8 +107,6 @@ public class FlightCrewMemberFlightAssignmentUpdateService extends AbstractGuiSe
 
 		if (leg != null && (cambioDuty || cambioLeg))
 			this.checkPilotAndCopilotAssignment(flightAssignment);
-		if (!Duty.LEAD_ATTENDANT.equals(duty))
-			super.state(false, "duty", "acme.validation.FlightAssignment.NotFlightAttendant.message");
 		if (!AvailabilityStatus.AVAILABLE.equals(status))
 			super.state(false, "crewMember", "acme.validation.FlightAssignment.OnlyAvailableCanBeAssigned.message");
 	}

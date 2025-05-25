@@ -109,7 +109,6 @@ public class FlightCrewMemberFlightAssignmentPublishService extends AbstractGuiS
 	public void validate(final FlightAssignment flightAssignment) {
 		FlightAssignment original = this.repository.findFlightAssignmentById(flightAssignment.getId());
 		Leg leg = flightAssignment.getLeg();
-		Duty duty = flightAssignment.getDuty();
 		AvailabilityStatus status = flightAssignment.getCrewMember().getStatus();
 		boolean cambioDuty = !original.getDuty().equals(flightAssignment.getDuty());
 
@@ -124,8 +123,6 @@ public class FlightCrewMemberFlightAssignmentPublishService extends AbstractGuiS
 		boolean legCompleted = this.isLegCompleted(leg);
 		if (legCompleted)
 			super.state(false, "leg", "acme.validation.FlightAssignment.LegAlreadyCompleted.message");
-		if (!Duty.LEAD_ATTENDANT.equals(duty))
-			super.state(false, "duty", "acme.validation.FlightAssignment.NotFlightAttendant.message");
 		if (!AvailabilityStatus.AVAILABLE.equals(status))
 			super.state(false, "crewMember", "acme.validation.FlightAssignment.OnlyAvailableCanBeAssigned.message");
 	}
