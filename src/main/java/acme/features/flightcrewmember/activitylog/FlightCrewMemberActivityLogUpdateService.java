@@ -10,6 +10,7 @@ import acme.client.services.GuiService;
 import acme.entities.activitylog.ActivityLog;
 import acme.entities.flightassignment.FlightAssignment;
 import acme.entities.leg.Leg;
+import acme.entities.leg.LegStatus;
 import acme.realms.FlightCrewMember;
 
 @GuiService
@@ -67,7 +68,7 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 		Leg leg = flightAssignment.getLeg();
 		if (leg == null || leg.getScheduledArrival() == null)
 			return;
-		boolean activityLogMomentIsAfterscheduledArrival = this.repository.associatedWithCompletedLeg(activityLog.getId(), MomentHelper.getCurrentMoment());
+		boolean activityLogMomentIsAfterscheduledArrival = this.repository.associatedWithCompletedLeg(activityLog.getId(), LegStatus.LANDED);
 		super.state(activityLogMomentIsAfterscheduledArrival, "WrongActivityLogDate", "acme.validation.activityLog.wrongMoment.message");
 
 	}

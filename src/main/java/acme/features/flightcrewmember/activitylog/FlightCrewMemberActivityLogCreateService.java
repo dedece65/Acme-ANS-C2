@@ -9,6 +9,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activitylog.ActivityLog;
 import acme.entities.flightassignment.FlightAssignment;
+import acme.entities.leg.LegStatus;
 import acme.realms.FlightCrewMember;
 
 @GuiService
@@ -35,7 +36,7 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 			status = authorised && authorised2;
 			boolean isHis = flightAssignment.getCrewMember().getId() == flightCrewMemberId;
 
-			status = status && isHis && this.repository.isFlightAssignmentCompleted(MomentHelper.getCurrentMoment(), masterId);
+			status = status && isHis && this.repository.isFlightAssignmentCompleted(LegStatus.LANDED, masterId);
 		}
 		super.getResponse().setAuthorised(status);
 

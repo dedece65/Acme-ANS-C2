@@ -1,8 +1,6 @@
 
 package acme.features.flightcrewmember.activitylog;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -12,6 +10,7 @@ import acme.client.services.GuiService;
 import acme.entities.activitylog.ActivityLog;
 import acme.entities.flightassignment.FlightAssignment;
 import acme.entities.leg.Leg;
+import acme.entities.leg.LegStatus;
 import acme.realms.FlightCrewMember;
 
 @GuiService
@@ -68,8 +67,7 @@ public class FlightCrewMemberActivityLogPublishService extends AbstractGuiServic
 		Leg leg = flightAssignment.getLeg();
 		if (leg == null || leg.getScheduledArrival() == null)
 			return;
-		Date activityLogMoment = activityLog.getRegistrationMoment();
-		boolean activityLogMomentIsAfterscheduledArrival = this.repository.associatedWithCompletedLeg(activityLogId, activityLogMoment);
+		boolean activityLogMomentIsAfterscheduledArrival = this.repository.associatedWithCompletedLeg(activityLogId, LegStatus.LANDED);
 		super.state(activityLogMomentIsAfterscheduledArrival, "WrongActivityLogDate", "acme.validation.activityLog.wrongMoment.message");
 		boolean flightAssignamentIsPublished = this.repository.isFlightAssignmentAlreadyPublishedByActivityLogId(activityLogId);
 		super.state(flightAssignamentIsPublished, "activityLog", "acme.validation.ActivityLog.FlightAssignamentNotPublished.message");

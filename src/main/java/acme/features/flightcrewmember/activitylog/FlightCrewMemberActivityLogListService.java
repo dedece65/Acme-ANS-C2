@@ -6,11 +6,11 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activitylog.ActivityLog;
 import acme.entities.flightassignment.FlightAssignment;
+import acme.entities.leg.LegStatus;
 import acme.realms.FlightCrewMember;
 
 @GuiService
@@ -39,7 +39,7 @@ public class FlightCrewMemberActivityLogListService extends AbstractGuiService<F
 
 			status = authorised && flightAssignment != null;
 			boolean isHis = flightAssignment.getCrewMember().getId() == flightCrewMemberId;
-			status = status && isHis && this.repository.isFlightAssignmentCompleted(MomentHelper.getCurrentMoment(), masterId);
+			status = status && isHis && this.repository.isFlightAssignmentCompleted(LegStatus.LANDED, masterId);
 		}
 		super.getResponse().setAuthorised(status);
 	}
@@ -76,7 +76,7 @@ public class FlightCrewMemberActivityLogListService extends AbstractGuiService<F
 
 		masterId = super.getRequest().getData("masterId", int.class);
 
-		showCreate = this.repository.flightAssignmentAssociatedWithCompletedLeg(masterId, MomentHelper.getCurrentMoment());
+		showCreate = this.repository.flightAssignmentAssociatedWithCompletedLeg(masterId, LegStatus.LANDED);
 
 		super.getResponse().addGlobal("masterId", masterId);
 		super.getResponse().addGlobal("showCreate", showCreate);

@@ -84,9 +84,9 @@ public class FlightCrewMemberFlightAssignmentUpdateService extends AbstractGuiSe
 		boolean haveCopilot = this.repository.existsFlightCrewMemberWithDutyInLeg(flightAssignment.getLeg().getId(), Duty.COPILOT);
 
 		if (Duty.PILOT.equals(flightAssignment.getDuty()))
-			super.state(!havePilot, "duty", "acme.validation.FlightAssignament.havePilot.message");
+			super.state(!havePilot, "duty", "acme.validation.FlightAssignment.havePilot.message");
 		if (Duty.COPILOT.equals(flightAssignment.getDuty()))
-			super.state(!haveCopilot, "duty", "acme.validation.FlightAssignament.haveCopilot.message");
+			super.state(!haveCopilot, "duty", "acme.validation.FlightAssignment.haveCopilot.message");
 	}
 
 	@Override
