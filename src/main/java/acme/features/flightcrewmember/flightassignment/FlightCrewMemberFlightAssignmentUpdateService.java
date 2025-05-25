@@ -2,7 +2,6 @@
 package acme.features.flightcrewmember.flightassignment;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,6 +14,7 @@ import acme.entities.flightassignment.AssignmentStatus;
 import acme.entities.flightassignment.Duty;
 import acme.entities.flightassignment.FlightAssignment;
 import acme.entities.leg.Leg;
+import acme.entities.leg.LegStatus;
 import acme.realms.AvailabilityStatus;
 import acme.realms.FlightCrewMember;
 
@@ -128,9 +128,8 @@ public class FlightCrewMemberFlightAssignmentUpdateService extends AbstractGuiSe
 
 		flightAssignmentId = super.getRequest().getData("id", int.class);
 
-		Date currentMoment;
-		currentMoment = MomentHelper.getCurrentMoment();
-		isCompleted = this.repository.areLegsCompletedByFlightAssignment(flightAssignmentId, currentMoment);
+		LegStatus landed = LegStatus.LANDED;
+		isCompleted = this.repository.areLegsCompletedByFlightAssignment(flightAssignmentId, landed);
 		SelectChoices legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
 		SelectChoices currentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getStatus());
 		SelectChoices duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());

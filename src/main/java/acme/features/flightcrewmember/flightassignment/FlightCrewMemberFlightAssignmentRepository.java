@@ -60,8 +60,8 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 	@Query("select count(fa) > 0 from FlightAssignment fa where fa.id = :flightAssignmentId and fa.crewMember.id = :flightCrewMemberId")
 	boolean thatFlightAssignmentIsOf(int flightAssignmentId, int flightCrewMemberId);
 
-	@Query("select case when count(fa) > 0 then true else false end " + "from FlightAssignment fa " + "where fa.id = :flightAssignmentId " + "and fa.leg.scheduledArrival < :currentMoment")
-	boolean areLegsCompletedByFlightAssignment(int flightAssignmentId, Date currentMoment);
+	@Query("select case when count(fa) > 0 then true else false end " + "from FlightAssignment fa " + "where fa.id = :flightAssignmentId " + "and fa.leg.status = :status")
+	boolean areLegsCompletedByFlightAssignment(int flightAssignmentId, LegStatus status);
 
 	@Query("select fa from FlightAssignment fa where fa.leg.status = :status and fa.crewMember.id = :flighCrewMemberId")
 	Collection<FlightAssignment> findAllFlightAssignmentByLegStatus(LegStatus status, int flighCrewMemberId);
