@@ -55,6 +55,7 @@ public class FlightCrewMemberActivityLogListService extends AbstractGuiService<F
 		activityLog = this.repository.findActivityLogsByMasterId(masterId);
 
 		super.getBuffer().addData(activityLog);
+		super.getResponse().addGlobal("masterId", masterId);
 	}
 
 	@Override
@@ -66,21 +67,16 @@ public class FlightCrewMemberActivityLogListService extends AbstractGuiService<F
 	@Override
 	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
+		int masterId;
+
+		masterId = super.getRequest().getData("masterId", int.class);
 
 		dataset = super.unbindObject(activityLog, "registrationMoment", "incidentType", "description", "severityLevel", "draftMode");
 		super.addPayload(dataset, activityLog, "registrationMoment", "incidentType");
 
-		int masterId;
-
-		boolean showCreate;
-
-		masterId = super.getRequest().getData("masterId", int.class);
-
-		showCreate = this.repository.flightAssignmentAssociatedWithCompletedLeg(masterId, LegStatus.LANDED);
-
 		super.getResponse().addGlobal("masterId", masterId);
-		super.getResponse().addGlobal("showCreate", showCreate);
 		super.getResponse().addData(dataset);
 
 	}
+
 }
