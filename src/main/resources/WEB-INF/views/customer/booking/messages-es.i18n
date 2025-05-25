@@ -31,6 +31,8 @@ customer.booking.form.label.passengers = Pasajeros
 customer.booking.form.error.lastNibble = Para publicar la reserva debe introducir los 4 ultimos digitos de la tarjeta
 customer.booking.form.error.passengers = Para publicar la reserva debe añadir Pasajeros primero
 customer.booking.form.error.passengers2 = Hay pasajeros sin publicar en esta Reserva
+customer.booking.form.error.locatorCode = Código Localizador ya en uso
+customer.booking.form.error.existingRecord = No puedes eliminar una Reserva con Pasajeros asociados
 
 
 
