@@ -1,0 +1,8 @@
+Este fichero tiene como objetivo proveer el enlace a el 
+Planning Dashboard requeridos en los requisitos
+obligatorios del D04 con el siguiente enunciado: 
+
+"Proporcione un enlace a su panel de planificación en 
+GitHub para revisar las tareas, su estado actual y su cronograma."
+
+link : https://github.com/users/JuanAntonioMorenoMoguel/projects/3/views/1?filterQuery=assignee%3Aangelalop03+label%3AD04

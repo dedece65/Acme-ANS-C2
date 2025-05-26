@@ -35,6 +35,9 @@ passenger-33,Nombredeejemplo,emaildeejemplo@gmail.com,ABC123,2003/01/07 00:00,<m
 passenger-34,Nombredeejemplo,emaildeejemplo@gmail.com,ABC123,2003/01/07 00:00,<script>alert(‘Hacked!’);</script>,true,customer-03
 passenger-35,Nombredeejemplo,emaildeejemplo@gmail.com,ABC123,2003/01/07 00:00,' or 'A' = 'A ,true,customer-03
 passenger-36,Nombredeejemplo,emaildeejemplo@gmail.com,ABC123,2003/01/07 00:00,null,false,customer-03
+passenger-37,SINPUBLICAR1,emaildeejemplo@gmail.com,ABC423,2014/01/07 00:00,EJEMPLO,false,customer-01
+passenger-38,SINPUBLICAR2,emaildeejemplo@gmail.com,ABC153,2011/01/07 00:00,EJMEMPLO,false,customer-01
+
 
 
 

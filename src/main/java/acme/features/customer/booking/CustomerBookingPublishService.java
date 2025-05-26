@@ -54,7 +54,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void bind(final Booking booking) {
-		super.bindObject(booking, "flight", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastNibble");
 	}
 
 	@Override
@@ -63,7 +63,15 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		super.state(status1, "lastNibble", "customer.booking.form.error.lastNibble");
 		List<Passenger> passengers = this.customerPassengerRepository.findPassengerByBookingId(booking.getId());
 		boolean status2 = !passengers.isEmpty();
-		super.state(status2, "passengers", "customer.booking.form.error.passengers");
+		super.state(status2, "*", "customer.booking.form.error.passengers");
+		List<Passenger> passenger2 = this.customerPassengerRepository.findPassengerByBookingId(booking.getId());
+		Boolean passengersNotPublished = passenger2.stream().anyMatch(p -> !p.getPublished());
+		boolean status3 = !passengersNotPublished;
+		super.state(status3, "*", "customer.booking.form.error.passengers2");
+		Collection<Booking> bookings = this.customerBookingRepository.findBookingsByLocatorCode(booking.getLocatorCode());
+		boolean isUnique;
+		isUnique = bookings.isEmpty() || bookings.stream().allMatch(b -> b.getId() == booking.getId());
+		super.state(isUnique, "locatorCode", "customer.booking.form.error.locatorCode");
 	}
 
 	@Override
@@ -76,13 +84,15 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 	public void unbind(final Booking booking) {
 		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		Collection<Flight> flights = this.customerBookingRepository.findAllPublishedFlights();
-		SelectChoices flightChoices = SelectChoices.from(flights, "tag", booking.getFlight());
-		List<Passenger> passengers = this.customerPassengerRepository.findPassengerByBookingId(booking.getId());
+		SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
+
+		Boolean hasPassengers;
+		hasPassengers = !this.customerPassengerRepository.findPassengerByBookingId(booking.getId()).isEmpty();
+		super.getResponse().addGlobal("hasPassengers", hasPassengers);
 
 		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "published", "id");
 		dataset.put("travelClass", travelClasses);
 		dataset.put("flights", flightChoices);
-		dataset.put("passengers", passengers);
 
 		super.getResponse().addData(dataset);
 	}

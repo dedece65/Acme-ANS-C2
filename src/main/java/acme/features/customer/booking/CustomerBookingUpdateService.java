@@ -12,6 +12,7 @@ import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
 import acme.entities.booking.TravelClass;
 import acme.entities.flight.Flight;
+import acme.features.customer.passenger.CustomerPassengerRepository;
 import acme.realms.Customer;
 
 @GuiService
@@ -20,7 +21,10 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerBookingRepository customerBookingRepository;
+	private CustomerBookingRepository	customerBookingRepository;
+
+	@Autowired
+	private CustomerPassengerRepository	customerPassengerRepository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -48,12 +52,16 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void bind(final Booking booking) {
-		super.bindObject(booking, "flight", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastNibble");
 	}
 
 	@Override
 	public void validate(final Booking booking) {
+		Collection<Booking> bookings = this.customerBookingRepository.findBookingsByLocatorCode(booking.getLocatorCode());
+		boolean isUnique;
 
+		isUnique = bookings.isEmpty() || bookings.stream().allMatch(b -> b.getId() == booking.getId());
+		super.state(isUnique, "locatorCode", "customer.booking.form.error.locatorCode");
 	}
 
 	@Override
@@ -65,7 +73,11 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 	public void unbind(final Booking booking) {
 		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		Collection<Flight> flights = this.customerBookingRepository.findAllPublishedFlights();
-		SelectChoices flightChoices = SelectChoices.from(flights, "tag", booking.getFlight());
+		SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
+
+		Boolean hasPassengers;
+		hasPassengers = !this.customerPassengerRepository.findPassengerByBookingId(booking.getId()).isEmpty();
+		super.getResponse().addGlobal("hasPassengers", hasPassengers);
 
 		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "published", "id");
 		dataset.put("travelClass", travelClasses);

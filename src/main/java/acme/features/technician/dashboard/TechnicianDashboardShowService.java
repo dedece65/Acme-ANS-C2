@@ -96,14 +96,14 @@ public class TechnicianDashboardShowService extends AbstractGuiService<Technicia
 			dashboard.setTopFiveAircrafts(topFiveAircrafts);
 
 			// Estadísticas de costos estimados de registros de mantenimiento (Con manejo de null)
-			dashboard.setAverageEstimatedCost(this.repository.findAverageEstimatedCost(technician.getId()) != null ? this.repository.findAverageEstimatedCost(technician.getId()) : 0.0);
-			dashboard.setDeviationEstimatedCost(this.repository.findDeviationEstimatedCost(technician.getId()) != null ? this.repository.findDeviationEstimatedCost(technician.getId()) : 0.0);
+			dashboard.setAverageEstimatedCost(this.repository.findAverageEstimatedCost(technician.getId()) != null ? this.repository.findAverageEstimatedCost(technician.getId()) : Double.NaN);
+			dashboard.setDeviationEstimatedCost(this.repository.findDeviationEstimatedCost(technician.getId()) != null ? this.repository.findDeviationEstimatedCost(technician.getId()) : Double.NaN);
 			dashboard.setMinEstimatedCost(this.repository.findMinEstimatedCost(technician.getId()) != null ? this.repository.findMinEstimatedCost(technician.getId()) : 0.0);
 			dashboard.setMaxEstimatedCost(this.repository.findMaxEstimatedCost(technician.getId()) != null ? this.repository.findMaxEstimatedCost(technician.getId()) : 0.0);
 
 			// Estadísticas de duración estimada (Con manejo de null)
-			dashboard.setAverageEstimatedDuration(this.repository.findAverageEstimatedDuration(technician.getId()) != null ? this.repository.findAverageEstimatedDuration(technician.getId()) : 0.0);
-			dashboard.setDeviationEstimatedDuration(this.repository.findDeviationEstimatedDuration(technician.getId()) != null ? this.repository.findDeviationEstimatedDuration(technician.getId()) : 0.0);
+			dashboard.setAverageEstimatedDuration(this.repository.findAverageEstimatedDuration(technician.getId()) != null ? this.repository.findAverageEstimatedDuration(technician.getId()) : Double.NaN);
+			dashboard.setDeviationEstimatedDuration(this.repository.findDeviationEstimatedDuration(technician.getId()) != null ? this.repository.findDeviationEstimatedDuration(technician.getId()) : Double.NaN);
 			dashboard.setMinEstimatedDuration(this.repository.findMinEstimatedDuration(technician.getId()) != null ? this.repository.findMinEstimatedDuration(technician.getId()) : 0.0);
 			dashboard.setMaxEstimatedDuration(this.repository.findMaxEstimatedDuration(technician.getId()) != null ? this.repository.findMaxEstimatedDuration(technician.getId()) : 0.0);
 

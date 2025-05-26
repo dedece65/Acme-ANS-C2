@@ -25,4 +25,7 @@ public interface TechnicianMaintenanceRecordTaskRepository extends AbstractRepos
 	@Query("SELECT mrt.task FROM MaintenanceRecordTask mrt WHERE mrt.maintenanceRecord.id = :maintenanceRecordId")
 	Collection<Task> findTaskOfMaintenanceRecord(int maintenanceRecordId);
 
+	@Query("select t from Task t where t.draftMode = false")
+	Collection<Task> findAllPublishedTasks();
+
 }

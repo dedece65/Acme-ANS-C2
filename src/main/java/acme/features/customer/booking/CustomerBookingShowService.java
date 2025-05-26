@@ -2,7 +2,6 @@
 package acme.features.customer.booking;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,7 +10,6 @@ import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
-import acme.entities.booking.Passenger;
 import acme.entities.booking.TravelClass;
 import acme.entities.flight.Flight;
 import acme.features.customer.passenger.CustomerPassengerRepository;
@@ -56,14 +54,16 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 	public void unbind(final Booking booking) {
 		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		Collection<Flight> flights = this.customerBookingRepository.findAllPublishedFlights();
-		SelectChoices flightChoices = SelectChoices.from(flights, "tag", booking.getFlight());
-		List<Passenger> passengers = this.customerPassengerRepository.findPassengerByBookingId(booking.getId());
+		SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
+
+		Boolean hasPassengers;
+		hasPassengers = !this.customerPassengerRepository.findPassengerByBookingId(booking.getId()).isEmpty();
+		super.getResponse().addGlobal("hasPassengers", hasPassengers);
 
 		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "published");
 		dataset.put("travelClass", travelClasses);
 		dataset.put("flight", flightChoices.getSelected().getKey());
 		dataset.put("flights", flightChoices);
-		dataset.put("passengers", passengers);
 
 		super.getResponse().addData(dataset);
 	}

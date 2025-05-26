@@ -74,13 +74,13 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void unbind(final Task task) {
-		SelectChoices choices;
+		SelectChoices types;
 
 		Dataset dataset;
-		choices = SelectChoices.from(TaskType.class, task.getType());
+		types = SelectChoices.from(TaskType.class, task.getType());
 
 		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration", "draftMode");
-		dataset.put("status", choices.getSelected().getKey());
+		dataset.put("type", types);
 
 		super.getResponse().addData(dataset);
 	}

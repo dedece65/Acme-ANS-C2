@@ -35,8 +35,11 @@ public class TechnicianTaskShowService extends AbstractGuiService<Technician, Ta
 		exist = task != null;
 		if (exist) {
 			technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
-			if (technician.equals(task.getTechnician()))
-				super.getResponse().setAuthorised(true);
+
+			boolean isOwner = technician.equals(task.getTechnician());
+			boolean isPublished = !task.isDraftMode();
+
+			super.getResponse().setAuthorised(isOwner || isPublished);
 		}
 	}
 
