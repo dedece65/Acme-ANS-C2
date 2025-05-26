@@ -31,16 +31,10 @@ public class CustomerBookingDeleteService extends AbstractGuiService<Customer, B
 	public void authorise() {
 		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
 
-		try {
-
-			int customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-			int bookingId = super.getRequest().getData("id", int.class);
-			Booking booking = this.customerBookingRepository.findBookingById(bookingId);
-			status = status && !(booking == null) && customerId == booking.getCustomer().getId() && !booking.getPublished();
-
-		} catch (Exception E) {
-			status = false;
-		}
+		int customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		int bookingId = super.getRequest().getData("id", int.class);
+		Booking booking = this.customerBookingRepository.findBookingById(bookingId);
+		status = status && !(booking == null) && customerId == booking.getCustomer().getId() && !booking.getPublished();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -55,7 +49,7 @@ public class CustomerBookingDeleteService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void bind(final Booking booking) {
-		super.bindObject(booking, "flight", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastNibble");
 	}
 
 	@Override
@@ -82,10 +76,8 @@ public class CustomerBookingDeleteService extends AbstractGuiService<Customer, B
 		hasPassengers = !this.customerPassengerRepository.findPassengerByBookingId(booking.getId()).isEmpty();
 		super.getResponse().addGlobal("hasPassengers", hasPassengers);
 
-		if (!flights.isEmpty()) {
-			SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
-			dataset.put("flights", flightChoices);
-		}
+		SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
+		dataset.put("flights", flightChoices);
 
 		super.getResponse().addData(dataset);
 

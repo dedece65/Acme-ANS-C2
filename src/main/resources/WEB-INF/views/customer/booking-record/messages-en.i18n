@@ -13,3 +13,5 @@ customer.bookingRecord.list.label.passenger = Passenger
 customer.bookingRecord.list.label.booking = Booking
 customer.bookingRecord.form.label.passenger = Passenger
 customer.bookingRecord.form.label.booking = Booking
+
+customer.bookingRecord.form.error.alreadyCreated = A Booking Record with this data already exist

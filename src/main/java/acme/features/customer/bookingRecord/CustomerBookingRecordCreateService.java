@@ -42,7 +42,14 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 	@Override
 	public void validate(final BookingRecord bookingRecord) {
+		Passenger passenger = bookingRecord.getPassenger();
+		Booking booking = bookingRecord.getBooking();
 
+		BookingRecord bookingRecordCompare = null;
+		if (passenger != null && booking != null)
+			bookingRecordCompare = this.customerBookingRecordRepository.getBookingRecordByPassengerIdAndBookingId(passenger.getId(), booking.getId());
+		boolean status1 = bookingRecordCompare == null || bookingRecordCompare.getId() == bookingRecord.getId();
+		super.state(status1, "*", "customer.bookingRecord.form.error.alreadyCreated");
 	}
 
 	@Override
