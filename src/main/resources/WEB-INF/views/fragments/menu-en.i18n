@@ -93,10 +93,9 @@ master.menu.technician.dashboard = Dashboard
 
 
 # master.menu.flightcrewmember ########################################################
-master.menu.flightcrewmember = Flight Crew Member
-master.menu.flightcrewmember.flightassignments.flightAssignments-list-completed = Completed Flight Assignments List
-master.menu.flightcrewmember.flightassignments.flightAssignments-list-planned = Planned Flight Assignments List
-master.menu.flightcrewmember.activitylogs.activitylogs-list = Activity Logs List
+master.menu.flight-crew-member = Flight Crew Member
+master.menu.flight-crew-member.flight-assignment.completedlist = Completed Flight Assignments List
+master.menu.flight-crew-member.flight-assignment.plannedlist = Planned Flight Assignments List
 
 # master.menu.assistance-agent ####################################################
 

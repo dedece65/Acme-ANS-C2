@@ -1,12 +1,9 @@
 
 package acme.features.flightcrewmember.activitylog;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activitylog.ActivityLog;
@@ -22,44 +19,50 @@ public class FlightCrewMemberActivityLogShowService extends AbstractGuiService<F
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int logId;
-		FlightCrewMember member;
-		ActivityLog log;
+		int activityLogId;
 
-		logId = super.getRequest().getData("id", int.class);
-		log = this.repository.findActivityLogById(logId);
-		member = log == null ? null : log.getFlightAssignment().getCrewMember();
-		status = member != null && super.getRequest().getPrincipal().hasRealm(member);
+		ActivityLog activityLog;
+		boolean authorised = false;
+		boolean isHis = false;
+		activityLogId = super.getRequest().getData("id", int.class);
+		activityLog = this.repository.findActivityLogById(activityLogId);
+		boolean authorised3 = this.repository.existsActivityLog(activityLogId);
+		int flightCrewMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		FlightAssignment flightAssignment = this.repository.findFlightAssignmentByActivityLogId(activityLogId);
+		if (flightAssignment != null) {
+			boolean authorised2 = this.repository.existsFlightAssignment(flightAssignment.getId());
 
-		super.getResponse().setAuthorised(status);
+			boolean authorised1 = authorised3 && authorised2 && this.repository.existsFlightCrewMember(flightCrewMemberId);
+			authorised = authorised1 && this.repository.thatActivityLogIsOf(activityLogId, flightCrewMemberId);
+			isHis = flightAssignment.getCrewMember().getId() == flightCrewMemberId;
+		}
+
+		super.getResponse().setAuthorised(authorised && activityLog != null && isHis);
 	}
 
 	@Override
 	public void load() {
-		ActivityLog log;
-		int logId;
+		ActivityLog activityLog;
+		int id;
 
-		logId = super.getRequest().getData("id", int.class);
-		log = this.repository.findActivityLogById(logId);
+		id = super.getRequest().getData("id", int.class);
+		activityLog = this.repository.findActivityLogById(id);
 
-		super.getBuffer().addData(log);
+		super.getBuffer().addData(activityLog);
 	}
 
 	@Override
-	public void unbind(final ActivityLog log) {
+	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
-		SelectChoices selectedAssignments;
-		Collection<FlightAssignment> assignments;
+		FlightAssignment flightAssignament = this.repository.findFlightAssignmentByActivityLogId(activityLog.getId());
 
-		assignments = this.repository.findAllAssignments();
-		selectedAssignments = SelectChoices.from(assignments, "id", log.getFlightAssignment());
-
-		dataset = super.unbindObject(log, "registrationMoment", "incidentType", "description", "severity", "draftMode");
-		dataset.put("assignments", selectedAssignments);
-		dataset.put("assignment", selectedAssignments.getSelected().getKey());
+		dataset = super.unbindObject(activityLog, "registrationMoment", "incidentType", "description", "severityLevel", "draftMode");
+		dataset.put("id", activityLog.getId());
+		dataset.put("masterId", flightAssignament.getId());
+		dataset.put("draftMode", activityLog.getDraftMode());
+		dataset.put("masterDraftMode", flightAssignament.getDraftMode());
+		dataset.put("readonly", false);
 
 		super.getResponse().addData(dataset);
 	}
-
 }

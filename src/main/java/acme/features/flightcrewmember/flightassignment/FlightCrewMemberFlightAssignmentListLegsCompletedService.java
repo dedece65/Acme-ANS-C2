@@ -2,15 +2,14 @@
 package acme.features.flightcrewmember.flightassignment;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flightassignment.FlightAssignment;
+import acme.entities.leg.LegStatus;
 import acme.realms.FlightCrewMember;
 
 @GuiService
@@ -22,29 +21,27 @@ public class FlightCrewMemberFlightAssignmentListLegsCompletedService extends Ab
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+
+		int flightCrewMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		boolean authorised = this.repository.existsFlightCrewMember(flightCrewMemberId);
+		super.getResponse().setAuthorised(authorised);
 	}
 
 	@Override
 	public void load() {
-		Collection<FlightAssignment> assignments;
-		int id;
-		Date now;
+		Collection<FlightAssignment> flightAssignments;
 
-		id = super.getRequest().getPrincipal().getActiveRealm().getId();
-		now = MomentHelper.getCurrentMoment();
+		LegStatus landed = LegStatus.LANDED;
+		int flightCrewMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		assignments = this.repository.findCompletedFlightAssignmentsByMemberId(now, id);
+		flightAssignments = this.repository.findAllFlightAssignmentByLegStatus(landed, flightCrewMemberId);
 
-		super.getBuffer().addData(assignments);
+		super.getBuffer().addData(flightAssignments);
 	}
 
 	@Override
-	public void unbind(final FlightAssignment assignment) {
-		Dataset dataset;
-
-		dataset = super.unbindObject(assignment, "lastUpdate", "status", "duty");
-		super.addPayload(dataset, assignment, "remarks");
+	public void unbind(final FlightAssignment flightAssignment) {
+		Dataset dataset = super.unbindObject(flightAssignment, "duty", "lastUpdate", "status", "remarks", "draftMode");
 
 		super.getResponse().addData(dataset);
 	}
