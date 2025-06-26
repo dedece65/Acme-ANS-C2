@@ -5,7 +5,7 @@
 
 <acme:form> 
 	<acme:input-select code="customer.booking.form.label.flight" path="flight" choices="${flights}" readonly="${published}"/>
-	<acme:input-textarea code="customer.booking.form.label.locatorCode" path="locatorCode" readonly="true"/>
+	<acme:input-textarea code="customer.booking.form.label.locatorCode" path="locatorCode" readonly="${published}"/>
 	<acme:input-textbox code="customer.booking.form.label.purchaseMoment" path="purchaseMoment" readonly="true"/>
 	<acme:input-select code="customer.booking.form.label.travelClass" path="travelClass" choices="${travelClass}" readonly="${published}"/>	
 	<acme:input-textarea code="customer.booking.form.label.price" path="price" readonly="true"/>

@@ -11,7 +11,7 @@
 			<acme:input-textbox code="customer.bookingRecord.form.label.booking" path="bookingLocator" readonly="true"/>
     		<acme:input-textbox code="customer.bookingRecord.form.label.passenger" path="passengerFullName" readonly="true"/>
 			<jstl:if test="${publishedBooking == false}">
-				<acme:submit code="customer.bookingRecord.form.button.delete" action="/customer/booking-record/delete"/>
+				<acme:submit code="customer.bookingRecord.form.button.delete" action="/customer/booking-record/delete?bookingRecordId=${id}"/>
 			</jstl:if>
 		</jstl:when>
 		

@@ -14,3 +14,5 @@ customer.bookingRecord.list.label.passenger = Pasajero
 customer.bookingRecord.list.label.booking = Reserva
 customer.bookingRecord.form.label.passenger = Pasajero
 customer.bookingRecord.form.label.booking = Reserva
+
+customer.bookingRecord.form.error.alreadyCreated = Ya existe un registro de reserva con estos datos

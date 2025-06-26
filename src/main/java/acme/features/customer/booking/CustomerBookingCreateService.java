@@ -3,7 +3,6 @@ package acme.features.customer.booking;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -44,31 +43,23 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		Customer customer = this.customerBookingRepository.findCustomerById(customerId);
 		Date date = MomentHelper.getCurrentMoment();
 
-		String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-		Random random = new Random();
-		int longitud = 6 + random.nextInt(3);
-		StringBuilder sb = new StringBuilder(longitud);
-		for (int i = 0; i < longitud; i++) {
-			char c = chars.charAt(random.nextInt(chars.length()));
-			sb.append(c);
-		}
-
 		booking.setCustomer(customer);
 		booking.setPurchaseMoment(date);
 		booking.setPublished(false);
-		booking.setLocatorCode(sb.toString());
 
 		super.getBuffer().addData(booking);
 	}
 
 	@Override
 	public void bind(final Booking booking) {
-		super.bindObject(booking, "flight", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastNibble");
 	}
 
 	@Override
 	public void validate(final Booking booking) {
-
+		Collection<Booking> bookings = this.customerBookingRepository.findBookingsByLocatorCode(booking.getLocatorCode());
+		boolean status1 = bookings.isEmpty();
+		super.state(status1, "locatorCode", "customer.booking.form.error.locatorCode");
 	}
 
 	@Override
