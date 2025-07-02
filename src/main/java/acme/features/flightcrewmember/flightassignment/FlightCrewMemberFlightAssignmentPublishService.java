@@ -96,7 +96,7 @@ public class FlightCrewMemberFlightAssignmentPublishService extends AbstractGuiS
 		AvailabilityStatus status = flightAssignment.getCrewMember().getStatus();
 		boolean cambioDuty = !original.getDuty().equals(flightAssignment.getDuty());
 		boolean cambioLeg = !original.getLeg().equals(flightAssignment.getLeg());
-		boolean completedLeg = LegStatus.LANDED.equals(flightAssignment.getLeg().getStatus());
+		boolean completedLeg = flightAssignment.getLeg() == null ? false : LegStatus.LANDED.equals(flightAssignment.getLeg().getStatus());
 
 		if (leg != null && cambioLeg && !this.isLegCompatible(flightAssignment))
 			super.state(false, "crewMember", "acme.validation.FlightAssignment.FlightCrewMemberIncompatibleLegs.message");

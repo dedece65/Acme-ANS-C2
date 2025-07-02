@@ -32,3 +32,4 @@ flight-assignment-30,PILOT,2010/06/03 00:00,CONFIRMED,"Lorem ipsum dolor sit ame
 flight-assignment-31,PILOT,2010/06/03 00:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",true,flight-crew-member-02,leg-01
 flight-assignment-32,PILOT,2010/06/03 00:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",false,flight-crew-member-02,leg-01
 flight-assignment-33,PILOT,2010/06/03 00:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",false,flight-crew-member-02,leg-01
+flight-assignment-34,PILOT,2010/06/03 00:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",true,flight-crew-member-03,leg-01
