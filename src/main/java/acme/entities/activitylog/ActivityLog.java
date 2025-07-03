@@ -36,7 +36,7 @@ public class ActivityLog extends AbstractEntity {
 	private Date				registrationMoment;
 
 	@Mandatory
-	@ValidString
+	@ValidString(max = 50)
 	@Automapped
 	private String				incidentType;
 
