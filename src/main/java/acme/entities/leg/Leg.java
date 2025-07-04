@@ -87,6 +87,7 @@ public class Leg extends AbstractEntity {
 	@Automapped
 	private Boolean				draftMode;
 
+
 	@Transient
 	public double durationHours() {
 		Duration duration = Duration.ofMillis(this.scheduledArrival.getTime() - this.scheduledDeparture.getTime());
